@@ -46,7 +46,12 @@ with st.expander('bronze',expanded=False):
 		df['hora'] = df['hora'].astype(int)
 		df['minuto'] = df['minuto'].astype(int)
 
+		df['local'] = df['maps_google_url'].str.replace("http://maps.google.com/?q=", "")
+		df['lat'] = df['local'].str.slice(0, 10)
+		df['lon'] = df['local'].str.slice(10, 20)
+
 		return df
+
 	df1 = df_bronze(coluna='data_hora',df=df)
 	st.dataframe(df1)
 
