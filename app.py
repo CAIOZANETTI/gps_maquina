@@ -50,8 +50,8 @@ with st.expander('bronze',expanded=False):
 		df['lat'] = df['coordenadas'].str.slice(2, 13)
 		df['lon'] = df['coordenadas'].str.slice(14, 25)
 
-		df['lat'] = df['lat']..str.replace(",", ".")
-		df['lon'] = df['lon']..str.replace(",", ".")
+		df['lat'] = df['lat'].str.replace(",", ".")
+		df['lon'] = df['lon'].str.replace(",", ".")
 
 		df['lat'] = df['lat'].astype(float)
 		df['lon'] = df['lon'].astype(float)
