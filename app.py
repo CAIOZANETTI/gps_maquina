@@ -1,5 +1,6 @@
 import datetime
 import streamlit as st
+import pandas as pd
 
 #modulos
 import listas as lst
@@ -23,30 +24,27 @@ with st.sidebar:
 caminho =caminhos.tabelas['jcb_relatorio'] 
 #st.write(caminho)
 
-df = extrair.gsheet_to_df(
-	id = caminho['id'],
-	tabela=caminho['tabela'],
-	testar=False)
-
 st.write('transformação da tabela')
-def df_bronze(coluna:str,df:pd.DataFrame)->pd.DataFrame:
-	df[['dia', 'mes', 'ano', 'hora','minuto']] = df[coluna].str.split(' |/:', expand=True)
-
-	# Convert columns to the desired data types
-	df['dia'] = df['dia'].astype(int)
-	df['mes'] = df['mes'].astype(int)
-	df['ano'] = df['ano'].astype(int)
-	df['hora'] = df['hora'].astype(int)
-	df['minuto'] = df['minuto'].astype(int)
-
-	return df
-
-
 
 with st.expander('raw',expanded=True):
+	df = extrair.gsheet_to_df(
+		id = caminho['id'],
+		tabela=caminho['tabela'],
+		testar=False)
 	st.dataframe(df)
 
 with st.expander('bronze',expanded=False):
+	def df_bronze(coluna:str,df)->pd.DataFrame:
+		df[['dia', 'mes', 'ano', 'hora','minuto']] = df[coluna].str.split(' |/:', expand=True)
+
+		# Convert columns to the desired data types
+		df['dia'] = df['dia'].astype(int)
+		df['mes'] = df['mes'].astype(int)
+		df['ano'] = df['ano'].astype(int)
+		df['hora'] = df['hora'].astype(int)
+		df['minuto'] = df['minuto'].astype(int)
+
+		return df
 	df1 = df_bronze(coluna='Iniciar',df=df)
 	st.dataframe(df1)
 
