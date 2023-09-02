@@ -2,6 +2,7 @@ import streamlit as st
 import listas as lst
 import datetime
 
+hoje={}
 hoje['datetime'] = datetime.datetime.now()
 hoje['data'] = hoje['datetime'].date()
 hoje['hora'] = hoje['datetime'].time()
