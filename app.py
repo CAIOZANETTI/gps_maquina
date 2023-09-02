@@ -37,10 +37,11 @@ with st.expander('bronze',expanded=False):
 	def df_bronze(coluna:str,df)->pd.DataFrame:
 		df[['data','hora']] = df[coluna].str.split(' ', expand=True)
 
+		df[['dia','mes','ano']] = df['data'].str.split('/', expand=True)
 		# Convert columns to the desired data types
-		#df['dia'] = df['dia'].astype(int)
-		#df['mes'] = df['mes'].astype(int)
-		#df['ano'] = df['ano'].astype(int)
+		df['dia'] = df['dia'].astype(int)
+		df['mes'] = df['mes'].astype(int)
+		df['ano'] = df['ano'].astype(int)
 		#df['hora'] = df['hora'].astype(int)
 		#df['minuto'] = df['minuto'].astype(int)
 
