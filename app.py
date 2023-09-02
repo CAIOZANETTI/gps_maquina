@@ -47,7 +47,7 @@ with st.expander('bronze',expanded=False):
 		df['minuto'] = df['minuto'].astype(int)
 
 		return df
-	df1 = df_bronze(coluna='Iniciar',df=df)
+	df1 = df_bronze(coluna='data_hora',df=df)
 	st.dataframe(df1)
 
 with st.expander('silver',expanded=False):
