@@ -47,8 +47,8 @@ with st.expander('bronze',expanded=False):
 		df['minuto'] = df['minuto'].astype(int)
 
 		df['coordenadas'] = df['maps_google_url'].str.replace("http://maps.google.com/?q=", "")
-		df['lat'] = df['local'].str.slice(2, 15)
-		df['lon'] = df['local'].str.slice(15, 25)
+		df['lat'] = df['coordenadas'].str.slice(2, 15)
+		df['lon'] = df['coordenadas'].str.slice(15, 25)
 
 		return df
 
