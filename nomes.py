@@ -1,1 +1,0 @@
-variavel = 15
