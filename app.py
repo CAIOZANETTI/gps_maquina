@@ -50,6 +50,9 @@ with st.expander('bronze',expanded=False):
 		df['lat'] = df['coordenadas'].str.slice(2, 13)
 		df['lon'] = df['coordenadas'].str.slice(14, 25)
 
+		df['lat'] = df['lat'].astype(float)
+		df['lon'] = df['lon'].astype(float)
+
 		return df
 
 	df1 = df_bronze(coluna='data_hora',df=df)
