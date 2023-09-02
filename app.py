@@ -2,8 +2,9 @@ import streamlit as st
 import listas as lst
 import datetime
 
-hoje['data'] = datetime.datetime.date()
-hoje['hora'] = datetime.datetime.time()
+hoje['datetime'] = datetime.datetime.now()
+hoje['data'] = hoje['datetime'].date()
+hoje['hora'] = hoje['datetime'].time()
 
 with st.sidebar:
 	with st.expander('usuario',expanded=True):
