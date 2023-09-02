@@ -25,7 +25,7 @@ st.write(caminho)
 
 df = extrair.gsheet_to_df(
 	id = caminho['id'],
-	tabela=caminhó['tabela'],
+	tabela=caminho['tabela'],
 	testar=False)
 
 st.dataframe(df)
