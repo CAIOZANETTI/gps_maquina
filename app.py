@@ -35,15 +35,16 @@ with st.expander('raw',expanded=True):
 
 with st.expander('bronze',expanded=False):
 	def df_bronze(coluna:str,df)->pd.DataFrame:
-		df[['data','hora']] = df[coluna].str.split(' ', expand=True)
+		df[['data','horas']] = df[coluna].str.split(' ', expand=True)
 
 		df[['dia','mes','ano']] = df['data'].str.split('/', expand=True)
-		# Convert columns to the desired data types
 		df['dia'] = df['dia'].astype(int)
 		df['mes'] = df['mes'].astype(int)
 		df['ano'] = df['ano'].astype(int)
-		#df['hora'] = df['hora'].astype(int)
-		#df['minuto'] = df['minuto'].astype(int)
+
+		df[['hora','minuto']] = df['horas'].str.split(':', expand=True)
+		df['hora'] = df['hora'].astype(int)
+		df['minuto'] = df['minuto'].astype(int)
 
 		return df
 	df1 = df_bronze(coluna='Iniciar',df=df)
