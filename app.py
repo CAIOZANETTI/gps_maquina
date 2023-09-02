@@ -3,7 +3,6 @@ import listas as lst
 
 st.write("teste")
 
-
 with st.sidebar:
 	with st.expander('usuario',expanded=True):
 		st.selectbox("usuarios",lst.usuarios,key='usuario')
