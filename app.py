@@ -1,4 +1,6 @@
 import datetime
+import pytz
+
 import streamlit as st
 import pandas as pd
 
@@ -7,8 +9,10 @@ import listas as lst
 import extrair
 import caminhos
 
+
+brazil_tz = pytz.timezone('America/Sao_Paulo')
 hoje={}
-hoje['datetime'] = datetime.datetime.now()
+hoje['datetime'] = datetime.datetime.now(brazil_tz)
 hoje['data'] = hoje['datetime'].date()
 hoje['hora'] = hoje['datetime'].time()
 
