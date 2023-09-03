@@ -31,12 +31,16 @@ caminho =caminhos.tabelas['jcb_relatorio']
 
 st.write('transformação da tabela')
 
+
+
 with st.expander('raw',expanded=True):
 	df = extrair.gsheet_to_df(
 		id = caminho['id'],
 		tabela=caminho['tabela'],
 		testar=False)
 	st.dataframe(df)
+
+st.write(df['atividade'].unique())
 
 with st.expander('bronze',expanded=False):
 	def df_bronze(coluna:str,col_remover:list,df)->pd.DataFrame:
