@@ -36,3 +36,25 @@ def haversine_distance(lat1:float, lon1:float, lat2:float, lon2:float,testar:boo
 	distance = earth_radius * c
 	
 	return distance
+
+def url_to_coordenadas(url:str)->list:
+	""" 
+	url_to_coordenadas: 
+	input:'("http://maps.google.com/?q=-26,6069566,-51,0962178","-26,6069566,-51,0962178")'
+	output:[-26.6069566,-51.0962178]
+	"""
+	start_index = url.find("q=") + 2
+	end_index = url.find('","')
+
+	substring = url[start_index:end_index] 
+	parts = substring.split(',') #['-26', '6066705', '-51', '0989749']
+	  
+	lst_out = [0,0]
+	if len(parts)==4:
+		lst_out[0] = parts[0]+'.'+parts[1]
+		lst_out[1] = parts[2]+'.'+parts[3]
+		lst_out = [float(num) for num in lst_out]
+
+	return lst_out
+
+
