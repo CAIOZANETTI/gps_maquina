@@ -42,7 +42,7 @@ with st.expander('testar funcoes',expanded=True):
 
 	for url in lst:
 		teste = funcoes_gps.url_to_coordenadas(url)
-		st.write(url)
+		st.write(teste)
 
 
 
