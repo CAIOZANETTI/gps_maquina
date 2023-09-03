@@ -55,6 +55,9 @@ with st.expander('raw',expanded=True):
 
 with st.expander('bronze',expanded=False):
 	def df_bronze(coluna:str,df)->pd.DataFrame:
+		"""
+
+		"""
 		df[['data','horas']] = df[coluna].str.split(' ', expand=True)
 
 		df[['dia','mes','ano']] = df['data'].str.split('/', expand=True)
@@ -66,18 +69,13 @@ with st.expander('bronze',expanded=False):
 		df['hora'] = df['hora'].astype(int)
 		df['minuto'] = df['minuto'].astype(int)
 
-		#df['coordenadas'] = df['maps_google_url'].str.replace("http://maps.google.com/?q=", "")
-		#df['lat'] = df['coordenadas'].str.slice(2, 13)
-		#df['lon'] = df['coordenadas'].str.slice(14, 25)
-
-		#df['lat'] = df['lat'].str.replace(",", ".")
-		#df['lon'] = df['lon'].str.replace(",", ".")
-
 		df['lat'], df['lon'] = zip(*df['maps_google_url'].apply(funcoes_gps.url_to_coordenadas))
 
-		#df['lat'] = df['lat'].astype(float)
-		#df['lon'] = df['lon'].astype(float)
-
+		remover = ['data_hora','hyperlink','maps_google_url']
+		for coluna in remover:
+			if coluna in df.columns:
+				df = df.drop(coluan,axis=1)
+				
 		return df
 
 	df1 = df_bronze(coluna='data_hora',df=df)
