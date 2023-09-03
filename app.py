@@ -94,7 +94,7 @@ with st.expander('silver',expanded=True):
 		def kmph(metros,minutos):
 			velocidade=0
 			if metros >0 and minutos>0:
-				velocidade = (metros/minutos)*(60/1000)
+				velocidade = round((metros/minutos)*(60/1000),2)
 			return velocidade
 
 		df['lat0'] = df['lat1'].shift(+1)
