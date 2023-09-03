@@ -42,7 +42,9 @@ with st.expander('raw',expanded=False):
 		testar=False)
 	st.dataframe(df)
 
-st.write(df['atividade'].unique())
+cols = st.columns([1,1])
+cols[0].write(df['atividade'].unique())
+cols[1].write(df['atividade'].value_counts())
 
 with st.expander('bronze',expanded=False):
 	def df_bronze(coluna:str,col_remover:list,df)->pd.DataFrame:
@@ -87,8 +89,9 @@ with st.expander('silver',expanded=True):
 
 	def df_silver(df)->pd.DataFrame:
 		"""
-		incluir linha anterior para fazer calculos (lat0, long0, horas0)
-		fazer calculos raio distancia (não leva en consideração as ruas)
+		incluir linha anterior (lat0, long0, data_hora0)
+		calcular: raio, minutos, velocidade
+		*raio metros (não leva en consideração as ruas)
 
 		"""
 		def kmph(metros,minutos):
