@@ -98,7 +98,7 @@ with st.expander('silver',expanded=True):
 		df['raio_m'] = df.apply(lambda row: funcoes_gps.haversine_distance(row['lat0'], row['lon0'], row['lat1'], row['lon1']), axis=1)
 		df['minutos'] = (df['data_hora'] - df['data_hora0']).dt.total_seconds() / 60
 		
-		df['km/h'] = (df['raio_m']/df['minutos'])*(60/1000)
+		df['km/h'] = round((df['raio_m']/df['minutos'])*(60/1000),2)
 		df['km/h'].fillna(0, inplace=True)
 
 		return df
