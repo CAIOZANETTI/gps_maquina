@@ -74,8 +74,8 @@ with st.expander('bronze',expanded=False):
 		remover = ['data_hora','hyperlink','maps_google_url']
 		for coluna in remover:
 			if coluna in df.columns:
-				df = df.drop(coluan,axis=1)
-				
+				df = df.drop(coluna,axis=1)
+
 		return df
 
 	df1 = df_bronze(coluna='data_hora',df=df)
