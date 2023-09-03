@@ -64,13 +64,6 @@ with st.expander('bronze',expanded=False):
 
 		df['lat1'], df['lon1'] = zip(*df['maps_google_url'].apply(funcoes_gps.url_to_coordenadas))
 		
-		df['lat2'] = df['lat1'].shift(+1)
-		df['lon2'] = df['lon1'].shift(+1)
-		df['horas2'] = df['horas1'].shift(+1)
-
-		df['raio_m'] = df.apply(lambda row: funcoes_gps.haversine_distance(row['lat1'], row['lon1'], row['lat2'], row['lon2']), axis=1)
-
-
 		for coluna in col_remover:
 			if coluna in df.columns:
 				df = df.drop(coluna,axis=1)
@@ -90,6 +83,25 @@ with st.expander('silver',expanded=True):
 
 	def df_silver(df)->pd.DataFrame:
 		"""
+		incluir linha anterior para fazer calculos (lat0, long0, horas0)
+		fazer calculos raio distancia (não leva en consideração as ruas)
+
+		"""
+		df['lat0'] = df['lat1'].shift(+1)
+		df['lon0'] = df['lon1'].shift(+1)
+		df['horas0'] = df['horas1'].shift(+1)
+
+		df['raio_m'] = df.apply(lambda row: funcoes_gps.haversine_distance(row['lat1'], row['lon1'], row['lat2'], row['lon2']), axis=1)
+		
+		return df
+
+	df2 = df_silver(df=df1)
+	st.write(df_silver.__doc__)
+	st.dataframe(df2)
+
+with st.expander('gold',expanded=False):
+	def df_gold(df)->pd.DataFrame:
+		"""
 		entender premisass das atividades confirmar com jcb:
 		(talvez seja o gps pq isso ocorre de madrugada)  
 		Ligado, Estado Activo, Primeiro Acerto do GPS, Prestes a Entrar em Estado de Descanso
@@ -97,12 +109,9 @@ with st.expander('silver',expanded=True):
 		filtrar ocorrencias significativas
 	
 		"""
+		pass
 
-		
-		return df
 
-	df2 = df_silver(df=df1)
-	st.dataframe(df2)
 
-with st.expander('gold',expanded=False):
+
 	st.dataframe(df)
