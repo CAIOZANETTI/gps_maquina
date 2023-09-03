@@ -85,11 +85,12 @@ with st.expander('silver',expanded=True):
 	
 		"""
 
-		df['lat_dist'] = df['lat1']-df['lat2']
+		#df['lat_dist'] = df['lat1']-df['lat2']
 
 		#df['dist_m'] = zip(*df['maps_google_url'].apply(funcoes_gps.url_to_coordenadas))
 		df['dist_m'] = df.apply(lambda row: funcoes_gps.haversine_distance(row['lat1'], row['lon1'], row['lat2'], row['lon2']), axis=1)
-
+		df['dist_m'] = df['dist_m'].astype(int)
+		
 		return df
 
 	df2 = df_silver(df=df1)
