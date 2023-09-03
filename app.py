@@ -54,7 +54,7 @@ with st.expander('raw',expanded=True):
 	st.dataframe(df)
 
 with st.expander('bronze',expanded=False):
-	def df_bronze(coluna:str,df)->pd.DataFrame:
+	def df_bronze(coluna:str,col_remover:list,df)->pd.DataFrame:
 		"""
 
 		"""
@@ -70,15 +70,15 @@ with st.expander('bronze',expanded=False):
 		df['minuto'] = df['minuto'].astype(int)
 
 		df['lat'], df['lon'] = zip(*df['maps_google_url'].apply(funcoes_gps.url_to_coordenadas))
-
-		remover = ['data_hora','hyperlink','maps_google_url']
-		for coluna in remover:
+		
+		for coluna in col_remover:
 			if coluna in df.columns:
 				df = df.drop(coluna,axis=1)
 
 		return df
 
-	df1 = df_bronze(coluna='data_hora',df=df)
+	col_remover = ['data_hora','hyperlink','maps_google_url']
+	df1 = df_bronze(coluna='data_hora',df=df,col_remover=col_remover)
 	st.dataframe(df1)
 
 with st.expander('silver',expanded=False):
