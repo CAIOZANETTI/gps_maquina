@@ -91,6 +91,12 @@ with st.expander('silver',expanded=True):
 		fazer calculos raio distancia (não leva en consideração as ruas)
 
 		"""
+		def kmph(metros,minutos):
+			velocidade=0
+			if metros >0 and minutos>0:
+				velocidade = (metros/minutos)*(60/1000)
+			return velocidade
+
 		df['lat0'] = df['lat1'].shift(+1)
 		df['lon0'] = df['lon1'].shift(+1)
 		df['data_hora0'] = df['data_hora'].shift(+1)
@@ -98,8 +104,9 @@ with st.expander('silver',expanded=True):
 		df['raio_m'] = df.apply(lambda row: funcoes_gps.haversine_distance(row['lat0'], row['lon0'], row['lat1'], row['lon1']), axis=1)
 		df['minutos'] = (df['data_hora'] - df['data_hora0']).dt.total_seconds() / 60
 		
-		df['km/h'] = round((df['raio_m']/df['minutos'])*(60/1000),2)
-		df['km/h'].fillna(0, inplace=True)
+
+		df['kmph'] =df.apply(lambda row: kmph(row['raio_m'], row['minutos']), axis=1)
+		df['kmph'].fillna(0, inplace=True)
 
 		return df
 
