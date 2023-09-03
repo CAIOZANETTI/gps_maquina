@@ -50,7 +50,7 @@ with st.expander('bronze',expanded=False):
 		converter: data, hora e latitude e longitude
 		"""
 
-		df[['data','horas']] = df[coluna].str.split(' ', expand=True)
+		df[['data','horas1']] = df[coluna].str.split(' ', expand=True)
 
 		# não vou detalhar, foicou confuso
 		#df[['dia','mes','ano']] = df['data'].str.split('/', expand=True)
@@ -66,6 +66,7 @@ with st.expander('bronze',expanded=False):
 		
 		df['lat2'] = df['lat1'].shift(+1)
 		df['lon2'] = df['lon1'].shift(+1)
+		df['horas2'] = df['horas1'].shift(+1)
 
 		df['raio_m'] = df.apply(lambda row: funcoes_gps.haversine_distance(row['lat1'], row['lon1'], row['lat2'], row['lon2']), axis=1)
 
