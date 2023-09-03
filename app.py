@@ -52,19 +52,22 @@ with st.expander('bronze',expanded=False):
 
 		df[['data','horas']] = df[coluna].str.split(' ', expand=True)
 
-		df[['dia','mes','ano']] = df['data'].str.split('/', expand=True)
-		df['dia'] = df['dia'].astype(int)
-		df['mes'] = df['mes'].astype(int)
-		df['ano'] = df['ano'].astype(int)
+		# não vou detalhar, foicou confuso
+		#df[['dia','mes','ano']] = df['data'].str.split('/', expand=True)
+		#df['dia'] = df['dia'].astype(int)
+		#df['mes'] = df['mes'].astype(int)
+		#df['ano'] = df['ano'].astype(int)
 
-		df[['hora','minuto']] = df['horas'].str.split(':', expand=True)
-		df['hora'] = df['hora'].astype(int)
-		df['minuto'] = df['minuto'].astype(int)
+		#df[['hora','minuto']] = df['horas'].str.split(':', expand=True)
+		#df['hora'] = df['hora'].astype(int)
+		#df['minuto'] = df['minuto'].astype(int)
 
 		df['lat1'], df['lon1'] = zip(*df['maps_google_url'].apply(funcoes_gps.url_to_coordenadas))
 		
 		df['lat2'] = df['lat1'].shift(-1)
 		df['lon2'] = df['lon1'].shift(-1)
+
+		df['dist_m'] = df.apply(lambda row: funcoes_gps.haversine_distance(row['lat1'], row['lon1'], row['lat2'], row['lon2']), axis=1)
 
 
 		for coluna in col_remover:
@@ -79,18 +82,22 @@ with st.expander('bronze',expanded=False):
 	st.dataframe(df1.head(5))
 
 with st.expander('silver',expanded=True):
+
+
+	st.selectbox('atividades',df1['atividade'].unique(),key='atividade')
+
+
 	def df_silver(df)->pd.DataFrame:
 		"""
-		Calcular distancia percorrida
+		entender premisass das atividades confirmar com jcb:
+		(talvez seja o gps pq isso ocorre de madrugada)  
+		Ligado, Estado Activo, Primeiro Acerto do GPS, Prestes a Entrar em Estado de Descanso
+
+		filtrar ocorrencias significativas
 	
 		"""
 
-		#df['lat_dist'] = df['lat1']-df['lat2']
-
-		#df['dist_m'] = zip(*df['maps_google_url'].apply(funcoes_gps.url_to_coordenadas))
-		df['dist_m'] = df.apply(lambda row: funcoes_gps.haversine_distance(row['lat1'], row['lon1'], row['lat2'], row['lon2']), axis=1)
-		#df['dist_m'] = df['dist_m'].astype(int)
-
+		
 		return df
 
 	df2 = df_silver(df=df1)
