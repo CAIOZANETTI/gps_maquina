@@ -52,6 +52,8 @@ with st.expander('bronze',expanded=False):
 
 		df[['data','horas1']] = df[coluna].str.split(' ', expand=True)
 
+		df['houras1'] = pd.to_datetime(df['houras1'], format='%H:%M').dt.time
+
 		# não vou detalhar, foicou confuso
 		#df[['dia','mes','ano']] = df['data'].str.split('/', expand=True)
 		#df['dia'] = df['dia'].astype(int)
@@ -92,7 +94,8 @@ with st.expander('silver',expanded=True):
 		df['horas0'] = df['horas1'].shift(+1)
 
 		df['raio_m'] = df.apply(lambda row: funcoes_gps.haversine_distance(row['lat0'], row['lon0'], row['lat1'], row['lon1']), axis=1)
-		
+		df[]
+
 		return df
 
 	df2 = df_silver(df=df1)
