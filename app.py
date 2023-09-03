@@ -49,9 +49,9 @@ with st.expander('bronze',expanded=False):
 		"""
 		converter: data, hora e latitude e longitude
 		"""
-
 		df[['data','horas1']] = df[coluna].str.split(' ', expand=True)
 
+		df['data'] = pd.to_datetime(df['data'], format='%d %m %Y')
 		df['houras1'] = pd.to_datetime(df['horas1'], format='%H:%M').dt.time
 
 		# não vou detalhar, foicou confuso
