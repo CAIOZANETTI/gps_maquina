@@ -33,7 +33,7 @@ st.write('transformação da tabela')
 
 
 
-with st.expander('raw',expanded=True):
+with st.expander('raw',expanded=False):
 	df = extrair.gsheet_to_df(
 		id = caminho['id'],
 		tabela=caminho['tabela'],
@@ -59,8 +59,12 @@ with st.expander('bronze',expanded=False):
 		df['hora'] = df['hora'].astype(int)
 		df['minuto'] = df['minuto'].astype(int)
 
-		df['lat'], df['lon'] = zip(*df['maps_google_url'].apply(funcoes_gps.url_to_coordenadas))
+		df['lat1'], df['lon1'] = zip(*df['maps_google_url'].apply(funcoes_gps.url_to_coordenadas))
 		
+		df['lat2'] = df['lat1'].shift(-1)
+		df['lon2'] = df['lon1'].shift(-1)
+
+
 		for coluna in col_remover:
 			if coluna in df.columns:
 				df = df.drop(coluna,axis=1)
