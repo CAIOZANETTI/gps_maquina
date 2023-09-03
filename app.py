@@ -31,21 +31,6 @@ caminho =caminhos.tabelas['jcb_relatorio']
 
 st.write('transformação da tabela')
 
-with st.expander('testar funcoes',expanded=True):
-	lst= [
-	'("http://maps.google.com/?q=-26,6066705,-51,0989749","Calmon (Calmon)")',
-	'("http://maps.google.com/?q=-26,6069566,-51,0962178","-26,6069566,-51,0962178")',
-	'("http://maps.google.com/?q=-26,607,-51,0961821","-26,607,-51,0961821")',
-	'("http://maps.google.com/?q=-26,6026343,-51,102305","-26,6026343,-51,102305")',
-	'("http://maps.google.com/?q=-26,606305,-51,0996484","-26,606305,-51,0996484")',
-	]
-
-	for url in lst:
-		teste = funcoes_gps.url_to_coordenadas(url)
-		st.write(teste)
-
-
-
 with st.expander('raw',expanded=True):
 	df = extrair.gsheet_to_df(
 		id = caminho['id'],
@@ -56,6 +41,7 @@ with st.expander('raw',expanded=True):
 with st.expander('bronze',expanded=False):
 	def df_bronze(coluna:str,col_remover:list,df)->pd.DataFrame:
 		"""
+		converter: data, hora e coordenadas
 
 		"""
 		df[['data','horas']] = df[coluna].str.split(' ', expand=True)
@@ -77,8 +63,9 @@ with st.expander('bronze',expanded=False):
 
 		return df
 
-	col_remover = ['data_hora','hyperlink','maps_google_url']
+	col_remover = ['id','data_hora','hyperlink','maps_google_url']
 	df1 = df_bronze(coluna='data_hora',df=df,col_remover=col_remover)
+	st.write(df_bronze.__doc__)
 	st.dataframe(df1)
 
 with st.expander('silver',expanded=False):
