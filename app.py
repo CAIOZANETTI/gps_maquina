@@ -94,7 +94,7 @@ with st.expander('silver',expanded=True):
 		df['horas0'] = df['horas1'].shift(+1)
 
 		df['raio_m'] = df.apply(lambda row: funcoes_gps.haversine_distance(row['lat0'], row['lon0'], row['lat1'], row['lon1']), axis=1)
-		df[]
+		#df['tempo']
 
 		return df
 
