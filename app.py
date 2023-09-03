@@ -52,7 +52,7 @@ with st.expander('bronze',expanded=False):
 
 		df[['data','horas1']] = df[coluna].str.split(' ', expand=True)
 
-		df['houras1'] = pd.to_datetime(df['houras1'], format='%H:%M').dt.time
+		df['houras1'] = pd.to_datetime(df['horas1'], format='%H:%M').dt.time
 
 		# não vou detalhar, foicou confuso
 		#df[['dia','mes','ano']] = df['data'].str.split('/', expand=True)
