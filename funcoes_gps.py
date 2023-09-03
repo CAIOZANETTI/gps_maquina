@@ -1,6 +1,6 @@
 import math
 
-def haversine_distance(lat1:float, lon1:float, lat2:float, lon2:float,testar:bool)->float:
+def haversine_distance(lat1:float, lon1:float, lat2:float, lon2:float)->float:
     # Example usage
 	"""
     chat gpt 3.5
@@ -13,12 +13,7 @@ def haversine_distance(lat1:float, lon1:float, lat2:float, lon2:float,testar:boo
     :param lon2: Longitude of the second point (in degrees)
     :return: Distance between the two points in meters
    """
-	if testar ==True:
-		lat1 = 52.5200  # Berlin, Germany
-		lon1 = 13.4050
-		lat2 = 48.8566  # Paris, France
-		lon2 = 2.3522
-
+	
 	# Convert latitude and longitude from degrees to radians
 	lat1 = math.radians(lat1)
 	lon1 = math.radians(lon1)
@@ -48,7 +43,7 @@ def url_to_coordenadas(url:str)->list:
 
 	substring = url[start_index:end_index] 
 	parts = substring.split(',') #['-26', '6066705', '-51', '0989749']
-	  
+
 	lst_out = [0,0]
 	if len(parts)==4:
 		lst_out[0] = parts[0]+'.'+parts[1]
