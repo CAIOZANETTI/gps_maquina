@@ -49,6 +49,8 @@ with st.expander('bronze',expanded=False):
 		"""
 		converter: data, hora e latitude e longitude
 		"""
+		df['data_hora'] = pd.to_datetime(df['data_hora'], format='%d/%m/%Y %H:%M')
+
 		df[['data','horas1']] = df[coluna].str.split(' ', expand=True)
 
 		df['data'] = pd.to_datetime(df['data'], format='%d/%m/%Y')
@@ -72,7 +74,7 @@ with st.expander('bronze',expanded=False):
 
 		return df
 
-	col_remover = ['id','data_hora','hyperlink','maps_google_url']
+	col_remover = ['id','hyperlink','maps_google_url']
 	df1 = df_bronze(coluna='data_hora',df=df,col_remover=col_remover)
 	st.write(df_bronze.__doc__)
 	st.dataframe(df1.head(5))
