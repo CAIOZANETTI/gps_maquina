@@ -64,10 +64,10 @@ with st.expander('bronze',expanded=False):
 
 		df['lat1'], df['lon1'] = zip(*df['maps_google_url'].apply(funcoes_gps.url_to_coordenadas))
 		
-		df['lat2'] = df['lat1'].shift(-1)
-		df['lon2'] = df['lon1'].shift(-1)
+		df['lat2'] = df['lat1'].shift(+1)
+		df['lon2'] = df['lon1'].shift(+1)
 
-		df['dist_m'] = df.apply(lambda row: funcoes_gps.haversine_distance(row['lat1'], row['lon1'], row['lat2'], row['lon2']), axis=1)
+		df['raio_m'] = df.apply(lambda row: funcoes_gps.haversine_distance(row['lat1'], row['lon1'], row['lat2'], row['lon2']), axis=1)
 
 
 		for coluna in col_remover:
