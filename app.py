@@ -51,10 +51,10 @@ with st.expander('bronze',expanded=False):
 		"""
 		df['data_hora'] = pd.to_datetime(df['data_hora'], format='%d/%m/%Y %H:%M')
 
-		df[['data','horas1']] = df[coluna].str.split(' ', expand=True)
+		#df[['data','horas1']] = df[coluna].str.split(' ', expand=True)
 
-		df['data'] = pd.to_datetime(df['data'], format='%d/%m/%Y')
-		df['houras1'] = pd.to_datetime(df['horas1'], format='%H:%M').dt.time
+		#df['data'] = pd.to_datetime(df['data'], format='%d/%m/%Y')
+		#df['houras1'] = pd.to_datetime(df['horas1'], format='%H:%M').dt.time
 
 		# não vou detalhar, foicou confuso
 		#df[['dia','mes','ano']] = df['data'].str.split('/', expand=True)
@@ -93,7 +93,7 @@ with st.expander('silver',expanded=True):
 		"""
 		df['lat0'] = df['lat1'].shift(+1)
 		df['lon0'] = df['lon1'].shift(+1)
-		df['horas0'] = df['horas1'].shift(+1)
+		#df['horas0'] = df['horas1'].shift(+1)
 
 		df['raio_m'] = df.apply(lambda row: funcoes_gps.haversine_distance(row['lat0'], row['lon0'], row['lat1'], row['lon1']), axis=1)
 		#df['tempo']
