@@ -32,17 +32,17 @@ caminho =caminhos.tabelas['jcb_relatorio']
 st.write('transformação da tabela')
 
 with st.expander('testar funcoes',expanded=True):
-lst= [
-'("http://maps.google.com/?q=-26,6066705,-51,0989749","Calmon (Calmon)")',
-'("http://maps.google.com/?q=-26,6069566,-51,0962178","-26,6069566,-51,0962178")',
-'("http://maps.google.com/?q=-26,607,-51,0961821","-26,607,-51,0961821")',
-'("http://maps.google.com/?q=-26,6026343,-51,102305","-26,6026343,-51,102305")',
-'("http://maps.google.com/?q=-26,606305,-51,0996484","-26,606305,-51,0996484")',
-]
+	lst= [
+	'("http://maps.google.com/?q=-26,6066705,-51,0989749","Calmon (Calmon)")',
+	'("http://maps.google.com/?q=-26,6069566,-51,0962178","-26,6069566,-51,0962178")',
+	'("http://maps.google.com/?q=-26,607,-51,0961821","-26,607,-51,0961821")',
+	'("http://maps.google.com/?q=-26,6026343,-51,102305","-26,6026343,-51,102305")',
+	'("http://maps.google.com/?q=-26,606305,-51,0996484","-26,606305,-51,0996484")',
+	]
 
-for url in lst:
-	teste = funcoes_gps.url_to_coordenadas(url)
-	st.write(url)
+	for url in lst:
+		teste = funcoes_gps.url_to_coordenadas(url)
+		st.write(url)
 
 
 
