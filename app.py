@@ -79,7 +79,7 @@ with st.expander('bronze',expanded=False):
 	st.dataframe(df1.head(5))
 
 with st.expander('silver',expanded=True):
-	def df_silver(df)-pd.DataFrame:
+	def df_silver(df)->pd.DataFrame:
 		"""
 		Calcular distancia percorrida
 	
