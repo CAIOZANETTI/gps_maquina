@@ -49,7 +49,7 @@ def url_to_coordenadas(url:str)->list:
 	if len(parts)==4:
 		lst_out[0] = parts[0]+'.'+parts[1]
 		lst_out[1] = parts[2]+'.'+parts[3]
-		lst_out = [num for num in lst_out]
+		#lst_out = [num for num in lst_out]
 
 	return lst_out
 
