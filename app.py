@@ -31,6 +31,8 @@ caminho =caminhos.tabelas['jcb_relatorio']
 
 st.write('transformação da tabela')
 
+abas = ['raw','bronze','silver','gold']
+st.selectbox('expandir',abas,key='ver')
 
 
 with st.expander('raw',expanded=False):
@@ -45,9 +47,9 @@ st.write(df['atividade'].unique())
 with st.expander('bronze',expanded=False):
 	def df_bronze(coluna:str,col_remover:list,df)->pd.DataFrame:
 		"""
-		converter: data, hora e coordenadas
-
+		converter: data, hora e latitude e longitude
 		"""
+
 		df[['data','horas']] = df[coluna].str.split(' ', expand=True)
 
 		df[['dia','mes','ano']] = df['data'].str.split('/', expand=True)
@@ -74,10 +76,20 @@ with st.expander('bronze',expanded=False):
 	col_remover = ['id','data_hora','hyperlink','maps_google_url']
 	df1 = df_bronze(coluna='data_hora',df=df,col_remover=col_remover)
 	st.write(df_bronze.__doc__)
-	st.dataframe(df1)
+	st.dataframe(df1.head(5))
 
-with st.expander('silver',expanded=False):
-	st.dataframe(df)
+with st.expander('silver',expanded=True):
+	def df_silver(df)-pd.DataFrame:
+		"""
+		Calcular distancia percorrida
+	
+		"""
+		df['lat_dist'] = df['lat1']-df['lat2']
+
+		return df
+
+	df2 = df_silver(df=df1)
+	st.dataframe(df2)
 
 with st.expander('gold',expanded=False):
 	st.dataframe(df)
