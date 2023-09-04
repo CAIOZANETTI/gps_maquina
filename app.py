@@ -43,7 +43,7 @@ with st.expander('raw',expanded=False):
 	st.dataframe(df)
 
 cols = st.columns([1,1])
-cols[0].write(df['atividade'].unique())
+cols[0].write(df.describe())
 cols[1].write(df['atividade'].value_counts())
 
 with st.expander('bronze',expanded=False):
