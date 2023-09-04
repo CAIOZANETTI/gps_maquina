@@ -26,7 +26,7 @@ with st.sidebar:
 		st.selectbox("usuarios",lst.usuarios,key='usuario')
 		st.write(st.session_state['usuario'])
 
-caminho =caminhos.tabelas['jcb_relatorio'] 
+caminho =caminhos.tabelas['jcb_relatorio_2022'] 
 #st.write(caminho)
 
 st.write('transformação da tabela')
