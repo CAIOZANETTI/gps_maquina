@@ -1,19 +1,19 @@
 {
-    "gsheet":{
-	    "jcb_relatorio_amostra": {
-	        "id": "1mzqMvNtH7tBgU4PZ78shFSgQrLT8RVU9RONczPbMKLQ",
-	        "tabela": "Sheet1"
-	    },
-	    "jcb_relatorio_2022": {
-	        "id": "1rijer6yFs4g3wuyQKk91lvdn12F7T0DuwJstD8YM8_M",
-	        "tabela": "plan"
-	    },
-	},
+    "gsheet": {
+        "jcb_relatorio_amostra": {
+            "id": "1mzqMvNtH7tBgU4PZ78shFSgQrLT8RVU9RONczPbMKLQ",
+            "tabela": "Sheet1"
+        },
+        "jcb_relatorio_2022": {
+            "id": "1rijer6yFs4g3wuyQKk91lvdn12F7T0DuwJstD8YM8_M",
+            "tabela": "plan"
+        }
+    },
 
-	"listas":{
-		"condutores":["tubo_concreto","tubo_pvc","tubo_aço","tubo_ferro","mangueira_pvc"],
-		"usuarios": ["operador","encarregado","engenheiro","almoxarife"],
-		"atividades":["carregar","escavar","transportar","mover","instalar"],
-		"marterial":["areia","solo","pedra","brita","entulho"],		
-	}
+    "listas": {
+        "condutores": ["tubo_concreto", "tubo_pvc", "tubo_aço", "tubo_ferro", "mangueira_pvc"],
+        "usuarios": ["operador", "encarregado", "engenheiro", "almoxarife"],
+        "atividades": ["carregar", "escavar", "transportar", "mover", "instalar"],
+        "material": ["areia", "solo", "pedra", "brita", "entulho"]
+    }
 }
