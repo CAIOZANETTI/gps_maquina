@@ -8,11 +8,12 @@
 	        "id": "1rijer6yFs4g3wuyQKk91lvdn12F7T0DuwJstD8YM8_M",
 	        "tabela": "plan"
 	    },
+	},
+
 	"listas":{
 		"condutores":["tubo_concreto","tubo_pvc","tubo_aço","tubo_ferro","mangueira_pvc"],
 		"usuarios": ["operador","encarregado","engenheiro","almoxarife"],
 		"atividades":["carregar","escavar","transportar","mover","instalar"],
-		"marterial":["areia","solo","pedra","brita","entulho"],
-			
+		"marterial":["areia","solo","pedra","brita","entulho"],		
 	}
 }
