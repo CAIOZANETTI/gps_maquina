@@ -10,6 +10,21 @@
         }
     },
 
+    "parquet":{
+    	"jcb_relatorio_2022":{
+    		"url":"https://drive.google.com/uc?export=download&id=",
+    		"id":"10vUBHUsluMGCAxTmKVBwNXdJqfmkr7VO"
+    	}
+    },
+
+    "cvs":{
+    	"jcb_relatorio_2022":{
+    		"url":"https://drive.google.com/uc?export=download&id=",
+    		"id":"1N4JttI8Daz9RW4WTzrmMd_7hT2iaRL_S"
+    	}
+    },
+
+
     "listas": {
         "condutores": ["tubo_concreto", "tubo_pvc", "tubo_aço", "tubo_ferro", "mangueira_pvc"],
         "usuarios": ["operador", "encarregado", "engenheiro", "almoxarife"],
