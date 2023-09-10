@@ -1,4 +1,11 @@
+import json
 import pandas as pd
+
+def json_to_dic(json_file_path:str,nome:str)->dict:
+
+	with open(json_file_path, 'r') as json_file:
+		dic = json.load(json_file)
+	return dic
 
 
 def gsheet_to_df(id:str,tabela:str,testar:bool)->pd.DataFrame:
