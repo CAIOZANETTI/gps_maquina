@@ -1,8 +1,7 @@
 import json
 import pandas as pd
 
-def json_to_dic(json_file_path:str,nome:str)->dict:
-
+def json_to_dic(json_file_path:str)->dict:
 	with open(json_file_path, 'r') as json_file:
 		dic = json.load(json_file)
 	return dic
