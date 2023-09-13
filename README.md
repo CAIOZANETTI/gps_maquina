@@ -1,6 +1,8 @@
-# Produtividade de Equipamento
+# Atividade de Máquina 
 
-Este repositório contém um projeto que visa obter informação através da analise de relatório de posicionamento de máquina com suas coordenadas e informações básicas de sua atividade permitir a filtrar os dados por período e obter informações através de cálculo como distância percorrida e tempo de operação 
+Este repositório contém um projeto que visa obter informação através da analise de relatório de posicionamento de máquina com suas coordenadas e informações básicas de sua atividade permitir a filtrar os dados por período e obter informações através de cálculo como distância percorrida e tempo de operação.
+
+Os dados foram obtidos através de relatório emitido por uma retroescavadeira jbc modelo 3cx, durante atividade de serviço de pavimentação e drenagem realizados pela Jit Engenharia durante o ano de 2022.
 
 ## Objetivos Principais
 
@@ -48,6 +50,14 @@ Os dados de GPS e de apontamento são combinados e analisados pelo sistema. Isso
 ### 3. Geração de Prazo de Término
 
 Com base na produtividade real calculada, o sistema gera um prazo de término otimista, realista e pessimista. Isso ajuda na gestão de projetos e na identificação de possíveis atrasos.
+
+### 4. Lições Aprendidas 
+
+Fazer coleta de tomada de decisão do gestor para  medir se ação foi efetiva.
+
+### 5. Melhores Práticas 
+
+Sugerir as melhores práticas para auxiliar em futuras tomadas de decisão, com base em eventos passados 
 
 ## Requisitos de Configuração
 
