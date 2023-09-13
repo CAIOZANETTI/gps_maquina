@@ -32,23 +32,13 @@ equipamento funcionou aos domingos?
 
 - Aplicação Web (Streamlit): Uma aplicação web construída com o Streamlit permite que os usuários visualizem os relatórios em qualquer dispositivo em formato web
 
-Próximos Passos:
+## Próximos Passos:
 
-- Análise de Dados: O sistema realiza análises sofisticadas para calcular a produtividade dos equipamentos com base nos dados de GPS e de apontamento. Isso inclui a identificação de ineficiências e oportunidades de melhoria.
-
-- Geração de Prazo de Término: Com base na produtividade real calculada, o sistema gera um prazo de término otimista, realista e pessimista. Isso ajuda na gestão de projetos e na identificação de possíveis atrasos.
-
-## Como Funciona
-
-### 1. Coleta de Dados de GPS
-
-Os dados de GPS são lidos a partir de arquivos CSV fornecidos como entrada. Cada entrada contém informações de data, hora, coordenadas geográficas e identificação do equipamento.
-
-### 2. Registro de Apontamento
-
-Os operadores, encarregados e engenheiros acessam a aplicação web (Streamlit) para registrar suas atividades relacionadas aos equipamentos. Eles podem fornecer informações como
-- Improdutividade por Ocorrencia de Chuva
-- Realização de abastecimento ou manutenção
+### Realizar apontamento das atividades do equipamento através de registro em uma aplicação web, tais como:
+- Ocorrencia de Chuva
+- Realização de abastecimento
+- Manutenção preventiva
+- Manutenção corretiva
 - Tipo de atividade realizada: exemplo:(drenagem com tubo concreto Ø40cm)
   
 ### 3. Análise de Dados
@@ -61,7 +51,7 @@ Com base na produtividade real calculada, o sistema gera um prazo de término ot
 
 ## Fluxo de Trabalho
 
-1. Importe os arquivos CSV de coordenadas GPS dos equipamentos.
+1. Importe os arquivos CSV de coordenadas GPS do
 
 2. Acesse a aplicação web (Streamlit) para registrar atividades relacionadas aos equipamentos.
 
