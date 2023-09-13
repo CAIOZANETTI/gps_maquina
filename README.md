@@ -1,28 +1,38 @@
 # Produtividade de Equipamento
 
-Este repositório contém um projeto que visa obter a produtividade real de equipamentos por hora, bem como gerar um prazo de término baseado na produtividade real. O prazo pode ser otimista, realista e pessimista, permitindo uma melhor gestão de projetos e tomada de decisões informadas. O sistema também combina dados de coordenadas GPS e registros de apontamento coletados no campo. Os dados podem ser fornecidos por operadores, encarregados e engenheiros através de uma aplicação web.
+Este repositório contém um projeto que visa obter informação através da analise de relatório de posicionamento de máquina com suas coordenadas e informações básicas de sua atividade permitir a filtrar os dados por período e obter informações através de cálculo como distância percorrida e tempo de operação 
 
 ## Objetivos Principais
 
-1. **Obter Produtividade Real do Equipamento por Hora:** O objetivo principal deste projeto é calcular a produtividade real dos equipamentos por hora, fornecendo informações precisas sobre o desempenho operacional. Isso é essencial para a gestão eficaz de recursos e tomada de decisões informadas.
+1. **Obter informações de funcionamento de equipamento e permitir a visualização e consulta em uma interface web** 
 
 ## Objetivos Secundários
 
-1. **Calcular estimativa de termino da atividade** Além de calcular a produtividade real, o sistema também gera um prazo de término baseado na produtividade real. Esse prazo pode ser otimista, realista e pessimista, permitindo uma gestão de projetos mais flexível e a identificação de possíveis atrasos.
-2. **Calcular o consumo de combustivel por atividade:** Além de calcular a produtividade real, o sistema também gera um prazo de término baseado na produtividade real. Esse prazo pode ser otimista, realista e pessimista, permitindo uma gestão de projetos mais flexível e a identificação de possíveis atrasos.
-3. **Sinalizar desvios de operação** Através do mapeamento do gps mostrar quando houve serviços ocorridos fora da atividade principal
-4. **Comparar desempenho por operador** Caso exista mais de um operador, mostrar a produtividade de cada um em uma mesma atividade
-5. **Comparar avanço por tipo de serviço** Exemplo a execução de rede de acordo com o tipo e dimensão do tubo e produtividade da vala
+1. **Mapear a atividade por período com visualização no mapa**
+
+2. **Permitir visualização se houve desvios de operação** Através do mapeamento do gps mostrar quando houve serviços ocorridos fora da atividade principal
+
 
 ## Visão Geral
 
-A produtividade de equipamentos é essencial para o sucesso de projetos de construção e operações industriais. Este projeto busca automatizar a coleta e análise de dados para fornecer informações valiosas sobre a eficiência operacional. Ele incorpora as seguintes funcionalidades:
+Este projeto busca mostrar que pode ser aplicada a engenheira de dados para automatizar a coleta e análise de dados para fornecer informações valiosas sobre a utilização de máquina.
 
-- Coleta de Dados de GPS: O sistema lê arquivos CSV contendo coordenadas GPS de equipamentos em campo. Esses dados são essenciais para rastrear a localização e movimento dos equipamentos ao longo do tempo.
+- Extrair Dados de GPS: O sistema lê arquivos CSV ou gsheet contendo coordenadas GPS de equipamentos em campo. Esses dados são essenciais para rastrear a localização e movimento dos equipamentos ao longo do tempo.
 
-- Registro de Apontamento: Operadores, encarregados e engenheiros podem fornecer informações detalhadas sobre as atividades realizadas pelos equipamentos. Esses registros são essenciais para entender como os equipamentos estão sendo utilizados.
+- normalizar os dados de tempo data e hora, como de local as coordenadas,
 
-- Aplicação Web (Streamlit): Uma aplicação web construída com o Streamlit permite que os usuários insiram e atualizem os dados de apontamento facilmente. Os dados são armazenados de forma segura e podem ser acessados a qualquer momento.
+- transformar dados, aplicar funções de cálculo de distância, filtrar variáveis relevantes
+
+- extrair relatório a partir de agregação, e responder algumas questões sobre comportamento do equipamento:
+
+qual o dia de maior funcionamento
+qual a maior distância percorrida
+qual dia menos trabalhados
+equipamento funcionou aos domingos?
+
+- Aplicação Web (Streamlit): Uma aplicação web construída com o Streamlit permite que os usuários visualizem os relatórios em qualquer dispositivo em formato web
+
+Próximos Passos:
 
 - Análise de Dados: O sistema realiza análises sofisticadas para calcular a produtividade dos equipamentos com base nos dados de GPS e de apontamento. Isso inclui a identificação de ineficiências e oportunidades de melhoria.
 
