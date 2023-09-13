@@ -34,32 +34,20 @@ equipamento funcionou aos domingos?
 
 ## Próximos Passos:
 
-### Realizar apontamento das atividades do equipamento através de registro em uma aplicação web, tais como:
+### 1. Realizar apontamento das atividades do equipamento através de registro em uma aplicação web, tais como:
 - Ocorrencia de Chuva
 - Realização de abastecimento
 - Manutenção preventiva
 - Manutenção corretiva
 - Tipo de atividade realizada: exemplo:(drenagem com tubo concreto Ø40cm)
   
-### 3. Análise de Dados
+### 2. Análise de Dados
 
 Os dados de GPS e de apontamento são combinados e analisados pelo sistema. Isso permite calcular a produtividade dos equipamentos, identificar gargalos operacionais e criar relatórios detalhados.
 
-### 4. Geração de Prazo de Término
+### 3. Geração de Prazo de Término
 
 Com base na produtividade real calculada, o sistema gera um prazo de término otimista, realista e pessimista. Isso ajuda na gestão de projetos e na identificação de possíveis atrasos.
-
-## Fluxo de Trabalho
-
-1. Importe os arquivos CSV de coordenadas GPS do
-
-2. Acesse a aplicação web (Streamlit) para registrar atividades relacionadas aos equipamentos.
-
-3. O sistema realiza análises automáticas e gera relatórios de produtividade.
-
-4. Utilize os insights obtidos para tomar decisões informadas e melhorar a eficiência operacional.
-
-5. Consulte o prazo de término otimista, realista e pessimista para planejar o projeto de forma adequada.
 
 ## Requisitos de Configuração
 
