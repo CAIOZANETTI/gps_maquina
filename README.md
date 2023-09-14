@@ -19,29 +19,43 @@ Os dados foram obtidos através de relatório emitido por uma retroescavadeira j
 
 Este projeto busca mostrar que pode ser aplicada a engenheira de dados para automatizar a coleta e análise de dados para fornecer informações valiosas sobre a utilização de máquina.
 
-- Extrair Dados de GPS: O sistema lê arquivos CSV ou gsheet contendo coordenadas GPS de equipamentos em campo. Esses dados são essenciais para rastrear a localização e movimento dos equipamentos ao longo do tempo.
+### Etapas do Processo 
 
-- normalizar os dados de tempo data e hora, como de local as coordenadas,
+- **Extrair Dados** de GPS: O sistema lê arquivos CSV ou gsheet contendo coordenadas GPS de equipamentos em campo. Esses dados são essenciais para rastrear a localização e movimento dos equipamentos ao longo do tempo.
 
-- transformar dados, aplicar funções de cálculo de distância, filtrar variáveis relevantes
+- **Normalizar Dados** de tempo data e hora, como de local as coordenadas,
 
-- extrair relatório a partir de agregação, e responder algumas questões sobre comportamento do equipamento:
+- **Transformar dados**, aplicar funções de cálculo de distância, filtrar variáveis relevantes
 
-qual o dia de maior funcionamento
-qual a maior distância percorrida
-qual dia menos trabalhados
-equipamento funcionou aos domingos?
+- **Relatório** a partir de agregação, e responder algumas questões sobre comportamento do equipamento:
 
-- Aplicação Web (Streamlit): Uma aplicação web construída com o Streamlit permite que os usuários visualizem os relatórios em qualquer dispositivo em formato web
+- Aplicação Web (Streamlit): Uma aplicação web construída com o Streamlit permite que os usuários visualizem os relatórios em qualquer dispositivo em formato web:
+
+- descrever o funcionamento:
+qual o dia funcionamento com mais tempo
+qual a maior distância percorrida, no dia, mês, ano
+qual dia o menor horas de funcionamento?
+quais dias maior horas de funcionamento?
+
+- Dashboards 
+gráfico horas semana: seg,ter,quar,quin,sex,sab,dom
+gráfico distância semana: seg,ter,quar,quin,sex,sab,dom
+
+- Mapa de localização
+permitir através do filtro saber qual o local máquina esteve presente em um determinado período 
+
 
 ## Próximos Passos:
+Para uma análise completa é necessário coletar dados que envolve o ambiente no qual o utilizado e através da data fazer uma ligação temporal para verificar de que forma esse ambiente afetou a produção da atividade
 
 ### 1. Realizar apontamento das atividades do equipamento através de registro em uma aplicação web, tais como:
+- identificar operador
 - Ocorrencia de Chuva
 - Realização de abastecimento
 - Manutenção preventiva
 - Manutenção corretiva
 - Tipo de atividade realizada: exemplo:(drenagem com tubo concreto Ø40cm)
+- condições climáticas
   
 ### 2. Análise de Dados
 
