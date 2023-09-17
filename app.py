@@ -47,7 +47,7 @@ with st.expander("df dataframe completo linhas:"+str(df.shape[0]), expanded=Fals
 
 if st.session_state['relatorios']== 'filtros':
 	with st.expander("filtrar dataframe", expanded=True):
-			
+
 		cols = st.columns([1,1,1,1])
 		cols[0].text('periodo disponivel')
 		cols[0].text('jan/2022 -> ago/2022')
@@ -60,16 +60,16 @@ if st.session_state['relatorios']== 'filtros':
 		if st.session_state['btn_filtrar']:
 			df1 = filtros.df_periodo(df,st.session_state['inicio'],st.session_state['fim'])
 		
-			with st.expander("**df1** dataframe filtrado linhas:"+str(df.shape[0]), expanded=False):
-				st.dataframe(df1)
+			#with st.expander("**df1** dataframe filtrado linhas:"+str(df.shape[0]), expanded=False):
+			st.dataframe(df1)
 
-			with st.expander('mapa', expanded=False):
-				st.write('mapas')
-				df2 = df1[['lat','lon']]
-				st.map(df2)
+			#with st.expander('mapa', expanded=False):
+			st.write('mapas')
+			df2 = df1[['lat','lon']]
+			st.map(df2)
 
-			with st.expander('tabelas', expanded=False):
-				st.write('tabelas')
+			#with st.expander('tabelas', expanded=False):
+			#	st.write('tabelas')
 
-			with st.expander('graficos', expanded=False):
-				st.write('graficos')
+			#with st.expander('graficos', expanded=False):
+			#	st.write('graficos')
