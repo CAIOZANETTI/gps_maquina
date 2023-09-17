@@ -55,8 +55,10 @@ with st.expander("filtrar dataframe", expanded=False):
 
 	inicio = st.session_state['inicio']
 	st.write(inicio)
+	teste = isinstance(inicio, datetime)
+	st.write(teste)
 	st.write(type(inicio))
-	st.write(isinstance(inicio, datetime))
+	
 
 
 	df1 = filtros.df_periodo(df,st.session_state['inicio'],st.session_state['fim'])
