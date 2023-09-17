@@ -48,28 +48,28 @@ with st.expander("df dataframe completo linhas:"+str(df.shape[0]), expanded=Fals
 if st.session_state['relatorios']== 'filtros':
 	with st.expander("filtrar dataframe", expanded=True):
 
+		#periodo
 		cols = st.columns([1,1,1,1])
 		cols[0].text('periodo disponivel')
 		cols[0].text('jan/2022 -> ago/2022')
 		cols[1].date_input('inicio',datetime.datetime(2022,1,1),key='inicio')
 		cols[2].date_input('fim',datetime.datetime(2022,1,8),key='fim')
 
+		#atividade
+		cols = st.columns([1,1,1,1])
+		atividades = df['atividade'].unique()
+		cols[0].text('atividades')
+		cols[1].multiselect('existentes',atividades,key='atividades')
+
+		#controle
 		cols[3].text('ativar')
 		cols[3].button('filtros',key='btn_filtrar')
 		
 		if st.session_state['btn_filtrar']:
 			df1 = filtros.df_periodo(df,st.session_state['inicio'],st.session_state['fim'])
-		
-			#with st.expander("**df1** dataframe filtrado linhas:"+str(df.shape[0]), expanded=False):
+			df1 = df1[df['atividade'].isin(st.session_state['atividades'])]
+			
 			st.dataframe(df1)
-
-			#with st.expander('mapa', expanded=False):
 			st.write('mapas')
 			df2 = df1[['lat','lon']]
-			st.map(df2)
-
-			#with st.expander('tabelas', expanded=False):
-			#	st.write('tabelas')
-
-			#with st.expander('graficos', expanded=False):
-			#	st.write('graficos')
+			st.map(df2)			
