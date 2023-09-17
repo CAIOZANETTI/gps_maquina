@@ -21,13 +21,24 @@ with st.sidebar:
 	cols = st.columns([1,1])
 	cols[0].text(hoje['data'])
 	cols[1].text(hoje['hora'])
+
+	file = 'https://github.com/CAIOZANETTI/produtividade_maquina/blob/main/data/bronze_jcb_relatorio_2022.parquet'
+   df = pd.read_parquet(file)
+   st.write(df.shape[0])
+
+   #display('df from:'+file)
+   #st.selectbox("usuarios",lst.usuarios,key='dataframe')
 	
-	st.selectbox("usuarios",lst.usuarios,key='usuario')
-	st.write(st.session_state['usuario'])
+	#st.selectbox("usuarios",lst.usuarios,key='usuario')
+	#st.write(st.session_state['usuario'])
 
 	st.radio("relatorios",['mapas','tabelas','graficos'],key='relatorios')
 
-  
+	st.write('dataframe')
+
+
+
+
     
 
 if st.session_state['relatorios']== 'mapas':
