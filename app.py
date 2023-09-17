@@ -89,6 +89,7 @@ if st.session_state['relatorios']== 'filtros':
 			df2['cor'] = "#001eff"
 			df2['raio'] = 5
 			st.write(df2)
+			st.write(df_locais)
 
 			#st.map(df2, latitude='lat',longitude='lon',size='raio',color='cor')
 			#st.map(df_locais, latitude='lat',longitude='lon',size='raio',color='cor')	
