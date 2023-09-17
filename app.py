@@ -86,8 +86,10 @@ if st.session_state['relatorios']== 'filtros':
 			st.write('mapas')
 
 			df2 = df1[['lat','lon']]
+			df2['nome'] = df1['atividade']
 			df2['cor'] = "#001eff"
 			df2['raio'] = 5
+
 			st.write(df2)
 			st.write(df_locais)
 
