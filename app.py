@@ -9,11 +9,7 @@ import listas as lst
 import extrair
 import caminhos
 import funcoes_gps
-
-
-
-
-
+import filtros
 
 brazil_tz = pytz.timezone('America/Sao_Paulo')
 hoje={}
@@ -50,8 +46,18 @@ with st.sidebar:
 	#st.write(st.session_state['usuario'])
 	st.radio("relatorios",['mapas','tabelas','graficos'],key='relatorios')
 
-with st.expander("dataframe", expanded=False):
-	st.dataframe(df)    
+with st.expander("dataframe completo", expanded=False):
+	st.dataframe(df)
+
+with st.expander("filtrar dataframe", expanded=False):
+	
+	cols = st.columns([1,1,1])
+	cols[0].text('periodo')
+	cols[1].date_input('inicio',datetime(2022,1,1))
+	cols[2].date_input('fim',datetime(2022,1,8))
+
+
+	#st.dataframe(df)
 
 if st.session_state['relatorios']== 'mapas':
 	st.write('mapas')
