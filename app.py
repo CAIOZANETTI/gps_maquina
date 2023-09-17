@@ -54,8 +54,8 @@ with st.expander("filtrar dataframe", expanded=False):
 	cols = st.columns([1,1,1])
 	cols[0].text('periodo disponivel')
 	cols[0].text('01/01/2022 a 01/08/2022')
-	cols[1].date_input('inicio',datetime.date(2022,1,1),key=inicio)
-	cols[2].date_input('fim',datetime.date(2022,1,8),key=inicio)
+	cols[1].date_input('inicio',datetime.date(2022,1,1),key='inicio')
+	cols[2].date_input('fim',datetime.date(2022,1,8),key='fim')
 
 	st.write(st.session_state['inicio'])
 
