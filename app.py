@@ -30,25 +30,25 @@ except:
 
 
 with st.sidebar:
+	#data
 	cols = st.columns([1,1])
 	cols[0].text(hoje['data'])
 	cols[1].text(hoje['hora'])
-
-	st.write(df.shape[0])
-   #display('df from:'+file)
-   #st.selectbox("usuarios",lst.usuarios,key='dataframe')
 	
+	#df shape
+	cols = st.columns([1,1,1])
+	cols[0].write('df.shape')
+	cols[1].write(df.shape[0])
+	cols[2].write(df.shape[1])
+   
+	#usuario 	
 	#st.selectbox("usuarios",lst.usuarios,key='usuario')
 	#st.write(st.session_state['usuario'])
-
 	st.radio("relatorios",['mapas','tabelas','graficos'],key='relatorios')
-
 	st.write('dataframe')
 
-
-
-
-    
+with st.expander("dataframe", expanded=False):
+	st.dataframe(df)    
 
 if st.session_state['relatorios']== 'mapas':
 	st.write('mapas')
