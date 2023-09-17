@@ -17,16 +17,15 @@ hoje['datetime'] = datetime.datetime.now(brazil_tz)
 hoje['data'] = hoje['datetime'].date()
 hoje['hora'] = hoje['datetime'].time()
 
-
-relatorios = ['mapa','tabelas','graficos']
 with st.sidebar:
-    cols = st.columns([1,1])
+	cols = st.columns([1,1])
 	cols[0].text(hoje['data'])
 	cols[1].text(hoje['hora'])
 	
 	st.selectbox("usuarios",lst.usuarios,key='usuario')
-    st.write(st.session_state['usuario'])
-    st.selectbox("relatorios",relatorios,key='relatorio')
+	st.write(st.session_state['usuario'])
+	
+	st.radio("relatorios",['mapa','tabelas','graficos'],key='relatorio')
     
     
 
