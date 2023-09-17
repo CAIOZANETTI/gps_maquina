@@ -49,25 +49,28 @@ if st.session_state['relatorios']== 'filtros':
 	with st.expander("filtrar dataframe", expanded=True):
 
 		#periodo
-		cols = st.columns([1,1,1,1])
-		cols[0].text('periodo disponivel')
-		cols[0].text('jan/2022 -> ago/2022')
-		cols[1].date_input('inicio',datetime.datetime(2022,1,1),key='inicio')
-		cols[2].date_input('fim',datetime.datetime(2022,1,8),key='fim')
+		st.text('disponivel: jan/2022 -> ago/2022')
+		cols = st.columns([1,1])
+		cols[0].date_input('inicio',datetime.datetime(2022,1,1),key='inicio')
+		cols[1].date_input('fim',datetime.datetime(2022,1,8),key='fim')
 
 		#atividade
-		cols = st.columns([1,1,1,1])
 		atividades = df['atividade'].unique()
-		cols[0].text('atividades')
-		cols[1].multiselect('existentes',atividades,key='atividades')
+		st.multiselect('atividades',atividades,key='atividades')
+
+		#dia da semana
+		dias = df['nome_dia'].unique()
+		st.multiselect('dia semana',dias,key='nome_dia')		
 
 		#controle
-		cols[3].text('ativar')
-		cols[3].button('filtros',key='btn_filtrar')
+		cols = st.columns([1,1])
+		cols[0].text('ativar')
+		cols[1].button('filtros',key='btn_filtrar')
 		
 		if st.session_state['btn_filtrar']:
 			df1 = filtros.df_periodo(df,st.session_state['inicio'],st.session_state['fim'])
 			df1 = df1[df['atividade'].isin(st.session_state['atividades'])]
+			df1 = df1[df['nome_dia'].isin(st.session_state['nome_dia'])]
 			
 			st.dataframe(df1)
 			st.write('mapas')
