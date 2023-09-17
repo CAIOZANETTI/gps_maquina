@@ -25,6 +25,7 @@ files = [
 
 # carregar variaveis do json
 dic = extrair.json_to_dic('variaveis.json')
+df_locais = pd.DataFrame(dic['locais'])
 
 try:
 	df = pd.read_parquet(files[0],engine='pyarrow')
@@ -45,7 +46,7 @@ with st.sidebar:
 	st.radio("relatorios",['filtros','calculos','futuro'],key='relatorios')
 
 with st.expander("locais conhecidos", expanded=False):
-	df_locais = pd.DataFrame(dic['locais'])
+	#df_locais = pd.DataFrame(dic['locais'])
 	st.write(df_locais)
 
 with st.expander("df dataframe completo linhas:"+str(df.shape[0]), expanded=False):
