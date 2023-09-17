@@ -38,8 +38,8 @@ with st.sidebar:
 	#df shape
 	cols = st.columns([1,1,1])
 	cols[0].write('df.shape')
-	cols[1].write(df.shape[0])
-	cols[2].write(df.shape[1])
+	cols[1].write('lin: '+str(df.shape[0]))
+	cols[2].write('col: '+str(df.shape[1]))
    
 	#usuario 	
 	#st.selectbox("usuarios",lst.usuarios,key='usuario')
