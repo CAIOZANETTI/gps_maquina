@@ -58,7 +58,7 @@ with st.expander("filtrar dataframe", expanded=True):
 	cols[3].button('filtros',key='btn_filtrar')
 
 	
-	if st.session_state['btn_filtrar_data']:
+	if st.session_state['btn_filtrar']:
 		df1 = filtros.df_periodo(df,st.session_state['inicio'],st.session_state['fim'])
 	
 		with st.expander("**df1** dataframe filtrado linhas:"+str(df.shape[0]), expanded=False):
