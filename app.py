@@ -50,13 +50,11 @@ with st.expander("filtrar dataframe", expanded=False):
 	cols = st.columns([1,1,1])
 	cols[0].text('periodo disponivel')
 	cols[0].text('01/01/2022 a 01/08/2022')
-	cols[1].date_input('inicio',datetime.date(2022,1,1),key='inicio')
-	cols[2].date_input('fim',datetime.date(2022,1,8),key='fim')
+	cols[1].date_input('inicio',datetime.datetime(2022,1,1),key='inicio')
+	cols[2].date_input('fim',datetime.datetime(2022,1,8),key='fim')
 
 	inicio = st.session_state['inicio']
 	st.write(inicio)
-	teste = isinstance(inicio, datetime)
-	st.write(teste)
 	st.write(type(inicio))
 	
 
