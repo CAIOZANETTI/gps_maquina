@@ -53,23 +53,24 @@ with st.expander("filtrar dataframe", expanded=True):
 	cols[1].date_input('inicio',datetime.datetime(2022,1,1),key='inicio')
 	cols[2].date_input('fim',datetime.datetime(2022,1,8),key='fim')
 
+	
 	cols[3].text('ativar')
-	cols[3].button('periodo',key='btn_filtrar_data')
+	cols[3].button('filtros',key='btn_filtrar')
 
-	df1 = df
+	
 	if st.session_state['btn_filtrar_data']:
 		df1 = filtros.df_periodo(df,st.session_state['inicio'],st.session_state['fim'])
 	
-with st.expander("**df1** dataframe filtrado linhas:"+str(df.shape[0]), expanded=False):
-	st.dataframe(df1)
+		with st.expander("**df1** dataframe filtrado linhas:"+str(df.shape[0]), expanded=False):
+			st.dataframe(df1)
 
-if st.session_state['relatorios']== 'mapas':
-	st.write('mapas')
-	df2 = df1[['lat','lon']]
-	st.map(df2)
+		if st.session_state['relatorios']== 'mapas':
+			st.write('mapas')
+			df2 = df1[['lat','lon']]
+			st.map(df2)
 
-if st.session_state['relatorios']== 'tabelas':
-	st.write('tabelas')
+		if st.session_state['relatorios']== 'tabelas':
+			st.write('tabelas')
 
-if st.session_state['relatorios']== 'graficos':
-	st.write('graficos')
+		if st.session_state['relatorios']== 'graficos':
+			st.write('graficos')
