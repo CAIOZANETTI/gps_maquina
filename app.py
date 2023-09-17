@@ -23,6 +23,9 @@ files = [
 	'data/bronze_jcb_relatorio_2022.parquet',
 	]
 
+# carregar variaveis do json
+dic = json_to_dic('variaveis.json')
+
 try:
 	df = pd.read_parquet(files[0],engine='pyarrow')
 except:
@@ -36,11 +39,13 @@ with st.sidebar:
 	cols[0].text(hoje['data'])
 	cols[1].text(hoje['hora'])
 	
-   
-	#usuario 	
+   #usuario 	
 	#st.selectbox("usuarios",lst.usuarios,key='usuario')
 	#st.write(st.session_state['usuario'])
 	st.radio("relatorios",['filtros','calculos','futuro'],key='relatorios')
+
+with st.expander("locais conhecidos", expanded=False):
+	st.write(dic)
 
 with st.expander("df dataframe completo linhas:"+str(df.shape[0]), expanded=False):
 	st.dataframe(df)
