@@ -24,7 +24,7 @@ files = [
 	]
 
 # carregar variaveis do json
-dic = json_to_dic('variaveis.json')
+dic = extrair.json_to_dic('variaveis.json')
 
 try:
 	df = pd.read_parquet(files[0],engine='pyarrow')
