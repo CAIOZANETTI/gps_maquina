@@ -11,12 +11,17 @@ import caminhos
 import funcoes_gps
 
 
+
+
+
+
 brazil_tz = pytz.timezone('America/Sao_Paulo')
 hoje={}
 hoje['datetime'] = datetime.datetime.now(brazil_tz)
 hoje['data'] = hoje['datetime'].date()
 hoje['hora'] = hoje['datetime'].time()
 
+# ler dataframe
 file = 'data/bronze_jcb_relatorio_2022.parquet'
 try:
 	df = pd.read_parquet(file,engine='pyarrow')
