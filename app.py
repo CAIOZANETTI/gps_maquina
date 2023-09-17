@@ -21,7 +21,7 @@ file = 'https://github.com/CAIOZANETTI/produtividade_maquina/blob/main/data/bron
 try:
 	df = pd.read_parquet(file,engine='pyarrow')
 
-except 
+except:
 	df = pd.read_parquet(file,engine='fastparquet')
 
 
