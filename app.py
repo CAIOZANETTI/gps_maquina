@@ -61,6 +61,9 @@ if st.session_state['relatorios']== 'filtros':
 		cols[0].date_input('inicio',datetime.datetime(2022,1,1),key='inicio')
 		cols[1].date_input('fim',datetime.datetime(2022,1,8),key='fim')
 
+		st.date_input('perido',datetime.datetime(2022,1,8),datetime.datetime(2022,1,8),key='inicio_fim')
+		st.write(st.session_state{'inicio_fim'})		
+
 		#atividade
 		atividades = df['atividade'].unique()
 		st.multiselect('atividades',atividades,default=atividades,key='atividades')
