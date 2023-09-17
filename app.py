@@ -26,10 +26,11 @@ files = [
 	'data/silver_jcb_relatorio_2022.parquet',
 	'data/bronze_jcb_relatorio_2022.parquet',
 	]
+
 try:
-	df = pd.read_parquet(file[0],engine='pyarrow')
+	df = pd.read_parquet(files[0],engine='pyarrow')
 except:
-	df = pd.read_parquet(file[0],engine='fastparquet')
+	df = pd.read_parquet(files[0],engine='fastparquet')
 
 
 with st.sidebar:
