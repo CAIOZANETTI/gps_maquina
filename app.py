@@ -32,21 +32,17 @@ except:
 with st.sidebar:
 	#data
 	cols = st.columns([1,1])
+	st.text("pytz.timezone('America/Sao_Paulo')")
 	cols[0].text(hoje['data'])
 	cols[1].text(hoje['hora'])
 	
-	#df shape
-	cols = st.columns([1,1,1])
-	cols[0].write('df')
-	cols[1].write('lin: '+str(df.shape[0]))
-	cols[2].write('col: '+str(df.shape[1]))
    
 	#usuario 	
 	#st.selectbox("usuarios",lst.usuarios,key='usuario')
 	#st.write(st.session_state['usuario'])
 	st.radio("relatorios",['mapas','tabelas','graficos'],key='relatorios')
 
-with st.expander("dataframe completo", expanded=False):
+with st.expander("dataframe completo linhas:"+str(df.shape[0]), expanded=False):
 	st.dataframe(df)
 
 with st.expander("filtrar dataframe", expanded=False):
@@ -56,6 +52,7 @@ with st.expander("filtrar dataframe", expanded=False):
 	cols[0].text('01/01/2022 a 01/08/2022')
 	cols[1].date_input('inicio',datetime.date(2022,1,1),key='inicio')
 	cols[2].date_input('fim',datetime.date(2022,1,8),key='fim')
+
 
 	st.write(st.session_state['inicio'])
 
