@@ -61,8 +61,8 @@ if st.session_state['relatorios']== 'filtros':
 		cols[0].date_input('inicio',datetime.datetime(2022,1,1),key='inicio')
 		cols[1].date_input('fim',datetime.datetime(2022,1,8),key='fim')
 
-		st.date_input('perido',datetime.datetime(2022,1,8),datetime.datetime(2022,1,8),key='inicio_fim')
-		st.write(st.session_state['inicio_fim'])		
+		#st.date_input('perido',datetime.datetime(2022,1,8),datetime.datetime(2022,1,8),key='inicio_fim')
+		#st.write(st.session_state['inicio_fim'])		
 
 		#atividade
 		atividades = df['atividade'].unique()
@@ -78,7 +78,7 @@ if st.session_state['relatorios']== 'filtros':
 		cols[1].button('filtros',key='btn_filtrar')
 		
 		if st.session_state['btn_filtrar']:
-			df1 = filtros.df_periodo(df,st.session_state['inicio'],st.session_state['fim'])
+			df1 = filtros.df_periodo(df,inicio=st.session_state['inicio'],fim=st.session_state['fim'])
 			df1 = df1[df['atividade'].isin(st.session_state['atividades'])]
 			df1 = df1[df['nome_dia'].isin(st.session_state['nome_dia'])]
 			
