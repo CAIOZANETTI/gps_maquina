@@ -92,6 +92,8 @@ if st.session_state['relatorios']== 'filtros':
 
 			st.write(df2)
 			st.write(df_locais)
+			df_map = pd.concat([df2,df_locais],ignore_index=True)
+			st.write(df_map)
 
 			#st.map(df2, latitude='lat',longitude='lon',size='raio',color='cor')
 			#st.map(df_locais, latitude='lat',longitude='lon',size='raio',color='cor')	
