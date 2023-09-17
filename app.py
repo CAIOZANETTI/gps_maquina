@@ -42,33 +42,26 @@ with st.sidebar:
 	#st.write(st.session_state['usuario'])
 	st.radio("relatorios",['mapas','tabelas','graficos'],key='relatorios')
 
-with st.expander("dataframe completo linhas:"+str(df.shape[0]), expanded=False):
+with st.expander("df dataframe completo linhas:"+str(df.shape[0]), expanded=False):
 	st.dataframe(df)
 
-with st.expander("filtrar dataframe", expanded=False):
+with st.expander("filtrar dataframe", expanded=True):
 	
 	cols = st.columns([1,1,1])
 	cols[0].text('periodo disponivel')
 	cols[0].text('01/01/2022 a 01/08/2022')
 	cols[1].date_input('inicio',datetime.datetime(2022,1,1),key='inicio')
 	cols[2].date_input('fim',datetime.datetime(2022,1,8),key='fim')
-
-	inicio = st.session_state['inicio']
-	st.write(inicio)
-	st.write(type(inicio))
-	
-
-
 	df1 = filtros.df_periodo(df,st.session_state['inicio'],st.session_state['fim'])
-
+	
+with st.expander("**df1** dataframe filtrado linhas:"+str(df.shape[0]), expanded=False):
 	st.dataframe(df1)
-
-	#st.dataframe(df)
 
 if st.session_state['relatorios']== 'mapas':
 	st.write('mapas')
-	df2 = df[['lat','lon']]
+	df2 = df1[['lat','lon']]
 	st.map(df2)
+
 if st.session_state['relatorios']== 'tabelas':
 	st.write('tabelas')
 
