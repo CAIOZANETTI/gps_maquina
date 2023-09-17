@@ -22,11 +22,14 @@ hoje['data'] = hoje['datetime'].date()
 hoje['hora'] = hoje['datetime'].time()
 
 # ler dataframe
-file = 'data/bronze_jcb_relatorio_2022.parquet'
+files = [
+	'data/silver_jcb_relatorio_2022.parquet',
+	'data/bronze_jcb_relatorio_2022.parquet',
+	]
 try:
-	df = pd.read_parquet(file,engine='pyarrow')
+	df = pd.read_parquet(file[0],engine='pyarrow')
 except:
-	df = pd.read_parquet(file,engine='fastparquet')
+	df = pd.read_parquet(file[0],engine='fastparquet')
 
 
 with st.sidebar:
