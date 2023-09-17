@@ -25,7 +25,7 @@ with st.sidebar:
 	st.selectbox("usuarios",lst.usuarios,key='usuario')
 	st.write(st.session_state['usuario'])
 
-	st.radio("relatorios",['mapas','tabelas','graficos'],key='relatorio')
+	st.radio("relatorios",['mapas','tabelas','graficos'],key='relatorios')
 
   
     
