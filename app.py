@@ -83,4 +83,4 @@ if st.session_state['relatorios']== 'filtros':
 			st.write('mapas')
 			df2 = df1[['lat','lon']]
 			st.map(df2,size=5)
-			st.map(df_locais)			
+			st.map(df_locais, latitude='lat',longitude='lon',size='raio',color='cor')			
