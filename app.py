@@ -86,5 +86,8 @@ if st.session_state['relatorios']== 'filtros':
 			df2['raio'] = 5
 			st.write(df2)
 
-			st.map(df2)
-			st.map(df_locais, latitude='lat',longitude='lon',size='raio',color='cor')			
+			st.map(df2, latitude='lat',longitude='lon',size='raio',color='cor')
+			st.map(df_locais, latitude='lat',longitude='lon',size='raio',color='cor')	
+
+			df_map = pd.concat([df2,df_locais],ignore_index=True)		
+			st.map(df_map, latitude='lat',longitude='lon',size='raio',color='cor')
