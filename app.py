@@ -18,7 +18,11 @@ hoje['data'] = hoje['datetime'].date()
 hoje['hora'] = hoje['datetime'].time()
 
 file = 'https://github.com/CAIOZANETTI/produtividade_maquina/blob/main/data/bronze_jcb_relatorio_2022.parquet'
-df = pd.read_parquet(file)
+try:
+	df = pd.read_parquet(file,engine='pyarrow')
+
+except 
+	df = pd.read_parquet(file,engine='fastparquet')
 
 
 with st.sidebar:
