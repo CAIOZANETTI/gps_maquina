@@ -49,11 +49,14 @@ with st.expander("filtrar dataframe", expanded=True):
 	
 	cols = st.columns([1,1,1,1])
 	cols[0].text('periodo disponivel')
-	cols[0].text('01/01/2022 a 01/08/2022')
+	cols[0].text('jan/2022 -> ago/2022')
 	cols[1].date_input('inicio',datetime.datetime(2022,1,1),key='inicio')
 	cols[2].date_input('fim',datetime.datetime(2022,1,8),key='fim')
+
+	cols[3].text('ativar')
 	cols[3].button('periodo',key='btn_filtrar_data')
 
+	df1 = df
 	if st.session_state['btn_filtrar_data']:
 		df1 = filtros.df_periodo(df,st.session_state['inicio'],st.session_state['fim'])
 	
