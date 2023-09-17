@@ -82,4 +82,5 @@ if st.session_state['relatorios']== 'filtros':
 			st.dataframe(df1)
 			st.write('mapas')
 			df2 = df1[['lat','lon']]
-			st.map(df2,size=5)			
+			st.map(df2,size=5)
+			st.map(df_locais)			
