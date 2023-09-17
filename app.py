@@ -56,7 +56,8 @@ with st.expander("dataframe", expanded=False):
 
 if st.session_state['relatorios']== 'mapas':
 	st.write('mapas')
-
+	df2 = df[['lat','lon']]
+	st.map(df2)
 if st.session_state['relatorios']== 'tabelas':
 	st.write('tabelas')
 
