@@ -30,14 +30,5 @@
         "usuarios": ["operador", "encarregado", "engenheiro", "almoxarife"],
         "atividades": ["carregar", "escavar", "transportar", "mover", "instalar"],
         "material": ["areia", "solo", "pedra", "brita", "entulho"]
-    },
-
-    "locais" : [
-    {"nome":"cant_1","lat":-26.603245,"lon":-51.097630,"raio":10,"cor":"#ffaa00"},
-    {"nome":"cant_2","lat":-26.600224,"lon":-51.098041,"raio":10,"cor":"#ffaa00"},
-    {"nome":"posto_calmon","lat":-26.599158,"lon":-51.096548,"raio":10,"cor":"#ffaa00"},
-    {"nome":"posto_mite","lat":-26.472965,"lon":-51.140994,"raio":10,"cor":"#ffaa00"},
-    {"nome":"pedreira_denilson","lat":-26.487208,"lon":-51.125129,"raio":10,"cor":"#ffaa00"},
-]
-
+    }
 }
