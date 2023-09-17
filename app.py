@@ -56,11 +56,11 @@ if st.session_state['relatorios']== 'filtros':
 
 		#atividade
 		atividades = df['atividade'].unique()
-		st.multiselect('atividades',atividades,key='atividades')
+		st.multiselect('atividades',atividades,default=atividades[0],key='atividades')
 
 		#dia da semana
 		dias = df['nome_dia'].unique()
-		st.multiselect('dia semana',dias,key='nome_dia')		
+		st.multiselect('dia semana',dias,default=dias[0],key='nome_dia')		
 
 		#controle
 		cols = st.columns([1,1])
