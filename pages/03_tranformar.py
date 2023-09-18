@@ -57,10 +57,10 @@ def url_to_coordenadas(url:str)->list:
 
 
 def df_bronze_to_silver_gps(remover_colunas:list,df)->pd.DataFrame:
-"""
-converter: data, hora e latitude e longitude
-obter colual: hora, nome_dia,lat_lon
-"""
+	"""
+	converter: data, hora e latitude e longitude
+	obter colual: hora, nome_dia,lat_lon
+	"""
 
 	df['data_hora'] = pd.to_datetime(df['data_hora'], format='%m/%d/%Y %H:%M:%S')
 	df['data'] = df['data_hora'].dt.date
