@@ -1,3 +1,3 @@
 import streamlit as st
 
-st.header("extrair")
+st.header("Filtrar")
