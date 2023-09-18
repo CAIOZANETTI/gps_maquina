@@ -100,7 +100,7 @@ with tab3:
 	st.write(shape)
 
 with tab4:
-	st.write(df.columns)
+	st.write(df.dtypes)
 
 with tab5:
 	memory = {}

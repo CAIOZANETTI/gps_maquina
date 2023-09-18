@@ -12,12 +12,13 @@ files = [
 st.selectbox('files',files,key='file')	
 #uploaded_files = st.file_uploader("Choose a CSV file", accept_multiple_files=True)
 
-tab1,tab2,tab3,tab4,tab5 = st.tabs(['dataframe','describe','shape','columns','bytes'])
-
 try:
 	df = pd.read_parquet(st.session_state['file'],engine='pyarrow')
 except:
 	df = pd.read_parquet(st.session_state['file'],engine='fastparquet')
+
+
+tab1,tab2,tab3,tab4,tab5 = st.tabs(['dataframe','describe','shape','columns','bytes'])
 
 with tab1:
 	st.dataframe(df)
@@ -32,7 +33,7 @@ with tab3:
 	st.write(shape)
 
 with tab4:
-	st.write(df.columns)
+	st.write(df.dtypes)
 
 with tab5:
 	memory = {}
