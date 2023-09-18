@@ -27,5 +27,3 @@ def analise_df(df):
 		memory['Mb'] = round(memory['bytes'] / 1048576,2)
 		
 		st.write(memory)
-
-	st.session_state['df'] = df
