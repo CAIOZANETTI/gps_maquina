@@ -3,13 +3,13 @@ import streamlit as st
 
 def analise_df(df):
 
-	tab1,tab2,tab3,tab4,tab5 = st.tabs(['dataframe','describe','shape','columns','bytes'])
+	tab1,tab2,tab3,tab4,tab5 = st.tabs(['1-dtypes','2-dataframe','3-shape','4-describe','5-bytes'])
 
 	with tab1:
-		st.dataframe(df)
+		st.write(df.dtypes)
 
 	with tab2:
-		st.write(df.describe())
+		st.dataframe(df)
 
 	with tab3:
 		shape = {}
@@ -18,7 +18,7 @@ def analise_df(df):
 		st.write(shape)
 
 	with tab4:
-		st.write(df.dtypes)
+		st.write(df.describe())
 
 	with tab5:
 		memory = {}
