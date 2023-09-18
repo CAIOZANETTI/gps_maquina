@@ -1,5 +1,6 @@
 import streamlit as st
 import pandas as pd
+import fx_streamlit as fx_streamlit
 
 st.header("escolher arquivo formato parquet para primeira extração BRONZE")
 
@@ -44,3 +45,5 @@ with tab5:
 	st.write(memory)
 
 st.session_state['df'] = df
+
+fx_streamlit.analise_df(df)
