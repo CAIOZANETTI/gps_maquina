@@ -35,7 +35,6 @@ def haversine_distance(lat1:float, lon1:float, lat2:float, lon2:float)->float:
 	
 	return distance
 
-
 def url_to_coordenadas(url:str)->list:
 	""" 
 	url_to_coordenadas: 
