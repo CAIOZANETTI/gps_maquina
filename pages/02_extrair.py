@@ -32,7 +32,10 @@ with tab4:
 	st.write(df.columns)
 
 with tab5:
-	memory_bytes = df.memory_usage(deep=True).sum()
-	memory_kb = round(memory_bytes / 1024,2)
-	st.write(memory_bytes)
-	st.write(memory_kb)
+	memory = {}
+	memory['bytes'] = df.memory_usage(deep=True).sum()
+	memory['Kb'] = round(memory['bytes'] / 1024,2)
+	memory['Mb'] = round(memory['bytes'] / 1048576,2)
+	
+	st.write(memory)
+	
