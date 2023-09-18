@@ -1,4 +1,5 @@
 import streamlit as st
+import pandas as pd
 import math
 
 def haversine_distance(lat1:float, lon1:float, lat2:float, lon2:float)->float:
@@ -54,7 +55,6 @@ def url_to_coordenadas(url:str)->list:
 		lst_out = [float(num) for num in lst_out]
 
 	return lst_out
-
 
 def df_bronze_to_silver_gps(remover_colunas:list,df)->pd.DataFrame:
 	"""
