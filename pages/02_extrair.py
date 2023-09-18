@@ -5,7 +5,7 @@ st.header("escolher arquivo formato parquet para primeira extração BRONZE")
 
 files = [
 	#'data/silver_jcb_relatorio_2022.parquet',
-	'data/bronze_jcb_relatorio_2022.parquet',
+	'pages/data/bronze_jcb_relatorio_2022.parquet',
 	]
 
 st.selectbox('files',files,key='file')	
