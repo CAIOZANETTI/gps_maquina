@@ -12,7 +12,7 @@ files = [
 st.selectbox('files',files,key='file')	
 #uploaded_files = st.file_uploader("Choose a CSV file", accept_multiple_files=True)
 
-tab1,tab2,ta3 = st.tabs(['dataframe','describe','size'])
+tab1,tab2,tab3,tab4,tab5 = st.tabs(['dataframe','describe','shape','columns','bytes'])
 
 try:
 	df = pd.read_parquet(st.session_state['file'],engine='pyarrow')
@@ -27,3 +27,12 @@ with tab2:
 
 with tab3:
 	st.write(df.shape)
+
+with tab4:
+	st.write(df.columns)
+
+with tab5:
+	memory_bytes = df.memory_usage(deep=True).sum()
+	memory_kb = round(memory_bytes / 1024,2)
+	st.write(memory_bytes)
+	st.write(memory_kb)
