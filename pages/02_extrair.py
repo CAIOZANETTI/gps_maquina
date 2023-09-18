@@ -1,4 +1,5 @@
 import streamlit as st
+import pandas as pd
 
 st.header("escolher arquivo formato parquet para primeira extração BRONZE")
 
