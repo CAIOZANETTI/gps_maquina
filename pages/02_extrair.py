@@ -19,5 +19,4 @@ except:
 
 
 fx_streamlit.analise_df(df)
-
 st.session_state['df'] = df
