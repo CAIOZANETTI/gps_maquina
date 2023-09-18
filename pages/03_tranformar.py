@@ -2,6 +2,8 @@ import streamlit as st
 import pandas as pd
 import math
 
+import fx_streamlit as fx_streamlit
+
 def haversine_distance(lat1:float, lon1:float, lat2:float, lon2:float)->float:
     # Example usage
 	"""
