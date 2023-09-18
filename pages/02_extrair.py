@@ -11,7 +11,18 @@ files = [
 st.selectbox('files',files,key='file')	
 #uploaded_files = st.file_uploader("Choose a CSV file", accept_multiple_files=True)
 
+tab1,tab2,ta3 = st.tabs(['dataframe','describe','size'])
+
 try:
 	df = pd.read_parquet(st.session_state['file'],engine='pyarrow')
 except:
 	df = pd.read_parquet(st.session_state['file'],engine='fastparquet')
+
+with tab1:
+	st.dataframe(df)
+
+with tab2:
+	st.write(df.describe())
+
+with tab3:
+	st.write(df.shape)
