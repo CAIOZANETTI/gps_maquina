@@ -8,7 +8,7 @@ files = [
 	'data/bronze_jcb_relatorio_2022.parquet',
 	]
 
-st.select('files',files,key='file')	
+st.selectbox('files',files,key='file')	
 #uploaded_files = st.file_uploader("Choose a CSV file", accept_multiple_files=True)
 
 try:
