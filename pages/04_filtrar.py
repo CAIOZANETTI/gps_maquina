@@ -13,8 +13,10 @@ with tab1:
 
 	dias = st.session_state['fim'] - st.session_state['inicio']
 	dias = dias.days
-
-	st.write(dias)
+	if dias>0:
+		st.write('Periodo: '+str(dias)+'dias')
+	elif dias<0:
+		st.write('NEGATIVO REVISAR '+str(dias)+'dias')
 
 with tab2:
 	st.write('atividades')
