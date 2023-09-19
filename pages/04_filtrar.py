@@ -48,10 +48,19 @@ with tab2:
 	st.write('atividades principais')
 
 with tab3:
-	st.write('todas atividades')
+	atividades = df2['atividade'].unique()
+	st.multiselect('atividades',atividades,default=atividades,key='atividades')
+	st.button('filtrar_atividades',key='filtrar_atividades',type='primary')
+	
+	df2 = df2
+	if st.session_state['filtrar_datas']==True:
+		df2 = df2[df2['atividade'].isin(st.session_state['atividades'])]
 
 with tab4:
 	st.write('dia da semana')
+
+
+fx_streamlit.analise_df(df2,'silver filtrado')
 
 st.divider()
 st.subheader("Filtro Aplicado Dataframe")
