@@ -15,13 +15,6 @@ Os dados foram obtidos através de relatório emitido por uma retroescavadeira j
 2. **Permitir visualização se houve desvios de operação** Através do mapeamento do gps mostrar quando houve serviços ocorridos fora da atividade principal
 
 3. **Aferir a quantidade e qualidade de registros obtidos** o fluxo de informação enviado pela máquina 
-3.1 Quantidade de sinal gerado no dia
-3.2 quantidade de sinal emitido por hora
-Qualidade as condições devem ser verdadeira
-
-3.3 Quantidade a chave liga = motor ligado
-3.4 Quantidade a chave desliga= motor desligado 
-3.2 Quant
 
 4. **Entimento das Atividades** Como as atividades registradas podem ser utilizadas, identificar e filtrar as **atividades principais** 
 
@@ -33,7 +26,15 @@ Este projeto demostra mostra aplicação a engenharia de dados para automatizar 
 
 - **Extrair Dados** de GPS: O sistema lê arquivos CSV ou gsheet contendo coordenadas GPS de equipamentos em campo. Esses dados são essenciais para rastrear a localização e movimento dos equipamentos ao longo do tempo.
 
-- **Entendimento Dataframe** A compreender as informações dos dados identificar quais informações são relevantes, como elas estão distribuídas, qual a relação entre demais variáveis como o tempo (hora, dia, mês) ou coordenadas lat+lon 
+- **Entendimento Dataframe** A compreender as informações dos dados identificar quais informações são relevantes, como elas estão distribuídas, qual a relação entre demais variáveis como o tempo (hora, dia, mês) ou coordenadas lat+lon.
+
+3.1 Quantidade de sinal gerado no dia
+3.2 quantidade de sinal emitido por hora
+
+Qualidade as condições devem ser verdadeira
+3.3 Quantidade a chave liga = motor ligado
+3.4 Quantidade a chave desliga= motor desligado 
+
 
 - **Normalizar Dados** de tempo data e hora, como de local as coordenadas,
 
