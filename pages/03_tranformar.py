@@ -70,7 +70,7 @@ def df_bronze_to_silver_gps(remover_colunas:list,df)->pd.DataFrame:
 	df['lat_lon'] = df['lat'].astype(str) + '|' + df['lon'].astype(str)
 
 	#converter colunas em string
-	df.astype({'nome_dia': 'string','lat_lon':'string','atividade':'string'})
+	df.astype({'nome_dia': str,'lat_lon':'string','atividade':'string'})
 	
 	#remover colunas
 	for coluna in remover_colunas:
