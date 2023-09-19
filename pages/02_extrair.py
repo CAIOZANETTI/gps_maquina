@@ -17,6 +17,6 @@ try:
 except:
 	df = pd.read_parquet(st.session_state['file'],engine='fastparquet')
 
-fx_streamlit.analise_df(df)
+fx_streamlit.analise_df(df,'bronze ....')
 
 st.session_state['df'] = df

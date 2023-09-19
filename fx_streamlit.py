@@ -1,6 +1,8 @@
 import streamlit as st
 
-def analise_df(df):
+def analise_df(df,nome):
+
+	st.subheader(nome)
 
 	tab1,tab2,tab3,tab4,tab5 = st.tabs(['1-dtypes','2-dataframe','3-shape','4-describe','5-bytes'])
 
