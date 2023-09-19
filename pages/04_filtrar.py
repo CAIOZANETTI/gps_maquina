@@ -27,9 +27,8 @@ with tab3:
 with tab4:
 	st.write('dia da semana')
 
-
+st.divider()
 st.subheader("Filtro Aplicado Dataframe")
-
 tab1,tab2,tab3 = st.tabs(['dataframe','mapa','dias'])
 
 with tab1:
