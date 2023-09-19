@@ -27,7 +27,6 @@ with tab1:
 	dias = st.session_state['fim'] - st.session_state['inicio']
 	dias = dias.days
 
-
 	if dias>0:
 		cols = st.columns([1,1])
 		cols[0].write('Periodo: '+str(dias)+' dias')
@@ -36,30 +35,23 @@ with tab1:
 	elif dias<0:
 		cols[0].write('NEGATIVO REVISAR '+str(dias)+' dias')
 		desativo=True
-	
-	cols[1].button('filtrar_datas',key='filtrar_datas',disabled=desativo,type='primary')
-
-	df2 = df1
-	if st.session_state['filtrar_datas']==True:
-		df2 = df_filtrar_datas(df1,
-			inicio=st.session_state['inicio'],
-			fim = st.session_state['fim'])
 
 with tab2:
 	st.write('atividades principais')
 
 with tab3:
 	atividades = df2['atividade'].unique()
-	st.multiselect('atividades',atividades,default=atividades,key='atividades')
-	st.button('filtrar_atividades',key='filtrar_atividades',type='primary')
-	
-	df2 = df2
-	if st.session_state['filtrar_datas']==True:
-		df2 = df2[df2['atividade'].isin(st.session_state['atividades'])]
+	st.multiselect('atividades',atividades,default=atividades,key='atividades')	
 
 with tab4:
 	st.write('dia da semana')
 
+st.button('filtrar_df',key='filtrar_df',disabled=desativo,type='primary')
+
+df2 = df1
+if st.session_state['filtrar_df']==True:
+	df2 = df_filtrar_datas(df2,inicio=st.session_state['inicio'],fim = st.session_state['fim'])
+	df2 = df2[df2['atividade'].isin(st.session_state['atividades'])]
 
 fx_streamlit.analise_df(df2,'silver filtrado')
 
