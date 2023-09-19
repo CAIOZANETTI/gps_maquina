@@ -13,7 +13,8 @@ def analise_df(df,nome):
 		st.dataframe(df)
 
 	with tab3:
-		st.table(df)
+		st.write('st.table esta ficando lento')
+		#st.table(df)
 
 	with tab4:
 		shape = {}

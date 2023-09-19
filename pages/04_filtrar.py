@@ -3,7 +3,6 @@ import streamlit as st
 
 st.header("Filtrar")
 
-
 tab1,tab2,tab3 = st.tabs(['1-periodo','2-atividades','3-dia da semana'])
 
 with tab1:
