@@ -46,7 +46,7 @@ with tab3:
 with tab4:
 	st.write('dia da semana')
 
-st.button('filtrar_dataframe',key='filtrar_df',disabled=desativo,type='primary')
+st.button('filtrar dataframe',key='filtrar_dataframe',disabled=desativo,type='primary')
 df2 = df1
 if st.session_state['filtrar_dataframe']==True:
 	df2 = df_filtrar_datas(df2,inicio=st.session_state['inicio'],fim = st.session_state['fim'])
