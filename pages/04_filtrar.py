@@ -46,10 +46,9 @@ with tab3:
 with tab4:
 	st.write('dia da semana')
 
-st.button('filtrar_df',key='filtrar_df',disabled=desativo,type='primary')
-
+st.button('filtrar_dataframe',key='filtrar_df',disabled=desativo,type='primary')
 df2 = df1
-if st.session_state['filtrar_df']==True:
+if st.session_state['filtrar_dataframe']==True:
 	df2 = df_filtrar_datas(df2,inicio=st.session_state['inicio'],fim = st.session_state['fim'])
 	df2 = df2[df2['atividade'].isin(st.session_state['atividades'])]
 
