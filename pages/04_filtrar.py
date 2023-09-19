@@ -11,6 +11,11 @@ with tab1:
 	st.date_input('inicio',datetime.datetime(2022,1,1),key='inicio')
 	st.date_input('fim',datetime.datetime(2022,1,8),key='fim')
 
+	dias = st.session_state['fim'] - st.session_state['inicio']
+	dias = dias.days
+
+	st.write(dias)
+
 with tab2:
 	st.write('atividades')
 
