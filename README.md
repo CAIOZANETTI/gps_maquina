@@ -14,7 +14,7 @@ Os dados foram obtidos através de relatório emitido por uma retroescavadeira j
 
 2. **Permitir visualização se houve desvios de operação** Através do mapeamento do gps mostrar quando houve serviços ocorridos fora da atividade principal
 
-3. **Aferir a quantidade e qualidade de registros emitidos* o fluxo de informação enviado pela máquina 
+3. **Aferir a quantidade e qualidade de registros emitidos** o fluxo de informação enviado pela máquina 
 3.1 Quantidade de sinal gerado no dia
 3.2 quantidade de sinal emitido por hora
 Qualidade as condições devem ser verdadeira
@@ -23,7 +23,7 @@ Qualidade as condições devem ser verdadeira
 3.4 Quantidade a chave desliga= motor desligado 
 3.2 Quant
 
-4. ** Entimento das Atividades** Como as atividades registradas podem ser utilizadas, identificar e filtrar as ** atividades principais** 
+4. **Entimento das Atividades** Como as atividades registradas podem ser utilizadas, identificar e filtrar as **atividades principais** 
 
 ## Visão Geral
 
