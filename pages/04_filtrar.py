@@ -40,7 +40,7 @@ with tab2:
 	st.write('atividades principais')
 
 with tab3:
-	atividades = df2['atividade'].unique()
+	atividades = df1['atividade'].unique()
 	st.multiselect('atividades',atividades,default=atividades,key='atividades')	
 
 with tab4:
