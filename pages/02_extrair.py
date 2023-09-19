@@ -20,3 +20,4 @@ except:
 fx_streamlit.analise_df(df,'bronze ....')
 
 st.session_state['df'] = df
+st.write('teste')
