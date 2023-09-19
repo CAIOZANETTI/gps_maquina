@@ -10,6 +10,10 @@ def df_filtrar_datas(df:pd.DataFrame,inicio,fim)->pd.DataFrame:
 	return df1
 
 st.subheader("Filtrar")
+if 'df1' not in st.session_state:
+	df1 = pd.DataFrame()
+	st.write('df1 esta vazio!!! voltar e transformar')
+
 df1 = st.session_state['df1']
 tab1,tab2,tab3,tab4 = st.tabs(['periodo','atividades principais','todas atividades','3-dia da semana'])
 
@@ -25,11 +29,14 @@ with tab1:
 
 	if dias>0:
 		cols = st.columns([1,1])
-		st.write('Periodo: '+str(dias)+' dias')
-		st.button('filtrar_datas',key=filtrar_datas)
+		cols[0].write('Periodo: '+str(dias)+' dias')
+		desativo=False
 
 	elif dias<0:
-		st.write('NEGATIVO REVISAR '+str(dias)+' dias')
+		cols[1].write('NEGATIVO REVISAR '+str(dias)+' dias')
+		desativo=True
+	
+	st.button('filtrar_datas',key=filtrar_datas,disabled=desativo,type='primary')
 
 	df2 = df1
 	if st.session_state['filtrar_datas']==True:
