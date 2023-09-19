@@ -84,6 +84,5 @@ df = st.session_state['df']
 remover_colunas = ['id','hyperlink','maps_google_url']
 df = df_bronze_to_silver_gps(df=df,remover_colunas=remover_colunas)
 
-st.header("Tranformar - Silver")
 fx_streamlit.analise_df(df,'silver....')
 st.session_state['df1'] = df
