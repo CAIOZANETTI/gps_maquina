@@ -78,9 +78,14 @@ def df_bronze_to_silver_gps(remover_colunas:list,df)->pd.DataFrame:
 			df = df.drop(coluna,axis=1)
 	return df
 
-df = st.session_state['df']
-remover_colunas = ['id','hyperlink','maps_google_url']
-df1 = df_bronze_to_silver_gps(df=df,remover_colunas=remover_colunas)
+
+if 'df' not in st.session_state:
+
+	df1 = pd.read_parquet('data/silver_jcb_relatorio_2022.parquet',engine='pyarrow')
+else:
+	df = st.session_state['df']
+	remover_colunas = ['id','hyperlink','maps_google_url']
+	df1 = df_bronze_to_silver_gps(df=df,remover_colunas=remover_colunas)
 
 fx_streamlit.analise_df(df1,'silver....')
 st.session_state['df1'] = df1
