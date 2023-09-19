@@ -33,7 +33,6 @@ def haversine_distance(lat1:float, lon1:float, lat2:float, lon2:float)->float:
 	a = math.sin(dlat / 2) ** 2 + math.cos(lat1) * math.cos(lat2) * math.sin(dlon / 2) ** 2
 	c = 2 * math.atan2(math.sqrt(a), math.sqrt(1 - a))
 	distance = round(earth_radius * c,0)
-
 	
 	return distance
 
@@ -82,7 +81,7 @@ def df_bronze_to_silver_gps(remover_colunas:list,df)->pd.DataFrame:
 
 df = st.session_state['df']
 remover_colunas = ['id','hyperlink','maps_google_url']
-df = df_bronze_to_silver_gps(df=df,remover_colunas=remover_colunas)
+df1 = df_bronze_to_silver_gps(df=df,remover_colunas=remover_colunas)
 
-fx_streamlit.analise_df(df,'silver....')
-st.session_state['df1'] = df
+fx_streamlit.analise_df(df1,'silver....')
+st.session_state['df1'] = df1
