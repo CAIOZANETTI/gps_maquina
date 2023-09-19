@@ -3,6 +3,7 @@ import streamlit as st
 import pandas as pd
 #from datetime import datetime
 
+import fx_streamlit as fx_streamlit
 
 def df_filtrar_datas(df:pd.DataFrame,inicio,fim)->pd.DataFrame:
 	df['data'] = df['data_hora'].dt.date
