@@ -36,7 +36,7 @@ with tab1:
 		cols[1].write('NEGATIVO REVISAR '+str(dias)+' dias')
 		desativo=True
 	
-	st.button('filtrar_datas',key=filtrar_datas,disabled=desativo,type='primary')
+	st.button('filtrar_datas',key='filtrar_datas',disabled=desativo,type='primary')
 
 	df2 = df1
 	if st.session_state['filtrar_datas']==True:
