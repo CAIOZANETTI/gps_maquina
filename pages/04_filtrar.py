@@ -1,7 +1,7 @@
 import datetime
 import streamlit as st
 
-st.header("Filtrar")
+st.subheader("Filtrar")
 
 tab1,tab2,tab3 = st.tabs(['periodo','atividades principais','todas atividades','3-dia da semana'])
 
@@ -26,5 +26,16 @@ with tab3:
 with tab4:
 	st.write('dia da semana')
 
-with st.expander("Dataframe", expanded=True):
-	st.write('dataframe')
+
+st.subheader("Filtro Aplicado Dataframe")
+
+tab1,tab2,tab3 = st.tabs(['dataframe','mapa','dias'])
+
+with tab1:
+	st.write('atividades principais')
+
+with tab2:
+	st.write('todas atividades')
+
+with tab3:
+	st.write('todas atividades')
