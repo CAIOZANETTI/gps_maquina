@@ -3,7 +3,7 @@ import streamlit as st
 
 st.subheader("Filtrar")
 
-tab1,tab2,tab3 = st.tabs(['periodo','atividades principais','todas atividades','3-dia da semana'])
+tab1,tab2,tab3,tab4 = st.tabs(['periodo','atividades principais','todas atividades','3-dia da semana'])
 
 with tab1:
 	st.text('disponivel: jan/2022 -> ago/2022')
