@@ -3,7 +3,7 @@ import streamlit as st
 
 st.header("Filtrar")
 
-tab1,tab2,tab3 = st.tabs(['1-periodo','2-atividades','3-dia da semana'])
+tab1,tab2,tab3 = st.tabs(['periodo','atividades principais','todas atividades','3-dia da semana'])
 
 with tab1:
 	st.text('disponivel: jan/2022 -> ago/2022')
@@ -18,7 +18,13 @@ with tab1:
 		st.write('NEGATIVO REVISAR '+str(dias)+' dias')
 
 with tab2:
-	st.write('atividades')
+	st.write('atividades principais')
 
 with tab3:
+	st.write('todas atividades')
+
+with tab4:
 	st.write('dia da semana')
+
+with st.expander("Dataframe", expanded=True):
+	st.write('dataframe')
