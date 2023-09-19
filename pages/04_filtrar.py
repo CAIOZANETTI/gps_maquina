@@ -7,8 +7,9 @@ tab1,tab2,tab3,tab4 = st.tabs(['periodo','atividades principais','todas atividad
 
 with tab1:
 	st.text('disponivel: jan/2022 -> ago/2022')
-	st.date_input('inicio',datetime.datetime(2022,1,1),key='inicio')
-	st.date_input('fim',datetime.datetime(2022,1,8),key='fim')
+	cols = st.columns([1,1])
+	cols[0].date_input('inicio',datetime.datetime(2022,1,1),key='inicio')
+	cols[1].date_input('fim',datetime.datetime(2022,1,8),key='fim')
 
 	dias = st.session_state['fim'] - st.session_state['inicio']
 	dias = dias.days
