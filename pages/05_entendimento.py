@@ -43,7 +43,7 @@ st.dataframe(df1)
 
 df2 = df1['atividade'].value_counts()
 st.dataframe(df2)
-
+st.write(df.describe())
 
 st.data_editor(
     df2,
