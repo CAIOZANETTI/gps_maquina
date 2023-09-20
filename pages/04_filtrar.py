@@ -16,9 +16,9 @@ if 'df1' not in st.session_state:
 	st.write('df1 esta vazio!!! voltar e transformar')
 
 df1 = st.session_state['df1']
-tab1,tab2,tab3,tab4 = st.tabs(['periodo','atividades','dia da semana'])
+tab1,tab2,tab3 = st.tabs(['periodo','atividades','dia da semana'])
 
-with tab1:
+with tab1: #periodo
 	st.text('disponivel: jan/2022 -> ago/2022')
 	cols = st.columns([1,1])
 	cols[0].date_input('inicio',datetime.datetime(2022,1,1),key='inicio')
@@ -36,14 +36,11 @@ with tab1:
 		cols[0].write('NEGATIVO REVISAR '+str(dias)+' dias')
 		desativo=True
 
-with tab2:
-	st.write('atividades principais')
-
-with tab3:
+with tab2: #atividades
 	atividades = df1['atividade'].unique()
 	st.multiselect('atividades',atividades,default=atividades,key='atividades')	
 
-with tab4:
+with tab3: #dia da semana
 	dias = df['nome_dia'].unique()
 	st.multiselect('dia semana',dias,default=dias,key='nome_dia')
 	
