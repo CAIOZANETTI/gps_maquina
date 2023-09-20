@@ -2,7 +2,7 @@ import streamlit as st
 
 def analise_df(df,nome):
 
-	st.write('dataframe **info** : '+nome)
+	st.write('**info** dataframe : '+nome)
 
 	tab1,tab2,tab3,tab4,tab5,tab6 = st.tabs(['dtypes','dataframe','table','shape','describe','bytes'])
 

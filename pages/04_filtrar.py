@@ -16,7 +16,7 @@ if 'df1' not in st.session_state:
 	st.write('df1 esta vazio!!! voltar e transformar')
 
 df1 = st.session_state['df1']
-tab1,tab2,tab3,tab4 = st.tabs(['periodo','atividades principais','todas atividades','3-dia da semana'])
+tab1,tab2,tab3,tab4 = st.tabs(['periodo','atividades','dia da semana'])
 
 with tab1:
 	st.text('disponivel: jan/2022 -> ago/2022')
@@ -44,13 +44,16 @@ with tab3:
 	st.multiselect('atividades',atividades,default=atividades,key='atividades')	
 
 with tab4:
-	st.write('dia da semana')
+	dias = df['nome_dia'].unique()
+	st.multiselect('dia semana',dias,default=dias,key='nome_dia')
+	
 
 st.button('filtrar dataframe',key='filtrar_dataframe',disabled=desativo,type='primary')
 df2 = df1
 if st.session_state['filtrar_dataframe']==True:
 	df2 = df_filtrar_datas(df2,inicio=st.session_state['inicio'],fim = st.session_state['fim'])
 	df2 = df2[df2['atividade'].isin(st.session_state['atividades'])]
+	df2 = df2[df2['nome_dia'].isin(st.session_state['nome_dia'])]
 
 fx_streamlit.analise_df(df2,'silver filtrado')
 
