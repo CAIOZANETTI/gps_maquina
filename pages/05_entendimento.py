@@ -41,19 +41,22 @@ st.data_editor(
 
 st.dataframe(df1)
 
-df2 = df1['atividade'].value_counts()
+df2 = df1['atividade'].value_counts().reset_index()
+df2.columns = ['atividade','qtd']
+
 st.dataframe(df2)
+
 st.write(df2.describe())
 
 st.data_editor(
     df2,
     column_config={
-        "count": st.column_config.ProgressColumn(
+        "qtd": st.column_config.ProgressColumn(
             "quantity",
             help="ocorrencia atividade",
             format="%.f",
-            min_value=df2.min(),
-            max_value=df2.max(),
+            min_value=df2['qtd'].min(),
+            max_value=df2['qtd'].max(),
         ),
     },
     hide_index=True,
