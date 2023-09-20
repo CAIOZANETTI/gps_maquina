@@ -51,6 +51,7 @@ if st.session_state['filtrar_dataframe']==True:
 	df2 = df_filtrar_datas(df2,inicio=st.session_state['inicio'],fim = st.session_state['fim'])
 	df2 = df2[df2['atividade'].isin(st.session_state['atividades'])]
 	df2 = df2[df2['nome_dia'].isin(st.session_state['nome_dia'])]
+	df_map = df2[['lat','lon']]
 
 fx_streamlit.analise_df(df2,'silver filtrado')
 
@@ -70,6 +71,6 @@ with tab2:#mapa
 with tab3:#grafico
 	st.write('ocorrencias')
 
-
+#todo: filtro gps_ativo
 st.subheader("Cronologia, linha do tempo...")
 st.subheader("Relação entre variaveis")
