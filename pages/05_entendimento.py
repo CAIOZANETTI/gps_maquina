@@ -54,7 +54,7 @@ st.data_editor(
         "qtd": st.column_config.ProgressColumn(
             "quantity",
             help="ocorrencia atividade",
-            format="%.f",
+            format="%f",
             min_value=0,
             max_value=12000,
         ),
