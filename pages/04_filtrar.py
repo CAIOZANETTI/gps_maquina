@@ -63,10 +63,10 @@ with tab1:#dataframe
 	st.dataframe(df2)
 
 with tab2:#mapa
-	df_map = df2[['lat','lon']]
+	#df_map = df2[['lat','lon']]
 	#df_map['cor'] = "#001eff"
 	#df_map['raio'] = 5
-	st.map(df_map, latitude='lat',longitude='lon')#,size='raio',color='cor')
+	st.map(df2[['lat','lon']], latitude='lat',longitude='lon')#,size='raio',color='cor')
 
 with tab3:#grafico
 	st.write('ocorrencias')
