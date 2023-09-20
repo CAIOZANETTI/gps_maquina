@@ -19,25 +19,6 @@ if 'df1' not in st.session_state:
 
 df1 = st.session_state['df1']
 
-data_df = pd.DataFrame(
-    {
-        "sales": [200, 550, 1000, 80],
-    }
-)
-
-st.data_editor(
-    data_df,
-    column_config={
-        "sales": st.column_config.ProgressColumn(
-            "Sales volume",
-            help="The sales volume in USD",
-            format="$%f",
-            min_value=0,
-            max_value=1000,
-        ),
-    },
-    hide_index=True,
-)
 
 st.dataframe(df1.head(2))
 
@@ -53,8 +34,6 @@ qtd_max = int(round(df2['qtd'].max(),0))
 st.dataframe(df2.head(2))
 
 #st.write(df2.describe())
-
-
 
 
 st.data_editor(
