@@ -49,7 +49,8 @@ with tab1: #periodo
 with tab2: #periodo
 
 	st.write('atividades vs horas')
-	df3 = df1.groupby(['atividade', 'hora']).size().reset_index(name='count')
+	df3 = df1.pivot_table(index='atividade', columns='horas', aggfunc='size', fill_value=0)
+	
 	st.write(df3)
 
 
