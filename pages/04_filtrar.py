@@ -63,9 +63,9 @@ with tab1:#dataframe
 
 with tab2:#mapa
 	df_map = df2[['lat','lon']]
-	df_map['cor'] = "#001eff"
-	df_map['raio'] = 5
-	st.map(df_map, latitude='lat',longitude='lon',size='raio',color='cor')
+	#df_map['cor'] = "#001eff"
+	#df_map['raio'] = 5
+	st.map(df_map, latitude='lat',longitude='lon')#,size='raio',color='cor')
 
 with tab3:#grafico
 	st.write('ocorrencias')
