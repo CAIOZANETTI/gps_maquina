@@ -39,12 +39,12 @@ st.data_editor(
     hide_index=True,
 )
 
-st.dataframe(df1)
+st.dataframe(df1.head(2))
 
 df2 = df1['atividade'].value_counts().reset_index()
 df2.columns = ['atividade','qtd']
 
-st.dataframe(df2)
+st.dataframe(df2.head(2))
 
 st.write(df2.describe())
 
