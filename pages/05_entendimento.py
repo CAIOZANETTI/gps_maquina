@@ -43,8 +43,8 @@ st.dataframe(df1.head(2))
 
 df2 = df1['atividade'].value_counts().reset_index()
 df2.columns = ['atividade','qtd']
-qtd_max = df2['qtd'].max()
-qtd_min = df2['qtd'].min()
+qtd_max = round(df2['qtd'].max(),0)
+qtd_min = round(df2['qtd'].min(),0)
 
 
 
