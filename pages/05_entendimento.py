@@ -42,6 +42,7 @@ st.data_editor(
 st.dataframe(df1)
 
 df2 = df1['atividade'].value_counts()
+st.dataframe(df2)
 
 st.data_editor(
     df2,
@@ -49,7 +50,7 @@ st.data_editor(
         "count": st.column_config.ProgressColumn(
             "quantity",
             help="ocorrencia atividade",
-            format="$%f",
+            format="%.f",
             min_value=df2['count'].min(),
             max_value=df2['count'].max(),
         ),
@@ -59,4 +60,3 @@ st.data_editor(
 
 
 
-st.dataframe(df2)
