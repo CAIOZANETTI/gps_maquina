@@ -47,7 +47,11 @@ with tab1: #periodo
 
 
 with tab2: #periodo
+
 	st.write('atividades vs horas')
+	df3 = df2.groupby(['atividade', 'horas']).size().reset_index(name='count')
+	st.write(df3)
+
 
 with tab3: #periodo
 	st.write(' atividades vs dia da semana')
