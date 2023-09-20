@@ -39,7 +39,7 @@ st.data_editor(
     hide_index=True,
 )
 
-
+st.dataframe(df1)
 
 df2 = df1['atividade'].count()
 
