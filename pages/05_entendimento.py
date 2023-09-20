@@ -63,9 +63,9 @@ st.data_editor(
         "qtd": st.column_config.ProgressColumn(
             "quantity",
             width='large',
-            format='%.2f',
-            min_value=qtd_min,
-            max_value=qtd_max,
+            format='%f',
+            #min_value=qtd_min,
+            #max_value=qtd_max,
         ),
     },
     hide_index=True,
