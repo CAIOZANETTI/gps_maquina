@@ -42,7 +42,8 @@ st.data_editor(
 st.dataframe(df1)
 
 df2 = df1['atividade'].value_counts()
-st.dataframe(df2['count'])
+st.dataframe(df2)
+
 
 st.data_editor(
     df2,
@@ -51,8 +52,8 @@ st.data_editor(
             "quantity",
             help="ocorrencia atividade",
             format="%.f",
-            min_value=df2['count'].min(),
-            max_value=df2['count'].max(),
+            min_value=df2.min(),
+            max_value=df2.max(),
         ),
     },
     hide_index=True,
