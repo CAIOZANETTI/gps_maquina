@@ -47,20 +47,23 @@ qtd_min = int(round(df2['qtd'].min(),0))
 qtd_max = int(round(df2['qtd'].max(),0))
 
 
-st.write(qtd_min,type(qtd_min))
+#st.write(qtd_min,type(qtd_min))
 
 
 st.dataframe(df2.head(2))
 
-st.write(df2.describe())
+#st.write(df2.describe())
+
+
+
 
 st.data_editor(
     df2,
     column_config={
         "qtd": st.column_config.ProgressColumn(
             "quantity",
-            help="ocorrencia atividade",
-            format="%d",
+            width='large',
+            
             min_value=qtd_min,
             max_value=qtd_max,
         ),
