@@ -43,6 +43,10 @@ st.dataframe(df1.head(2))
 
 df2 = df1['atividade'].value_counts().reset_index()
 df2.columns = ['atividade','qtd']
+qtd_max = df2['qtd'].max()
+qtd_min = df2['qtd'].min()
+
+
 
 st.dataframe(df2.head(2))
 
@@ -55,8 +59,8 @@ st.data_editor(
             "quantity",
             help="ocorrencia atividade",
             format="%f",
-            min_value=0,
-            max_value=12000,
+            min_value=qtd_min,
+            max_value=qtd_max,
         ),
     },
     hide_index=True,
