@@ -41,7 +41,7 @@ with tab2: #atividades
 	st.multiselect('atividades',atividades,default=atividades,key='atividades')	
 
 with tab3: #dia da semana
-	dias = df2['nome_dia'].unique()
+	dias = df1['nome_dia'].unique()
 	st.multiselect('dia semana',dias,default=dias,key='nome_dia')
 	
 
