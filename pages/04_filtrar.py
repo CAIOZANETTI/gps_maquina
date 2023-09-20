@@ -56,17 +56,20 @@ fx_streamlit.analise_df(df2,'silver filtrado')
 
 st.divider()
 st.subheader("Filtro Aplicado Dataframe")
-tab1,tab2,tab3 = st.tabs(['dataframe','mapa','dias'])
+tab1,tab2,tab3 = st.tabs(['dataframe','mapa','grafico'])
 
-with tab1:
+with tab1:#dataframe
 	st.dataframe(df2)
 
-with tab2:
-	df_map = df1[['lat','lon']]
+with tab2:#mapa
+	df_map = df2[['lat','lon']]
 	df_map['cor'] = "#001eff"
 	df_map['raio'] = 5
 	st.map(df_map, latitude='lat',longitude='lon',size='raio',color='cor')
 
+with tab3:#grafico
+	st.write('ocorrencias')
 
-with tab3:
-	st.write('todas atividades')
+
+st.subheader("Cronologia, linha do tempo...")
+st.subheader("Relação entre variaveis")
