@@ -13,6 +13,11 @@ ou coordenadas lat+lon.')
 # atividades....
 #tab1,tab2,tab3,tab4 = st.tabs(['atividade_unicas','dias'])
 
+if 'df1' not in st.session_state:
+	df1 = pd.DataFrame()
+	st.write('df1 esta vazio!!! voltar e transformar')
+
+df1 = st.session_state['df1']
 
 data_df = pd.DataFrame(
     {
@@ -33,3 +38,5 @@ st.data_editor(
     },
     hide_index=True,
 )
+
+st.dataframe(df1)
