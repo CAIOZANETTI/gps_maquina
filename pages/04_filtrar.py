@@ -29,11 +29,11 @@ with tab1: #periodo
 
 	if dias>0:
 		cols = st.columns([1,1])
-		cols[0].write('Periodo: '+str(dias)+' dias')
+		cols[0].info('Periodo: '+str(dias)+' dias')
 		desativo=False
 
 	elif dias<0:
-		cols[0].write('NEGATIVO REVISAR '+str(dias)+' dias')
+		cols[0].warning('NEGATIVO REVISAR '+str(dias)+' dias')
 		desativo=True
 
 with tab2: #atividades
