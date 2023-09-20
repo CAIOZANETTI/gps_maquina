@@ -43,4 +43,20 @@ st.dataframe(df1)
 
 df2 = df1['atividade'].value_counts()
 
+st.data_editor(
+    df2,
+    column_config={
+        "count": st.column_config.ProgressColumn(
+            "quantity",
+            help="ocorrencia atividade",
+            format="$%f",
+            min_value=0,
+            max_value=100000,
+        ),
+    },
+    hide_index=True,
+)
+
+
+
 st.dataframe(df2)
