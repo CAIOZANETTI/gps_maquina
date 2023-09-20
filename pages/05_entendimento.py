@@ -46,6 +46,7 @@ df2.columns = ['atividade','qtd']
 qtd_max = round(df2['qtd'].max(),0)
 qtd_min = round(df2['qtd'].min(),0)
 
+st.write(qtd_min,type(qtd_min))
 
 
 st.dataframe(df2.head(2))
