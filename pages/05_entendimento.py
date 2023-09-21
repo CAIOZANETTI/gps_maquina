@@ -30,15 +30,31 @@ with tab1: #periodo
 	df2.columns = ['atividade','qtd']
 	qtd_min = int(round(df2['qtd'].min(),0))
 	qtd_max = int(round(df2['qtd'].max(),0))
-	
+	df['perc']=100*(df2['qtd']/qtd_max)
+
 	st.data_editor(
 	    df2,
 	    column_config={
 	        "qtd": st.column_config.ProgressColumn(
+	      
 	            width='large',
 	            format='%f',
 	            min_value=qtd_min,
 	            max_value=qtd_max,
+	        ),
+	    },
+	    hide_index=True,
+	)
+
+	st.data_editor(
+	    df2,
+	    column_config={
+	        "perc": st.column_config.ProgressColumn(
+	      
+	            width='large',
+	            #format='%f',
+	            #min_value=qtd_min,
+	            #max_value=qtd_max,
 	        ),
 	    },
 	    hide_index=True,
