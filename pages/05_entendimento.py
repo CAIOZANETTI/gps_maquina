@@ -54,8 +54,8 @@ with tab1: #periodo
 	      
 	            width='large',
 	            #format='%f',
-	            #min_value=qtd_min,
-	            #max_value=qtd_max,
+	            min_value=0,
+	            max_value=100,
 	        ),
 	    },
 	    hide_index=True,
