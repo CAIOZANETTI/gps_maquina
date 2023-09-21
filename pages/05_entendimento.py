@@ -60,8 +60,10 @@ with tab2: #periodo
 
 	st.dataframe(df3.head(5))
 
-	st.write('Plot the bar chart')
-	st.bar_chart(df1[['atividade','hora']])
+	pivot_df = df1.pivot_table(index='atividade', columns='hora', aggfunc='size', fill_value=0)
+
+	st.dataframe(pivot_df)
+	#st.bar_chart(df1[['atividade','hora']])
 
 
 
