@@ -49,7 +49,8 @@ with tab1: #periodo
 with tab2: #periodo
 
 	st.write('atividades vs horas')
-	df3 = df1.groupby(['atividade']).count()
+	df2 = df1.groupby(['atividade']).agg('count').reset_index()
+	#df3 = df1.groupby(['atividade']).count()
 	
 	st.write(df3)
 
