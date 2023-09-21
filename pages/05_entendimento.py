@@ -55,8 +55,8 @@ with tab1: #periodo
 	      
 	            width='large',
 	            #format='%f',
-	            min_value=0,
-	            max_value=1,
+	            #min_value=0,
+	            #max_value=1,
 	        ),
 	    },
 	    hide_index=True,
