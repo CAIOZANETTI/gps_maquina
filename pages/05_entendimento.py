@@ -57,12 +57,22 @@ with tab2: #periodo
 	pivot_df = df1.pivot_table(index='hora', columns='atividade', aggfunc='size', fill_value=0)
 	pivot_df = pivot_df.T.reset_index()
 
-	st.write(pivot_df)
+	st.dataframe(pivot_df.head(5))
 
 
-	df3 = pd.melt(pivot_df,id_vars=['atvidade'],var_name='horas_dia',value_name='valor')
-	df3 = df3.groupby(['atividade', 'hora'])['valor'].apply(list).reset_index()
-	st.dataframe(df3)
+
+	# Set 'atividade' as the index (assuming it's not the index already)
+	pivot_df.set_index('atividade', inplace=True)
+
+	# Plot the bar chart
+	pivot_df.plot(kind='bar', figsize=(10, 6))
+	plt.xlabel('Atividade')
+	plt.ylabel('Count')
+	plt.title('Count of Atividade for Different Time Periods')
+	plt.xticks(rotation=0)
+	plt.show()
+
+
 
 
 with tab3: #periodo
