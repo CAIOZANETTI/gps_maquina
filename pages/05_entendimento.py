@@ -42,7 +42,7 @@ with tab1: #periodo
 	            max_value=qtd_max,
 	        ),
 	    },
-	    hide_index=True,
+	    hide_index=False,
 	)
 
 
