@@ -35,14 +35,13 @@ with tab1: #periodo
 	    df2,
 	    column_config={
 	        "qtd": st.column_config.ProgressColumn(
-	            "quantity",
 	            width='large',
 	            format='%f',
 	            min_value=qtd_min,
 	            max_value=qtd_max,
 	        ),
 	    },
-	    hide_index=False,
+	    hide_index=True,
 	)
 
 
