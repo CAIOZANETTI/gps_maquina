@@ -61,6 +61,7 @@ with tab2: #periodo
 
 
 	df3 = pd.melt(pivot_df,id_vars=['atvidade'],var_name='horas_dia',value_name='valor')
+	df3 = df3.groupby(['atividade', 'hora'])['valor'].apply(list).reset_index()
 	st.dataframe(df3)
 
 
