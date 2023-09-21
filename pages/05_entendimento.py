@@ -56,7 +56,12 @@ with tab2: #periodo
 	st.write('atividades vs horas')
 	pivot_df = df1.pivot_table(index='hora', columns='atividade', aggfunc='size', fill_value=0)
 	pivot_df = pivot_df.T.reset_index()
+
 	st.write(pivot_df)
+
+
+	df3 = pd.melt(pivot_df,id_vars=['atvidade'],var_name='horas_dia',value_name='valor')
+	st.dataframe(df3)
 
 
 with tab3: #periodo
