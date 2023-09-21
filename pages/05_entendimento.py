@@ -61,7 +61,7 @@ with tab2: #periodo
 	st.dataframe(df3.head(5))
 
 	st.write('Plot the bar chart')
-	st.bar_chart(df3)
+	st.bar_chart(df1['atividade','hora'])
 
 
 
