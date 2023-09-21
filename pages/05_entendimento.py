@@ -65,7 +65,7 @@ with tab2: #periodo
 	# Set 'atividade' as the index (assuming it's not the index already)
 	pivot_df.set_index('atividade', inplace=True)
 
-	# Plot the bar chart
+	st.write('Plot the bar chart')
 	pivot_df.plot(kind='bar', figsize=(10, 6))
 	plt.xlabel('Atividade')
 	plt.ylabel('Count')
