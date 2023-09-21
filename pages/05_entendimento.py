@@ -30,8 +30,9 @@ with tab1: #periodo
 	df2.columns = ['atividade','qtd']
 	qtd_min = int(round(df2['qtd'].min(),0))
 	qtd_max = int(round(df2['qtd'].max(),0))
+	qtd_total = df2['qtd'].sum()
 	
-	df2['perc']=100*(df2['qtd']/df2['qtd'].sum())
+	df2['perc']=df2['qtd']/qtd_total
 
 	st.data_editor(
 	    df2,
