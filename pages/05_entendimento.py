@@ -32,7 +32,8 @@ with tab1: #periodo
 	qtd_max = int(round(df2['qtd'].max(),0))
 	qtd_total = df2['qtd'].sum()
 	
-	df2['perc']=round((df2['qtd']/qtd_total)*100,2)
+	#df2['perc']=round((df2['qtd']/qtd_total)*100,2)
+
 
 	st.data_editor(
 	    df2,
@@ -48,19 +49,6 @@ with tab1: #periodo
 	    hide_index=True,
 	)
 
-	st.data_editor(
-	    df2,
-	    column_config={
-	        "perc": st.column_config.ProgressColumn(
-	      
-	            width='large',
-	            #format='%f',
-	            #min_value=0,
-	            #max_value=1,
-	        ),
-	    },
-	    hide_index=True,
-	)
 
 
 with tab2: #periodo
