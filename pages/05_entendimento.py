@@ -54,7 +54,7 @@ with tab1: #periodo
 with tab2: #periodo
 
 	st.write('atividades vs horas')
-	pivot_df = df.pivot_table(index='hora', columns='atividade', aggfunc='size', fill_value=0)
+	pivot_df = df1.pivot_table(index='hora', columns='atividade', aggfunc='size', fill_value=0)
 	
 	st.write(pivot_df)
 
