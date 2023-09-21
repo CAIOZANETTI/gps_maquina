@@ -54,8 +54,7 @@ with tab1: #periodo
 with tab2: #periodo
 
 	st.write('atividades vs horas')
-	#df3 = df1.groupby(index='atividade', columns='horas')#, aggfunc='sum', fill_value=0)
-	
+	df3 = df1.pivot_table(df2,values='hora',index=['atividade'],aggfunc='count')	
 	st.write(df3)
 
 
