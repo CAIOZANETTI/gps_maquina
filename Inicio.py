@@ -1,15 +1,10 @@
-streamlit run [entrypoint Inicio.py]
+
 import streamlit as st
 
+st.write('main')
 
-def main():
-    st.title("My Streamlit App")
-    st.write("Welcome to my Streamlit app!")
-
-if __name__ == "__main__":
-    main()
 """
-
+st.radio('idioma', ['ingles','português'],key='idioma')
 streamlit run [entrypoint Inicio.py]
 
 st.set_page_config(
@@ -24,6 +19,6 @@ st.set_page_config(
     }
 ) 
 
-st.radio('idioma', ['ingles','português'],key='idioma')
+
 
 """
