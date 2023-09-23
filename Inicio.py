@@ -1,3 +1,4 @@
+streamlit run [entrypoint Inicio.py]
 import streamlit as st
 
 
