@@ -94,7 +94,7 @@ def df_silver_to_gold_motor_ligado(df:pd.DataFrame)->pd.DataFrame:
 	df1 = df
 	return df1
 
-
+# carregar ou ler silver
 if 'df1' not in st.session_state:
 	df1 = pd.read_parquet('data/silver_jcb_relatorio_2022.parquet',engine='pyarrow')
 else:
@@ -102,7 +102,9 @@ else:
 	remover_colunas = ['id','hyperlink','maps_google_url']
 	df1 = df_bronze_to_silver_gps(df=df,remover_colunas=remover_colunas)
 
+st.session_state['df1'] = df1
 
+# carregar ou download silver
 cols = st.columns([1,1])
 btn_reload = cols[0].button('recarregar')
 
@@ -118,4 +120,3 @@ if btn_reload == True:
 	st.session_state['df1'] = df1
 
 fx_streamlit.analise_df(df1,'silver....')
-st.session_state['df1'] = df1
