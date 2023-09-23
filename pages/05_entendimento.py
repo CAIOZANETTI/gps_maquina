@@ -27,7 +27,6 @@ if 'df1' not in st.session_state:
 
 df1 = st.session_state['df1']
 
-
 st.subheader('atividades')
 tab1,tab2,tab3,tab4 = st.tabs(['contagem','horimetro','horas','dia da semana'])
 
