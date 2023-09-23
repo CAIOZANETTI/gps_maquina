@@ -89,12 +89,10 @@ def df_bronze_to_silver_gps(remover_colunas:list,df)->pd.DataFrame:
 	return df
 
 
-
 def df_silver_to_gold_motor_ligado(df:pd.DataFrame)->pd.DataFrame:
 
 	df1 = df
 	return df1
-
 
 
 
@@ -105,7 +103,10 @@ else:
 	remover_colunas = ['id','hyperlink','maps_google_url']
 	df1 = df_bronze_to_silver_gps(df=df,remover_colunas=remover_colunas)
 
-btn_reload = st.button('recarregar')
+
+cols = st.columns([1,1])
+btn_reload = cols[0].button('recarregar')
+btn_download = cols[1].button('download as parquet')
 
 if btn_reload == True:
 	df = pd.read_parquet('data/bronze_jcb_relatorio_2022.parquet',engine='pyarrow')
@@ -113,6 +114,8 @@ if btn_reload == True:
 	df1 = df_bronze_to_silver_gps(df=df,remover_colunas=remover_colunas)
 	st.session_state['df1'] = df1
 
+if btn_download == True:
+	df1.to_parquet('silver_jcb_relatorio_2022.parquet', index=False)
 
 fx_streamlit.analise_df(df1,'silver....')
 st.session_state['df1'] = df1
