@@ -4,6 +4,16 @@ import math
 
 import fx_streamlit as fx_streamlit
 
+def motor_ligado(atividades:list)->list:
+	status =[]
+	ligado=0
+	for atividade in atividades:
+		if atividade=='chave_ligada':
+			ligado = 1
+		elif atividade=='chave_desligada':
+			ligado =0
+	status.append(ligado)
+	return status
 
 def haversine_distance(lat1:float, lon1:float, lat2:float, lon2:float)->float:
 	lat1 = math.radians(lat1)
@@ -54,12 +64,19 @@ def df_bronze_to_silver_gps(remover_colunas:list,df)->pd.DataFrame:
 	df['nome_dia'] = df['data_hora'].dt.day_name().str.lower()
 	df['atividade'] = df['atividade'].str.lower().str.replace(' ', '_')
 
+	#normalizar gps
 	df['lat'], df['lon'] = zip(*df['maps_google_url'].apply(url_to_coordenadas))
 	df['lat_lon'] = df['lat'].astype(str) + '|' + df['lon'].astype(str)
 
+	#calcular distancia
+	df['lat_ant'] = df1['lat'].shift(1)
+	df['lon_ant'] = df1['lon'].shift(1)
+
+
 	#converter colunas em string
 	df = df.astype({'nome_dia': 'string','lat_lon':'string','atividade':'string'})
-	
+
+
 	#remover colunas
 	for coluna in remover_colunas:
 		if coluna in df.columns:
