@@ -98,7 +98,7 @@ def df_silver_to_gold_motor_ligado(df:pd.DataFrame)->pd.DataFrame:
 if 'df1' not in st.session_state:
 	df1 = pd.read_parquet('data/silver_jcb_relatorio_2022.parquet',engine='pyarrow')
 else:
-	df = st.session_state['df']
+	df = pd.read_parquet(st.session_state['file'],engine='pyarrow')
 	remover_colunas = ['id','hyperlink','maps_google_url']
 	df1 = df_bronze_to_silver_gps(df=df,remover_colunas=remover_colunas)
 st.session_state['df1'] = df1
