@@ -4,13 +4,7 @@ import math
 
 import fx_streamlit as fx_streamlit
 
-btn_reload = st.button('recarregar')
 
-if btn_reload == True:
-	df = st.session_state['df']
-	remover_colunas = ['id','hyperlink','maps_google_url']
-	df1 = df_bronze_to_silver_gps(df=df,remover_colunas=remover_colunas)
-	st.session_state['df1'] = df1
 
 
 def motor_ligado(atividades:list)->list:
@@ -108,6 +102,15 @@ else:
 	df = st.session_state['df']
 	remover_colunas = ['id','hyperlink','maps_google_url']
 	df1 = df_bronze_to_silver_gps(df=df,remover_colunas=remover_colunas)
+
+btn_reload = st.button('recarregar')
+
+if btn_reload == True:
+	df = st.session_state['df']
+	remover_colunas = ['id','hyperlink','maps_google_url']
+	df1 = df_bronze_to_silver_gps(df=df,remover_colunas=remover_colunas)
+	st.session_state['df1'] = df1
+
 
 fx_streamlit.analise_df(df1,'silver....')
 st.session_state['df1'] = df1
