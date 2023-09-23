@@ -2,9 +2,10 @@
 import streamlit as st
 st.write('main')
 
-"""
 st.radio('idioma', ['ingles','português'],key='idioma')
-streamlit run [entrypoint Inicio.py]
+
+
+
 
 st.set_page_config(
     page_title="Ex-stream-ly Cool App",
@@ -18,6 +19,8 @@ st.set_page_config(
     }
 ) 
 
+"""
 
+streamlit run [entrypoint Inicio.py]
 
 """
