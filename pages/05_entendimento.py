@@ -24,14 +24,20 @@ df1 = st.session_state['df1']
 
 
 st.subheader('atividades')
-tab1,tab2,tab3,tab4 = st.tabs(['contagem','teste','horas','dia da semana'])
+tab1,tab2,tab3,tab4 = st.tabs(['contagem','horimetro','horas','dia da semana'])
 
-with tab1: #periodo
+with tab1: #contagem
+	if st.session_state['idioma']=='portugues': 
+		st.text('Realizar uma análise da coluna de atividades por meio de um filtro para identificar aquelas que são mais frequentes e relevante')
+	if st.session_state['idioma']=='portugues':
+		st.text('Perform an analysis of the activities column through a filter to identify the most frequent and relevant ones')
+
 	df2 = df1['atividade'].value_counts().reset_index()
 	df2.columns = ['atividade','qtd']
 	df2['perc'] = round(100*(df2['qtd']/df2['qtd'].sum()),0)
 	df2['perc'] = df2['perc'].astype(int)
 	df2['util'] = df2['perc']>5
+
 
 	st.dataframe(df2)
 
