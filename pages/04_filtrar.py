@@ -5,17 +5,20 @@ import pandas as pd
 
 import fx_streamlit as fx_streamlit
 
+
+#carregar df1
+if 'df1' not in st.session_state:
+	df1 = pd.read_parquet('data/silver_jcb_relatorio_2022.parquet',engine='pyarrow')
+	st.session_state['df1'] = df1
+df1 = st.session_state['df1']
+
+
 def df_filtrar_datas(df:pd.DataFrame,inicio,fim)->pd.DataFrame:
 	df['data'] = df['data_hora'].dt.date
 	df1 = df[(df['data']>= inicio) & (df['data']<= fim)]
 	return df1
 
-st.subheader("Filtrar")
-if 'df1' not in st.session_state:
-	df1 = pd.DataFrame()
-	st.write('df1 esta vazio!!! voltar e transformar')
 
-df1 = st.session_state['df1']
 tab1,tab2,tab3 = st.tabs(['periodo','atividades','dia da semana'])
 
 with tab1: #periodo
