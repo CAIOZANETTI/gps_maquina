@@ -106,7 +106,7 @@ else:
 btn_reload = st.button('recarregar')
 
 if btn_reload == True:
-	df = pd.read_parquet(st.session_state['file'],engine='pyarrow')
+	df = pd.read_parquet('data/bronze_jcb_relatorio_2022.parquet',engine='pyarrow')
 	remover_colunas = ['id','hyperlink','maps_google_url']
 	df1 = df_bronze_to_silver_gps(df=df,remover_colunas=remover_colunas)
 	st.session_state['df1'] = df1
