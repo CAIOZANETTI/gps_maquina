@@ -6,6 +6,8 @@ if 'df1' not in st.session_state:
 	df1 = pd.read_parquet('data/silver_jcb_relatorio_2022.parquet',engine='pyarrow')
 	st.session_state['df1'] = df1
 
+df1 = st.session_state['df1']
+
 with st.sidebar:
 	idioma = st.radio('idioma dos comentarios', ['portugues','ingles'])
 
@@ -19,14 +21,6 @@ entre demais variáveis como o tempo (hora, dia, mês)\
 ou coordenadas lat+lon.')
 
 # atividades....
-#tab1,tab2,tab3,tab4 = st.tabs(['atividade_unicas','dias'])
-
-if 'df1' not in st.session_state:
-	df1 = pd.DataFrame()
-	st.write('df1 esta vazio!!! voltar e transformar')
-
-df1 = st.session_state['df1']
-
 st.subheader('atividades')
 tab1,tab2,tab3,tab4 = st.tabs(['contagem','horimetro','horas','dia da semana'])
 
