@@ -1,20 +1,18 @@
 import math
+import pandas as pd
+
+def check_motor_ligado(atividades:list)->list:
+	status =[]
+	ligado=0
+	for atividade in atividades:
+		if atividade=='chave_ligada':
+			ligado = 1
+		elif atividade=='chave_desligada':
+			ligado =0
+		status.append(ligado)
+	return status
 
 def haversine_distance(lat1:float, lon1:float, lat2:float, lon2:float)->float:
-    # Example usage
-	"""
-    chat gpt 3.5
-    Calculate the distance between two points on the Earth's surface
-    using the Haversine formula.
-    
-    :param lat1: Latitude of the first point (in degrees)
-    :param lon1: Longitude of the first point (in degrees)
-    :param lat2: Latitude of the second point (in degrees)
-    :param lon2: Longitude of the second point (in degrees)
-    :return: Distance between the two points in meters
-   """
-	
-	# Convert latitude and longitude from degrees to radians
 	lat1 = math.radians(lat1)
 	lon1 = math.radians(lon1)
 	lat2 = math.radians(lat2)
@@ -30,7 +28,6 @@ def haversine_distance(lat1:float, lon1:float, lat2:float, lon2:float)->float:
 	c = 2 * math.atan2(math.sqrt(a), math.sqrt(1 - a))
 	distance = round(earth_radius * c,0)
 	
-
 	return distance
 
 def url_to_coordenadas(url:str)->list:
@@ -53,4 +50,36 @@ def url_to_coordenadas(url:str)->list:
 
 	return lst_out
 
+def df_bronze_to_silver_gps(remover_colunas:list,df)->pd.DataFrame:
+	"""
+	converter: data, hora e latitude e longitude
+	obter colual: hora, nome_dia,lat_lon
+	"""
+	df['data_hora'] = pd.to_datetime(df['data_hora'], format='%m/%d/%Y %H:%M:%S')
+	df['data'] = df['data_hora'].dt.date
+	df['hora'] = df['data_hora'].dt.hour
+	df['nome_dia'] = df['data_hora'].dt.day_name().str.lower()
+	df['atividade'] = df['atividade'].str.lower().str.replace(' ', '_')
 
+	#normalizar gps
+	df['lat'], df['lon'] = zip(*df['maps_google_url'].apply(url_to_coordenadas))
+	df['lat_lon'] = df['lat'].astype(str) + '|' + df['lon'].astype(str)
+
+	#calcular distancia
+	df['lat_ant'] = df['lat'].shift(1)
+	df['lon_ant'] = df['lon'].shift(1)
+	df['raio_m'] = df.apply(lambda row: haversine_distance(row['lat_ant'], row['lon_ant'], row['lat'], row['lon']), axis=1)
+
+	#motor ligado
+	atividades = df['atividade'].tolist()
+	df['motor_ligado'] = check_motor_ligado(atividades)
+
+	#converter colunas object to string
+	df = df.astype({'nome_dia': 'string','lat_lon':'string','atividade':'string'})
+
+
+	#remover colunas
+	for coluna in remover_colunas:
+		if coluna in df.columns:
+			df = df.drop(coluna,axis=1)
+	return df
