@@ -4,8 +4,8 @@ import math
 
 import fx_streamlit as fx_streamlit
 
-
-def motor_ligado(atividades:list)->list:
+#todo
+def check_motor_ligado(atividades:list)->list:
 	status =[]
 	ligado=0
 	for atividade in atividades:
@@ -74,8 +74,11 @@ def df_bronze_to_silver_gps(remover_colunas:list,df)->pd.DataFrame:
 	df['lon_ant'] = df['lon'].shift(1)
 	df['raio_m'] = df.apply(lambda row: haversine_distance(row['lat_ant'], row['lon_ant'], row['lat'], row['lon']), axis=1)
 
+	#motor ligado
+	atividades = df['atividade'].tolist()
+	df['motor_ligado'] = check_motor_ligado(atividades)
 
-	#converter colunas em string
+	#converter colunas object to string
 	df = df.astype({'nome_dia': 'string','lat_lon':'string','atividade':'string'})
 
 
