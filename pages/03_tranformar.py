@@ -13,7 +13,7 @@ def check_motor_ligado(atividades:list)->list:
 			ligado = 1
 		elif atividade=='chave_desligada':
 			ligado =0
-	status.append(ligado)
+		status.append(ligado)
 	return status
 
 def haversine_distance(lat1:float, lon1:float, lat2:float, lon2:float)->float:
