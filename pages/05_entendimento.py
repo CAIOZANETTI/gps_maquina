@@ -29,10 +29,11 @@ tab1,tab2,tab3,tab4 = st.tabs(['contagem','teste','horas','dia da semana'])
 with tab1: #periodo
 	df2 = df1['atividade'].value_counts().reset_index()
 	df2.columns = ['atividade','qtd']
-	st.dataframe(df2)
-
-	teste = df1['atividade'].value_counts(normalize=True)
-	st.dataframe(teste)
+	
+	teste = df1['atividade'].value_counts(normalize=True)*100
+	cols = st.columns([1,1])
+	cols[0].dataframe(teste)
+	cols[1].dataframe(df2)
 
 
 	qtd_min = int(round(df2['qtd'].min(),0))
