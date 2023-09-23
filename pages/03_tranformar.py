@@ -101,22 +101,19 @@ else:
 	df = st.session_state['df']
 	remover_colunas = ['id','hyperlink','maps_google_url']
 	df1 = df_bronze_to_silver_gps(df=df,remover_colunas=remover_colunas)
-
 st.session_state['df1'] = df1
 
 # carregar ou download silver
-cols = st.columns([1,1])
-btn_reload = cols[0].button('recarregar')
-
-parquet = df1.to_parquet('silver_jcb_relatorio_2022.parquet', index=False)
-btn_download = cols[1].download_button('download as parquet',
-	data=parquet, 
-	file_name='silver_jcb_relatorio_2022.parquet')
-
+btn_reload = st.button('recarregar')
 if btn_reload == True:
 	df = pd.read_parquet('data/bronze_jcb_relatorio_2022.parquet',engine='pyarrow')
 	remover_colunas = ['id','hyperlink','maps_google_url']
 	df1 = df_bronze_to_silver_gps(df=df,remover_colunas=remover_colunas)
 	st.session_state['df1'] = df1
 
+#download
+parquet = df1.to_parquet('silver_jcb_relatorio_2022.parquet', index=False)
+btn_download = st.download_button('download',parquet,'silver_jcb_relatorio_2022.parquet')
+
+#mostrar analise
 fx_streamlit.analise_df(df1,'silver....')
