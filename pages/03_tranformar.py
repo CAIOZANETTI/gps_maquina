@@ -4,21 +4,8 @@ import math
 
 import fx_streamlit as fx_streamlit
 
+
 def haversine_distance(lat1:float, lon1:float, lat2:float, lon2:float)->float:
-    # Example usage
-	"""
-    chat gpt 3.5
-    Calculate the distance between two points on the Earth's surface
-    using the Haversine formula.
-    
-    :param lat1: Latitude of the first point (in degrees)
-    :param lon1: Longitude of the first point (in degrees)
-    :param lat2: Latitude of the second point (in degrees)
-    :param lon2: Longitude of the second point (in degrees)
-    :return: Distance between the two points in meters
-   """
-	
-	# Convert latitude and longitude from degrees to radians
 	lat1 = math.radians(lat1)
 	lon1 = math.radians(lon1)
 	lat2 = math.radians(lat2)
@@ -65,6 +52,7 @@ def df_bronze_to_silver_gps(remover_colunas:list,df)->pd.DataFrame:
 	df['data'] = df['data_hora'].dt.date
 	df['hora'] = df['data_hora'].dt.hour
 	df['nome_dia'] = df['data_hora'].dt.day_name().str.lower()
+	df['atividade'] = df['atividade'].str.lower().str.replace(' ', '_')
 
 	df['lat'], df['lon'] = zip(*df['maps_google_url'].apply(url_to_coordenadas))
 	df['lat_lon'] = df['lat'].astype(str) + '|' + df['lon'].astype(str)
@@ -79,8 +67,16 @@ def df_bronze_to_silver_gps(remover_colunas:list,df)->pd.DataFrame:
 	return df
 
 
-if 'df' not in st.session_state:
 
+def df_silver_to_gold_motor_ligado(df:pd.DataFrame)->pd.DataFrame:
+
+	df1 = df
+	return df1
+
+
+
+
+if 'df' not in st.session_state:
 	df1 = pd.read_parquet('data/silver_jcb_relatorio_2022.parquet',engine='pyarrow')
 else:
 	df = st.session_state['df']
