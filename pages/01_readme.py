@@ -8,7 +8,7 @@ def show_readme(file_path):
         st.markdown(contents)
 
 # Path to your readme.md file
-readme_path = 'readme.md'
+readme_path = 'README.md'
 
 # Streamlit app
 st.title('Readme Viewer')
