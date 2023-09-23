@@ -88,15 +88,14 @@ def df_bronze_to_silver_gps(remover_colunas:list,df)->pd.DataFrame:
 			df = df.drop(coluna,axis=1)
 	return df
 
-
 def df_silver_to_gold_motor_ligado(df:pd.DataFrame)->pd.DataFrame:
+	#todo fazer ...
 
 	df1 = df
 	return df1
 
 
-
-if 'df' not in st.session_state:
+if 'df1' not in st.session_state:
 	df1 = pd.read_parquet('data/silver_jcb_relatorio_2022.parquet',engine='pyarrow')
 else:
 	df = st.session_state['df']
@@ -106,16 +105,17 @@ else:
 
 cols = st.columns([1,1])
 btn_reload = cols[0].button('recarregar')
-btn_download = cols[1].button('download as parquet')
+
+parquet = df1.to_parquet('silver_jcb_relatorio_2022.parquet', index=False)
+btn_download = cols[1].download_button('download as parquet',
+	data=parquet, 
+	file_name='silver_jcb_relatorio_2022.parquet')
 
 if btn_reload == True:
 	df = pd.read_parquet('data/bronze_jcb_relatorio_2022.parquet',engine='pyarrow')
 	remover_colunas = ['id','hyperlink','maps_google_url']
 	df1 = df_bronze_to_silver_gps(df=df,remover_colunas=remover_colunas)
 	st.session_state['df1'] = df1
-
-if btn_download == True:
-	df1.to_parquet('silver_jcb_relatorio_2022.parquet', index=False)
 
 fx_streamlit.analise_df(df1,'silver....')
 st.session_state['df1'] = df1
