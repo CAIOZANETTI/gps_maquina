@@ -29,8 +29,8 @@ tab1,tab2,tab3,tab4 = st.tabs(['contagem','teste','horas','dia da semana'])
 with tab1: #periodo
 	df2 = df1['atividade'].value_counts().reset_index()
 	df2.columns = ['atividade','qtd']
-	df['perc'] = round(100*(df['qtd']/df['qtd'].sum()),0)
-	df['perc'] = df['perc'].astype(int)
+	df2['perc'] = round(100*(df['qtd']/df['qtd'].sum()),0)
+	df2['perc'] = df2['perc'].astype(int)
 		
 	st.dataframe(df2)
 
