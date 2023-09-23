@@ -1,6 +1,8 @@
 import streamlit as st
 import pandas as pd
 
+with st.sidebar:
+	st.radio('idioma dos comentarios', ['portugues','ingles'],key='idioma')
 
 st.subheader("Entendimento")
 
@@ -21,12 +23,11 @@ if 'df1' not in st.session_state:
 df1 = st.session_state['df1']
 
 
-
-
 st.subheader('atividades')
 tab1,tab2,tab3,tab4 = st.tabs(['contagem','horimetro','horas','dia da semana'])
 
 with tab1: #contagem
+
 	if st.session_state['idioma']=='portugues': 
 		st.text('Realizar uma análise da coluna de atividades por meio de um filtro para identificar aquelas que são mais frequentes e relevante')
 	if st.session_state['idioma']=='portugues':
