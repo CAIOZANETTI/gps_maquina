@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 
 with st.sidebar:
-	st.radio('idioma dos comentarios', ['portugues','ingles'],key='idioma')
+	st.session_state['idioma'] = st.radio('idioma dos comentarios', ['portugues','ingles'])
 
 st.subheader("Entendimento")
 
