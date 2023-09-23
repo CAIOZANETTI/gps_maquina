@@ -117,3 +117,6 @@ btn_download = st.download_button('download',parquet,'silver_jcb_relatorio_2022.
 
 #mostrar analise
 fx_streamlit.analise_df(df1,'silver....')
+
+#teste
+st.write('some info')
