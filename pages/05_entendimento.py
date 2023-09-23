@@ -23,19 +23,21 @@ df1 = st.session_state['df1']
 
 
 
-
-tab1,tab2,tab3 = st.tabs(['atividades','atividades vs horas',' atividades vs dia da semana'])
+st.subheader('atividades')
+tab1,tab2,tab3 = st.tabs(['contagem','','atividades vs horas',' atividades vs dia da semana'])
 
 with tab1: #periodo
 	df2 = df1['atividade'].value_counts().reset_index()
 	df2.columns = ['atividade','qtd']
+	st.dataframe(df2)
+
+	teste = df1['atividade'].value_counts(normalize=True)
+	st.dataframe(teste)
+
+
 	qtd_min = int(round(df2['qtd'].min(),0))
 	qtd_max = int(round(df2['qtd'].max(),0))
 	qtd_total = df2['qtd'].sum()
-	
-	#df2['perc']=round((df2['qtd']/qtd_total)*100,2)
-
-
 	st.data_editor(
 	    df2,
 	    column_config={
