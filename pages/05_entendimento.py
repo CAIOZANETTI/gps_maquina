@@ -24,7 +24,7 @@ df1 = st.session_state['df1']
 
 
 st.subheader('atividades')
-tab1,tab2,tab3 = st.tabs(['contagem','','atividades vs horas',' atividades vs dia da semana'])
+tab1,tab2,tab3,tab4 = st.tabs(['contagem','teste','horas','dia da semana'])
 
 with tab1: #periodo
 	df2 = df1['atividade'].value_counts().reset_index()
@@ -67,8 +67,13 @@ with tab2: #periodo
 	st.dataframe(pivot_df)
 	#st.bar_chart(df1[['atividade','hora']])
 
-
-
-
 with tab3: #periodo
 	st.write(' atividades vs dia da semana')
+
+
+with tab4: #periodo
+	st.write(' atividades vs dia da semana')
+
+
+st.write('interpretação')
+st.write('para determinar a ')
