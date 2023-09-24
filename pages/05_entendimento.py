@@ -38,7 +38,7 @@ with tab3: #amostra
 	cols = st.columns([1,1])
 	lin_max = df3.shape[1]
 	lin_inicio = cols[0].number_input('inicio',0,lin_max)
-	lin_fim = cols[0].number_input('fim',0,lin_max)
+	lin_fim = cols[1].number_input('fim',0,lin_max)
 
 	st.dataframe(df3.iloc[lin_inicio:lin_fim])	
 
