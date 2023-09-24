@@ -12,23 +12,20 @@ if 'df1' not in st.session_state:
 df1 = st.session_state['df1']
 
 cols = st.columns([1,1])
-cols[0].subheader("Entendimento")
-idioma = cols[1].radio('idioma dos comentarios', ['portugues','ingles'])
+idioma = cols[0].radio('idioma dos comentarios', ['portugues','ingles'])
+cols[1].subheader(dic['atividade'] )
 textos = fx_streamlit.textos('05_entendimento',idioma)
 
 st.markdown(textos['introducao'])
 
 
 # atividades....
-st.subheader('atividades')
+st.subheader(textos['atividade'])
 tab1,tab2,tab3,tab4 = st.tabs(['contagem','horimetro','horas','dia da semana'])
 
 with tab1: #contagem
 
-	if idioma=='portugues': 
-		st.text('Realizar uma análise da coluna de atividades por meio de um filtro para identificar aquelas que são mais frequentes e relevante')
-	if idioma=='ingles':
-		st.text('Perform an analysis of the activities column through a filter to identify the most frequent and relevant ones')
+	st.markdown(textos['contagem'])
 
 	df2 = df1['atividade'].value_counts().reset_index()
 	df2.columns = ['atividade','qtd']

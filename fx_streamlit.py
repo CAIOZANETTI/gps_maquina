@@ -47,6 +47,8 @@ def textos(pagina:str,idioma:str)->dict:
 	if pagina =='05_entendimento':
 		dic = {}
 		if idioma =='portugues':
+			dic['titulo'] = "Entendimento"
+			dic['atividade'] = "atividades"
 			dic['introducao']="""
 				Para aprimorar a compreensão dos dados,
 			 	é essencial **identificar quais informações são pertinentes**,
@@ -64,6 +66,8 @@ def textos(pagina:str,idioma:str)->dict:
 
 
 		elif idioma=='ingles':
+			dic['titulo'] = "understanding"
+			dic['atividade'] = "activities"
 			dic['introducao']="""To enhance data understanding,/
 				 it is essential to **identify which information is relevant**,/
 				 analyze its distribution, and explore the relationships with other variables,/
