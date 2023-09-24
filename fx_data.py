@@ -48,9 +48,9 @@ def check_motor_ligado(atividades:list)->list:
 	ligado=0
 	for atividade in atividades:
 		if atividade=='chave_ligada':
-			ligado = 1
+			ligado = True
 		elif atividade=='chave_desligada':
-			ligado =0
+			ligado =False
 		status.append(ligado)
 	return status
 
