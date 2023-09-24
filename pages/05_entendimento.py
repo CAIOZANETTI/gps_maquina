@@ -17,7 +17,6 @@ textos = fx_streamlit.textos('05_entendimento',idioma)
 #introdução
 st.markdown(textos['introducao'])
 st.subheader(textos['atividade'])
-st.markdown(textos['contagem'])
 
 tab1,tab2,tab3,tab4 = st.tabs(['contagem','principal','amostra','conclusao'])
 
