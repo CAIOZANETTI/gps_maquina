@@ -1,6 +1,15 @@
 import streamlit as st
 import pandas as pd
+
+
+import extrair as extrair
 import fx_streamlit as fx_streamlit
+
+
+textos = extrair.json_to_dic('textos.json')
+idioma = 'ingles'
+textos = textos['05_entendimento'][idioma]
+st.write(textos['atividade'])
 
 
 if 'df1' not in st.session_state:
@@ -13,6 +22,8 @@ df1 = st.session_state['df1']
 cols = st.columns([1,1])
 idioma = cols[0].radio('idioma dos comentarios', ['portugues','ingles'])
 textos = fx_streamlit.textos('05_entendimento',idioma)
+
+
 
 #introdução
 st.markdown(textos['introducao'])
@@ -35,7 +46,7 @@ with tab3: #amostra
 	columns_to_remove = ['data_hora', 'lat_lon', 'lat', 'lon','lat_ant','lon_ant']
 	df3 = df1.drop(columns=columns_to_remove)
 	
-	st.dataframe(df3.iloc[500:600])	
+	st.dataframe(df3.iloc[539:553])	
 
 
 with tab4: #conclusao
