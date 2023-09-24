@@ -3,8 +3,7 @@ import pandas as pd
 import fx_streamlit as fx_streamlit
 
 
-textos = fx_streamlit.textos('05_entendimento','portugues')
-st.write(textos['introducao'])
+
 
 if 'df1' not in st.session_state:
 	df1 = pd.read_parquet('data/silver_jcb_relatorio_2022.parquet',engine='pyarrow')
@@ -15,7 +14,9 @@ df1 = st.session_state['df1']
 cols = st.columns([1,1])
 cols[0].subheader("Entendimento")
 idioma = cols[1].radio('idioma dos comentarios', ['portugues','ingles'])
+textos = fx_streamlit.textos('05_entendimento',idioma)
 
+st.markdown(textos['introducao'])
 
 
 # atividades....
