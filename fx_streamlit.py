@@ -35,4 +35,8 @@ def analise_df(df,nome):
 		st.write(memory)
 
 	with tab7:
-		st.write(fx_data.analise_dataframe(df))
+		dic = fx_data.analise_dataframe(df)
+
+		for k,v in dic.items():
+			st.markdown("""---""")
+			st.write(k,v)
