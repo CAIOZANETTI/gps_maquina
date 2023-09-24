@@ -18,7 +18,30 @@ def analise_dataframe(df:pd.DataFrame)->dict:
 
 	return dic
 
+def df_filtrar_datas(df:pd.DataFrame,inicio,fim)->pd.DataFrame:
+	#todo: finalizar... não fiz por preguiça...
+	# testar a condição de data primento.... 
+	st.text('disponivel: jan/2022 -> ago/2022')
+	cols = st.columns([1,1])
+	cols[0].date_input('inicio',datetime.datetime(2022,1,1),key='inicio')
+	cols[1].date_input('fim',datetime.datetime(2022,1,8),key='fim')
 
+	dias = st.session_state['fim'] - st.session_state['inicio']
+	dias = dias.days
+
+	if dias>0:
+		cols = st.columns([1,1])
+		cols[0].info('Periodo: '+str(dias)+' dias')
+		desativo=False
+
+	elif dias<0:
+		cols[0].warning('NEGATIVO REVISAR '+str(dias)+' dias')
+		desativo=True
+
+
+	df['data'] = df['data_hora'].dt.date
+	df1 = df[(df['data']>= inicio) & (df['data']<= fim)]
+	return df1
 
 def check_motor_ligado(atividades:list)->list:
 	status =[]
