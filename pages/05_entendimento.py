@@ -34,13 +34,8 @@ with tab2: #principal
 with tab3: #amostra
 	columns_to_remove = ['data_hora', 'lat_lon', 'lat', 'lon','lat_ant','lon_ant']
 	df3 = df1.drop(columns=columns_to_remove)
-
-	cols = st.columns([1,1])
-	lin_max = df3.shape[0]
-	lin_inicio = cols[0].number_input('inicio',min_value=0,max_value=lin_max,value=1000)
-	lin_fim = cols[1].number_input('fim',min_value=0,max_value=lin_max,value=1020)
-
-	st.dataframe(df3.iloc[lin_inicio:lin_fim])	
+	
+	st.dataframe(df3.iloc[500:600])	
 
 
 with tab4: #conclusao
