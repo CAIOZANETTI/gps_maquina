@@ -34,7 +34,7 @@ with tab1: #contagem
 
 	cols = st.columns([1,1])
 	cols[0].dataframe(df2)
-	cols[1].dataframe(df2[df['util']==True])
+	cols[1].dataframe(df2[df2['util']==True])
 
 
 
