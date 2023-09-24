@@ -2,7 +2,7 @@ import math
 import pandas as pd
 
 
-def analise_dataframe(df:pd.pd.DataFrame)->dict:
+def analise_dataframe(df:pd.DataFrame)->dict:
 	"""
 	Mostrar uma analise do conteudo do dataframe
 	"""
