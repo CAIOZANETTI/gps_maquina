@@ -32,7 +32,9 @@ with tab2: #principal
 	st.dataframe(df2[df2['util']==True])
 
 with tab3: #amostra
-	st.dataframe(df1.iloc[2:100])	
+	columns_to_remove = ['data_hora', 'lat_lon', 'lat', 'lon','lat_ant','lon_ant']
+	df3 = df1.drop(columns=columns_to_remove)
+	st.dataframe(df3.iloc[2:100])	
 
 
 with tab4: #conclusao
