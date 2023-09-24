@@ -36,7 +36,7 @@ with tab3: #amostra
 	df3 = df1.drop(columns=columns_to_remove)
 
 	cols = st.columns([1,1])
-	lin_max_row = df3.shape[1]
+	lin_max = df3.shape[1]
 	lin_inicio = cols[0].number_input('inicio',0,lin_max)
 	lin_fim = cols[0].number_input('fim',0,lin_max)
 
