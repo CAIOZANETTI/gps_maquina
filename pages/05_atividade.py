@@ -43,10 +43,5 @@ with tab4: #conclusao
 	st.markdown(textos['conclusao'])
 
 
-#Posicionamento
-st.subheader(textos['atividade'])
-tab1,tab2,tab3,tab4 = st.tabs(['contagem','principal','amostra','conclusao'])
 
 
-#st.write('interpretação')
-#st.write('para determinar a ')
