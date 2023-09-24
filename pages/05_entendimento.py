@@ -32,7 +32,7 @@ with tab2: #principal
 	st.dataframe(df2[df2['util']==True])
 
 with tab3: #amostra
-	st.dataframe(df2.iloc[2:100])	
+	st.dataframe(df1.iloc[2:100])	
 
 
 with tab4: #conclusao
