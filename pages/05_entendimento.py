@@ -1,6 +1,9 @@
 import streamlit as st
 import pandas as pd
+import fx_streamlit as fx_streamlit
 
+
+st.write(fx_streamlit.textos('05_entendimento','portugues'))
 
 if 'df1' not in st.session_state:
 	df1 = pd.read_parquet('data/silver_jcb_relatorio_2022.parquet',engine='pyarrow')
@@ -8,17 +11,11 @@ if 'df1' not in st.session_state:
 
 df1 = st.session_state['df1']
 
-with st.sidebar:
-	idioma = st.radio('idioma dos comentarios', ['portugues','ingles'])
+cols = st.columns([1,1])
+cols[0].subheader("Entendimento")
+idioma = cols[1].radio('idioma dos comentarios', ['portugues','ingles'])
 
-st.subheader("Entendimento")
 
-st.write(
-'A compreender as informações dos dados\
-identificar quais informações são relevantes,\
-como elas estão distribuídas, qual a relação\
-entre demais variáveis como o tempo (hora, dia, mês)\
-ou coordenadas lat+lon.')
 
 # atividades....
 st.subheader('atividades')

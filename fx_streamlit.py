@@ -40,3 +40,32 @@ def analise_df(df,nome):
 		for k,v in dic.items():
 			st.markdown("""---""")
 			st.write(k,v)
+
+
+def textos(pagina:str,idioma:str)->dict:
+
+	if pagina =='05_entendimento':
+		dic = {}
+		if idioma =='portugues':
+			dic['introducao']="""Para aprimorar a compreensão dos dados,/
+			 é essencial **identificar quais informações são pertinentes**,/
+			  analisar sua distribuição e explorar as relações existentes com/
+			   outras variáveis, como o **tempo (hora, dia, mês)** e coordenadas/
+			    geográficas (latitude e longitude)."""
+
+			dic['contagem'] = 'Para aprimorar a compreensão dos dados, é crucial **realizar uma análise da coluna de atividades**, utilizando um filtro para identificar aquelas que são **mais frequentes e relevantes**.'
+
+
+		elif idioma=='ingles':
+			dic['introducao']="""To enhance data understanding,/
+				 it is essential to **identify which information is relevant**,/
+				 analyze its distribution, and explore the relationships with other variables,/
+				  such as **time (hour, day, month)** and geographical coordinates (latitude and longitude)."""
+
+			dic['contagem'] = 'To enhance data understanding, it is crucial to **perform an analysis of the activities column**, using a filter to identify those that are **more frequent and relevant**.'
+
+		return dic
+
+	else:
+		dic = {}
+		return dic
