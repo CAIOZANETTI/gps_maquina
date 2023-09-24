@@ -47,13 +47,20 @@ def textos(pagina:str,idioma:str)->dict:
 	if pagina =='05_entendimento':
 		dic = {}
 		if idioma =='portugues':
-			dic['introducao']="""Para aprimorar a compreensão dos dados,/
-			 é essencial **identificar quais informações são pertinentes**,/
-			  analisar sua distribuição e explorar as relações existentes com/
-			   outras variáveis, como o **tempo (hora, dia, mês)** e coordenadas/
-			    geográficas (latitude e longitude)."""
+			dic['introducao']="""
+				Para aprimorar a compreensão dos dados,
+			 	é essencial **identificar quais informações são pertinentes**,
+			  	analisar sua distribuição e explorar as relações existentes com
+			   outras variáveis, como o **tempo (hora, dia, mês)** e coordenadas
+			   geográficas (latitude e longitude).
+			   """
 
-			dic['contagem'] = 'Para aprimorar a compreensão dos dados, é crucial **realizar uma análise da coluna de atividades**, utilizando um filtro para identificar aquelas que são **mais frequentes e relevantes**.'
+			dic['contagem'] = """
+				Para aprimorar a compreensão dos dados, 
+				é crucial **realizar uma análise da coluna de atividades**, 
+				utilizando um filtro para identificar aquelas que são 
+				**mais frequentes e relevantes**.
+				"""
 
 
 		elif idioma=='ingles':
