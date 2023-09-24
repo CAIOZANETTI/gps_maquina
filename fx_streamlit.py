@@ -1,10 +1,11 @@
 import streamlit as st
+import fx_data as fx_data
 
 def analise_df(df,nome):
 
 	st.write('**info** dataframe : '+nome)
 
-	tab1,tab2,tab3,tab4,tab5,tab6 = st.tabs(['dtypes','dataframe','table','shape','describe','bytes'])
+	tab1,tab2,tab3,tab4,tab5,tab6,tab7 = st.tabs(['dtypes','dataframe','table','shape','describe','bytes','analise'])
 
 	with tab1:
 		st.write(df.dtypes)
@@ -32,3 +33,6 @@ def analise_df(df,nome):
 		memory['Mb'] = round(memory['bytes'] / 1048576,2)
 		
 		st.write(memory)
+
+	with tab7:
+		st.write(fx_data.analise_dataframe(df))

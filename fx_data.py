@@ -1,6 +1,25 @@
 import math
 import pandas as pd
 
+
+def analise_dataframe(df:pd.pd.DataFrame)->dict:
+	"""
+	Mostrar uma analise do conteudo do dataframe
+	"""
+	dic = {}
+	if df.isna().sum().sum()==0:
+		dic['nulo'] = 'sem valores nulos'
+	else:
+		dic['nulo'] = df.isna().sum()
+
+	dic['duplicados'] = df.duplicated().sum()
+	dic['tipo_dados'] = df.dtypes()
+	dic['objetos'] = df.select_dtypes(include=['object']).columns
+
+	return dic
+
+
+
 def check_motor_ligado(atividades:list)->list:
 	status =[]
 	ligado=0
