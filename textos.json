@@ -5,7 +5,7 @@
          "atividade": "atividades",
          "introducao": "Para aprimorar a compreensão dos dados, é essencial **identificar quais informações são pertinentes**, analisar sua distribuição e explorar as relações existentes com outras variáveis, como o **tempo (hora, dia, mês)** e coordenadas geográficas (latitude e longitude).",
          "contagem": "Para aprimorar a compreensão dos dados, é crucial **realizar uma análise da coluna de atividades**, utilizando um filtro para identificar aquelas que são **mais frequentes e relevantes**.",
-         "conclusao": "A atividade **'chave_ligada'** e **'chave_desligada'** determina o range de funcionamento do equipamento. A partir disso, foi incluída a coluna de **'motor_ligado'** para determinar o período em que a máquina esteve em funcionamento (valor 1) e desligada (valor 0)."
+         "conclusao": "A atividade **'chave_ligada'** e **'chave_desligada'** determina o range de funcionamento do equipamento. A partir disso, foi incluída a coluna de **'motor_ligado'** para determinar o período em que a máquina esteve em funcionamento (True) e desligada (False)."
          },
          
       "ingles": {
@@ -13,7 +13,7 @@
          "atividade": "activities",
          "introducao": "To enhance data understanding, it is essential to **identify which information is relevant**, analyze its distribution, and explore the relationships with other variables, such as **time (hour, day, month)** and geographical coordinates (latitude and longitude).",
          "contagem": "To enhance data understanding, it is crucial to **perform an analysis of the activities column**, using a filter to identify those that are **more frequent and relevant**.",
-         "conclusao": "The **'chave_ligada'** and **'chave_desligada'** activities determine the operating range of the equipment. Subsequently, the **'motor_ligado'** column was included to determine the period during which the machine was in operation (value 1) and turned off (value 0)."
+         "conclusao": "The **'chave_ligada'** and **'chave_desligada'** activities determine the operating range of the equipment. Subsequently, the **'motor_ligado'** column was included to determine the period during which the machine was in operation (True) and turned off (False)."
          }
    }
 }

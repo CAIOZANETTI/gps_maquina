@@ -6,7 +6,6 @@ import extrair as extrair
 import fx_streamlit as fx_streamlit
 
 
-
 if 'df1' not in st.session_state:
 	df1 = pd.read_parquet('data/silver_jcb_relatorio_2022.parquet',engine='pyarrow')
 	st.session_state['df1'] = df1
@@ -17,14 +16,10 @@ df1 = st.session_state['df1']
 textos = extrair.json_to_dic('textos.json')
 cols = st.columns([1,1])
 idioma = cols[0].radio('idioma dos comentarios', ['portugues','ingles'])
-textos = textos['05_entendimento'][idioma]
-
-
+textos = textos['05_atividade'][idioma]
 
 #introdução
 st.markdown(textos['introducao'])
-st.subheader(textos['atividade'])
-
 tab1,tab2,tab3,tab4 = st.tabs(['contagem','principal','amostra','conclusao'])
 
 with tab1: #contagem
@@ -42,11 +37,15 @@ with tab3: #amostra
 	columns_to_remove = ['data_hora', 'lat_lon', 'lat', 'lon','lat_ant','lon_ant']
 	df3 = df1.drop(columns=columns_to_remove)
 	
-	st.dataframe(df3.iloc[539:553])	
-
+	st.dataframe(df3.iloc[539:555])	
 
 with tab4: #conclusao
 	st.markdown(textos['conclusao'])
+
+
+#Posicionamento
+st.subheader(textos['atividade'])
+tab1,tab2,tab3,tab4 = st.tabs(['contagem','principal','amostra','conclusao'])
 
 
 #st.write('interpretação')
