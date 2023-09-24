@@ -48,9 +48,9 @@ def check_motor_ligado(atividades:list)->list:
 	ligado=0
 	for atividade in atividades:
 		if atividade=='chave_ligada':
-			ligado = True
+			ligado = 1
 		elif atividade=='chave_desligada':
-			ligado =False
+			ligado =0
 		status.append(ligado)
 	return status
 
@@ -115,6 +115,7 @@ def df_bronze_to_silver_gps(remover_colunas:list,df)->pd.DataFrame:
 	#motor ligado
 	atividades = df['atividade'].tolist()
 	df['motor_ligado'] = check_motor_ligado(atividades)
+	df['motor_ligado'] = df['motor_ligado'].astype(bool)
 
 	#converter colunas object to string
 	df = df.astype({'nome_dia': 'string','lat_lon':'string','atividade':'string'})
