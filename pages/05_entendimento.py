@@ -32,8 +32,11 @@ with tab1: #contagem
 	df2['perc'] = df2['perc'].astype(int)
 	df2['util'] = df2['perc']>5
 
+	cols = st.columns([1,1])
+	cols[0].dataframe(df2)
+	cols[1].dataframe(df2[df['util']==True])
 
-	st.dataframe(df2)
+
 
 
 with tab2: #periodo
@@ -57,5 +60,5 @@ with tab4: #periodo
 	st.write(' atividades vs dia da semana')
 
 
-st.write('interpretação')
-st.write('para determinar a ')
+#st.write('interpretação')
+#st.write('para determinar a ')

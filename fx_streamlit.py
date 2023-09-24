@@ -64,7 +64,6 @@ def textos(pagina:str,idioma:str)->dict:
 				**mais frequentes e relevantes**.
 				"""
 
-
 		elif idioma=='ingles':
 			dic['titulo'] = "understanding"
 			dic['atividade'] = "activities"
