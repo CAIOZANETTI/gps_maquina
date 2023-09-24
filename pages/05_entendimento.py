@@ -15,10 +15,7 @@ idioma = cols[0].radio('idioma dos comentarios', ['portugues','ingles'])
 textos = fx_streamlit.textos('05_entendimento',idioma)
 
 #introdução
-cols[1].subheader(textos['atividade'] )
 st.markdown(textos['introducao'])
-
-# atividades....
 st.subheader(textos['atividade'])
 st.markdown(textos['contagem'])
 
