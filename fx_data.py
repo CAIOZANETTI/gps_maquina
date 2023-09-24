@@ -13,7 +13,7 @@ def analise_dataframe(df:pd.DataFrame)->dict:
 		dic['nulo'] = df.isna().sum()
 
 	dic['duplicados'] = df.duplicated().sum()
-	dic['tipo_dados'] = df.dtypes()
+	dic['tipo_dados'] = df.dtypes
 	dic['objetos'] = df.select_dtypes(include=['object']).columns
 
 	return dic
