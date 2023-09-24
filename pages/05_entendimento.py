@@ -20,44 +20,27 @@ st.markdown(textos['introducao'])
 
 # atividades....
 st.subheader(textos['atividade'])
-tab1,tab2,tab3,tab4 = st.tabs(['contagem','horimetro','horas','dia da semana'])
+st.markdown(textos['contagem'])
+
+tab1,tab2,tab3,tab4 = st.tabs(['contagem','principal','amostra','conclusao'])
 
 with tab1: #contagem
-
-	st.markdown(textos['contagem'])
-
 	df2 = df1['atividade'].value_counts().reset_index()
 	df2.columns = ['atividade','qtd']
 	df2['perc'] = round(100*(df2['qtd']/df2['qtd'].sum()),0)
 	df2['perc'] = df2['perc'].astype(int)
-	df2['util'] = df2['perc']>5
+	df2['util'] = df2['perc']>5	
+	st.dataframe(df2)
 
-	cols = st.columns([1,1])
-	cols[0].dataframe(df2)
-	cols[1].dataframe(df2[df2['util']==True])
+with tab2: #principal
+	st.dataframe(df2[df2['util']==True])
 
-
-
-
-with tab2: #periodo
-
-	st.write('atividades vs horas')
-	pivot_df = df1.pivot_table(index='hora', columns='atividade', aggfunc='size', fill_value=0)
-	df3 = pivot_df.T.reset_index()
-
-	st.dataframe(df3.head(5))
-
-	pivot_df = df1.pivot_table(index='atividade', columns='hora', aggfunc='size', fill_value=0)
-
-	st.dataframe(pivot_df)
-	#st.bar_chart(df1[['atividade','hora']])
-
-with tab3: #periodo
-	st.write(' atividades vs dia da semana')
+with tab3: #amostra
+	st.dataframe(df2.iloc[2:100])	
 
 
-with tab4: #periodo
-	st.write(' atividades vs dia da semana')
+with tab4: #conclusao
+	st.markdown(textos['conclusao'])
 
 
 #st.write('interpretação')
