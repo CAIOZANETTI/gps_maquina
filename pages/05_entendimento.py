@@ -6,11 +6,6 @@ import extrair as extrair
 import fx_streamlit as fx_streamlit
 
 
-textos = extrair.json_to_dic('textos.json')
-idioma = 'ingles'
-textos = textos['05_entendimento'][idioma]
-st.write(textos['atividade'])
-
 
 if 'df1' not in st.session_state:
 	df1 = pd.read_parquet('data/silver_jcb_relatorio_2022.parquet',engine='pyarrow')
@@ -18,10 +13,11 @@ if 'df1' not in st.session_state:
 
 df1 = st.session_state['df1']
 
-#idioma
+#textos e idioma
+textos = extrair.json_to_dic('textos.json')
 cols = st.columns([1,1])
 idioma = cols[0].radio('idioma dos comentarios', ['portugues','ingles'])
-textos = fx_streamlit.textos('05_entendimento',idioma)
+textos = textos['05_entendimento'][idioma]
 
 
 
