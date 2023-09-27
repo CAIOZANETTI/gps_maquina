@@ -1,12 +1,12 @@
 # Atividade de Máquina 
 
-Este repositório contém um projeto que visa obter informação através da analise de relatório de posicionamento de máquina com suas coordenadas e informações básicas de sua atividade permitir a filtrar os dados por período e obter informações através de cálculo como distância percorrida e tempo de operação.
+Este repositório contém um projeto que visa obter informação através da analise de dados de um relatório de posicionamento de máquina com suas coordenadas e informações básicas de sua atividade permitir obter sobre a **rotina** e **comportamento**. Essas informações podem ser de grande utilidade para julgar se o comportamento foi adequado com o planejamento ou se correram **desvios**.
 
 Os dados foram obtidos através de relatório emitido por uma retroescavadeira jbc modelo 3cx, durante atividade de serviço de pavimentação e drenagem realizados pela Jit Engenharia durante o ano de 2022.
 
 ## Objetivos Principais
 
-1. **Obter informações de funcionamento de equipamento e permitir a visualização e consulta em uma interface web** 
+1. Converter dados em informações através da publicação dos resultados em um formato web acessível a qualquer dispositivo. 
 
 ## Objetivos Secundários
 
@@ -16,7 +16,9 @@ Os dados foram obtidos através de relatório emitido por uma retroescavadeira j
 
 3. **Aferir a quantidade e qualidade de registros obtidos** o fluxo de informação enviado pela máquina 
 
-4. **Entimento das Atividades** Como as atividades registradas podem ser utilizadas, identificar e filtrar as **atividades principais** 
+4. **Entimento das Atividades** Como as atividades registradas podem ser utilizadas, identificar e filtrar as **atividades principais**
+
+5. identificar **rotina** e **comportamento** da máquina 
 
 ## Visão Geral
 
@@ -28,8 +30,9 @@ Este projeto demostra mostra aplicação a engenharia de dados para automatizar 
 
 - **Entendimento Dataframe** A compreender as informações dos dados identificar quais informações são relevantes, como elas estão distribuídas, qual a relação entre demais variáveis como o tempo (hora, dia, mês) ou coordenadas lat+lon.
 
-3.1 Quantidade de sinal gerado no dia
-3.2 quantidade de sinal emitido por hora
+- **Tamanho dos Dados** verificar a quantidade de linhas registradas por um intervalo de hora, dia e mês 
+
+- **Qualidade dos Dados** entender como os dados disponíveis podem ser úteis para......
 
 Qualidade as condições devem ser verdadeira
 3.3 Quantidade a chave liga = motor ligado
