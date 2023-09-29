@@ -2,7 +2,7 @@
 
 Este repositório contém um projeto que visa obter informação através da analise de dados de um relatório de posicionamento de máquina com suas coordenadas e informações básicas de sua atividade permitir obter sobre a **rotina** e **comportamento**. Essas informações podem ser de grande utilidade para julgar se o comportamento foi adequado com o planejamento ou se correram **desvios**.
 
-Os dados foram obtidos através de relatório emitido por uma retroescavadeira jbc modelo 3cx, durante atividade de serviço de pavimentação e drenagem realizados pela Jit Engenharia durante o ano de 2022.
+Os dados foram obtidos através de relatório emitido por uma retroescavadeira jbc modelo 3cx, durante atividade de serviço de pavimentação e drenagem realizados durante o ano de 2022.
 
 ## Objetivos Principais
 
