@@ -16,7 +16,7 @@ Os dados foram obtidos através de relatório emitido por uma retroescavadeira j
 
 3. **Aferir a quantidade e qualidade de registros obtidos** o fluxo de informação enviado pela máquina 
 
-4. **Entimento das Atividades** Como as atividades registradas podem ser utilizadas, identificar e filtrar as **atividades principais**
+4. **Entender as Atividades** registradas podem ser utilizadas, identificar e filtrar as **atividades principais**
 
 5. identificar **rotina** e **comportamento** da máquina 
 
@@ -26,18 +26,17 @@ Este projeto demostra mostra aplicação a engenharia de dados para automatizar 
 
 ### Etapas do Processo 
 
-- **Extrair Dados** de GPS: O sistema lê arquivos CSV ou gsheet contendo coordenadas GPS de equipamentos em campo. Esses dados são essenciais para rastrear a localização e movimento dos equipamentos ao longo do tempo.
+- **Extrair Dados** de GPS: O sistema lê arquivos CSV, gsheet, parquet contendo coordenadas GPS da atividade de máquina. Esses dados são essenciais para rastrear a localização e movimento dos equipamentos ao longo do tempo.
 
 - **Entendimento Dataframe** A compreender as informações dos dados identificar quais informações são relevantes, como elas estão distribuídas, qual a relação entre demais variáveis como o tempo (hora, dia, mês) ou coordenadas lat+lon.
 
 - **Tamanho dos Dados** verificar a quantidade de linhas registradas por um intervalo de hora, dia e mês 
 
-- **Qualidade dos Dados** entender como os dados disponíveis podem ser úteis para......
+- **Qualidade dos Dados** entender como os dados disponíveis podem ser úteis para 
 
 Qualidade as condições devem ser verdadeira
 3.3 Quantidade a chave liga = motor ligado
 3.4 Quantidade a chave desliga= motor desligado 
-
 
 - **Normalizar Dados** de tempo data e hora, como de local as coordenadas,
 
