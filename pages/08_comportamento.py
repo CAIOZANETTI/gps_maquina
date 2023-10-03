@@ -18,14 +18,14 @@ tab1,tab2,tab3,tab4,tab5 = st.tabs(['motor_ligado_folga','tab2','tab3','tab4','t
 df2 = df1.query(filtro)
 
 with tab1:
-	motor_ligado_folga = [
+	filtro = [
 	'(motor_ligado==True) and (nome_dia=="sunday")',
 	'(motor_ligado==True) and (nome_dia=="saturday")and (hora>13)',
 	'(motor_ligado==True) and (hora>18)'
 	'(motor_ligado==True) and (hora>0) and (hora<6)'
 	]
-	st.selectbox('comportamento',motor_ligado_folga)
-	df2 = df1.query(filtro)
+	st.selectbox('comportamento',filtro, key='filtro')
+	df2 = df1.query(st.session_state['filtro'])
 	st.dataframe(df2)
 
 with tab2:
