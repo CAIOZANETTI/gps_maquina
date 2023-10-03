@@ -18,9 +18,9 @@ filtro = 'motor_ligado==True'
 st.write('Produtiva: '+filtro)
 df2 = df1.query(filtro)
 with tab1:
- 	st.write('segunda -> sexta')
- 	st.write('sabado')
- 	st.write('domingo')
+	st.write('segunda -> sexta')
+	st.write('sabado')
+	st.write('domingo')
 	st.dataframe(df2['nome_dia'].value_counts())
 
 with tab2:
