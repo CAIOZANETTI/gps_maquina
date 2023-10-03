@@ -8,7 +8,8 @@ if 'df1' not in st.session_state:
 
 df1 = st.session_state['df1']
 
-tab1,tab2,tab3,tab4,tab5 = st.tabs(['dia semana','horas','inicio','sabado','domingo'])
+tab1,tab2,tab3,tab4,tab5 = st.tabs(['dia semana','horas','inicio','\
+	','domingo'])
 
 filtro = 'motor_ligado==True'
 st.write('Produtiva: '+filtro)
