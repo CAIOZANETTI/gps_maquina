@@ -15,8 +15,6 @@ with st.expander('info',expanded=False):
 tab1,tab2,tab3,tab4,tab5 = st.tabs(['motor_ligado_folga','tab2','tab3','tab4','tab5'])
 
 
-df2 = df1.query(filtro)
-
 with tab1:
 	filtro = [
 	'(motor_ligado==True) and (nome_dia=="sunday")',
