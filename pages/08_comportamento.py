@@ -8,24 +8,30 @@ if 'df1' not in st.session_state:
 
 df1 = st.session_state['df1']
 
-tab1,tab2,tab3,tab4,tab5 = st.tabs(['dia semana','horas','inicio','temino','domingo'])
+
+with st.expander('info',expanded=False):
+	st.markdown('comportamento produtivo, inprodutivo, previsto, adequado, improvavel')
+
+tab1,tab2,tab3,tab4,tab5 = st.tabs(['produtivo','tab2','tab3','tab4','tab5'])
 
 filtro = 'motor_ligado==True'
 st.write('Produtiva: '+filtro)
 df2 = df1.query(filtro)
-with tab1: 	
-	st.dataframe(df2['nome_dia'].value_counts())
+
+with tab1:
+	st.write('vazio')
 with tab2:
-	st.dataframe(df2['hora'].value_counts().sort_index())
+
+	st.write('vazio')
 with tab3:
-	st.write('primeira hora que a chave ligou')
-	inicio = df1[df1['atividade'] == 'chave_ligada']['hora'].iloc[0]
-	st.dataframe(inicio)
+
+	st.write('vazio')
 
 with tab4:
-	st.write('primeira hora que a chave ligou por dia, nome do dia e mes')
+	st.write('vazio')
 with tab5:
-	st.write('domingo')
+	
+	st.write('vazio')
 
 
 filtro = 'motor_ligado==False'
