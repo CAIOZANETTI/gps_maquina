@@ -17,7 +17,7 @@ tab1,tab2,tab3,tab4,tab5 = st.tabs(['semana','horas','deslocamento','inicio','te
 
 with tab1:
 
-	cols = st.columns([1,1,1,1,1])
+	cols = st.columns([1,1,1,1,1,1])
 	filtro = 'motor_ligado==True'
 	cols[0].write(filtro)
 	df2 = df1.query(filtro)
