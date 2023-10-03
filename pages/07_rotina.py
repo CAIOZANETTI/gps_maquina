@@ -37,17 +37,17 @@ with tab2:
 	st.write('noite')
 	st.write('madrugada')
 
-	st.dataframe(df2['hora'].value_counts().sort_index())
+	#st.dataframe(df2['hora'].value_counts().sort_index())
 with tab3:
 	st.write('primeira hora do dia que a chave ligou')
-	inicio = df1[df1['atividade'] == 'chave_ligada']['hora'].iloc[0]
-	st.dataframe(inicio)
+	#inicio = df1[df1['atividade'] == 'chave_ligada']['hora'].iloc[0]
+	#st.dataframe(inicio)
 
 with tab4:
 	st.write('ultima hora hora do dia que a chave desligou')
 
 
 
-filtro = 'motor_ligado==False'
-st.write('Improdutiva: '+filtro)
-df2 = df1.query(filtro)
+#filtro = 'motor_ligado==False'
+#st.write('Improdutiva: '+filtro)
+#df2 = df1.query(filtro)
