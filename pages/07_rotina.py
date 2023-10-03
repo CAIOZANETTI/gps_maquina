@@ -12,13 +12,12 @@ with st.expander('info',expanded=False):
 	st.markdown('analisar a rotina da maqiona no periodo disponivel no dataframe,\
 	 afim de identificar algum padrão que possa ser caracterizado como um comportamento')
 
-tab1,tab2,tab3,tab4,tab5 = st.tabs(['semana','dias','horas','inicio','termino'])
+tab1,tab2,tab3,tab4,tab5 = st.tabs(['motor ligado','deslocamentodias','horas','inicio','termino'])
 
 
 with tab1:
 
 	cols = st.columns([1,1,1,1])
-
 	filtro = 'motor_ligado==True'
 	cols[0].write(filtro)
 	df2 = df1.query(filtro)
@@ -29,6 +28,19 @@ with tab1:
 	df2 = df1.query(filtro)
 	cols[1].dataframe(df2['nome_dia'].value_counts())
 
+	filtro = 'atividade=="chave_ligada"'
+	cols[2].write(filtro)
+	df2 = df1.query(filtro)
+	cols[2].dataframe(df2['nome_dia'].value_counts())
+	
+	filtro = 'atividade=="chave_desligada"'
+	cols[3].write(filtro)
+	df2 = df1.query(filtro)
+	cols[3].dataframe(df2['nome_dia'].value_counts())	
+
+
+with tab2:
+	cols = st.columns([1,1,1,1])	
 	filtro = 'raio_m>0'
 	cols[2].write(filtro)
 	df2 = df1.query(filtro)
@@ -38,9 +50,7 @@ with tab1:
 	cols[3].write(filtro)
 	df2 = df1.query(filtro)
 	cols[3].dataframe(df2['nome_dia'].value_counts())
-	
 
-with tab2:
 	st.write('dia')
 	st.write('noite')
 	st.write('madrugada')
