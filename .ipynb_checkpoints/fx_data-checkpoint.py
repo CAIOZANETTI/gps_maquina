@@ -119,8 +119,7 @@ def df_bronze_to_silver_gps(remover_colunas:list,df)->pd.DataFrame:
 
 
 	#fitrar dados remover linhas
-	atividades_remover = ['primeiro_acerto_do_gps', 'gsm_metrics-pt','gsm_diagnostics-pt']
-	df = df[~df['atividade'].isin(atividades_remover)]
+	df = df.query('atividade!= "primeiro_acerto_do_gps" and atividade!= "gsm_metrics-pt"')
 
 	#converter colunas object to string
 	df = df.astype({'nome_dia': 'string','lat_lon':'string','atividade':'string'})

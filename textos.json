@@ -4,14 +4,14 @@
          "titulo": "transformar",
          "tempo": "As variáveis de tempo foram desagregadas das colunas de 'data hora' em duas colunas distintas: uma para a data e outra para a hora. Além disso, incluímos o nome do dia da semana.",
          "local": "As coordenadas de localização, foi dividida em duas colunas separadas para latitude e longitude. Também adicionamos colunas que representam a latitude e a longitude imediatamente anteriores, permitindo-nos determinar o ponto de origem. Assim é foi calculado o raio de distância em metros entre as posições.",
-         "atividade": "Na categoria de atividades, foi incluida a coluna chamada 'motor_ligado', a qual é marcada como True no evento 'chave_ligada' e como False no momento de 'chave_desligada'. Foi eliminanado as linhas associadas às atividades 'primeiro_acerto_do_gps' e 'gsm_metrics-pt' do dataframe, pois compreendemos que essas representam uma calibração inicial da localização e a sua inclusão poderia introduzir distorções na análise"
+         "atividade": "Na categoria de atividades, foi incluida a coluna chamada 'motor_ligado', a qual é marcada como True no evento 'chave_ligada' e como False no momento de 'chave_desligada'. Foi eliminanado as linhas associadas às atividades 'primeiro_acerto_do_gps','gsm_diagnostics-pt e 'gsm_metrics-pt' do dataframe, pois compreendemos que essas representam uma calibração inicial da localização e a sua inclusão poderia introduzir distorções na análise"
          },
          
       "ingles": {
          "titulo": "Convert",
          "tempo": "The time variables have been disaggregated from the 'date time' columns into two separate columns: one for the date and another for the time. Additionally, we have included the name of the day of the week",
          "local": "The location coordinates have been separated into two distinct columns for latitude and longitude. We have also added columns representing the immediately preceding latitude and longitude, allowing us to determine the point of origin. This enabled us to calculate the distance radius in meters between the positions.",
-         "atividade": "In the activity category, we have included a column called 'motor_ligado,' which is marked as True in the 'chave_ligada' event and as False at the moment of 'chave_desligada.' We have removed the rows associated with the activities 'primeiro_acerto_do_gps' and 'gsm_metrics-pt' from the dataframe, as we understand that these represent an initial location calibration, and their inclusion could introduce distortions into the analysis."
+         "atividade": "In the activity category, we have included a column called 'motor_ligado,' which is marked as True in the 'chave_ligada' event and as False at the moment of 'chave_desligada.' We have removed the rows associated with the activities 'primeiro_acerto_do_gps','gsm_diagnostics-pt' and 'gsm_metrics-pt' from the dataframe, as we understand that these represent an initial location calibration, and their inclusion could introduce distortions into the analysis."
          }
    },   
 
