@@ -1,6 +1,9 @@
 import streamlit as st
 import pandas as pd
 
+import fx_streamlit as fx_streamlit
+
+
 
 if 'df1' not in st.session_state:
 	df1 = pd.read_parquet('data/silver_jcb_relatorio_2022.parquet',engine='pyarrow')
@@ -24,6 +27,8 @@ with tab1:
 	]
 	st.selectbox('comportamento',filtro, key='filtro')
 	df2 = df1.query(st.session_state['filtro'])
+	
+	fx_streamlit.analise_df(df2,st.session_state['filtro'])
 	st.dataframe(df2)
 
 with tab2:
