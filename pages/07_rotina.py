@@ -44,6 +44,8 @@ with tab3:
 with tab4:
 	st.write('ultima hora hora do dia que a chave desligou')
 
+with tab5:
+	st.write('tab5')
 
 
 #filtro = 'motor_ligado==False'
