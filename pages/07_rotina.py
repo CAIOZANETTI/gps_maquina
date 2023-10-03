@@ -22,7 +22,7 @@ with tab1:
 	filtro = 'motor_ligado==True'
 	cols[0].write(filtro)
 	df2 = df1.query(filtro)
-	cols[1].dataframe(df2['nome_dia'].value_counts())
+	cols[0].dataframe(df2['nome_dia'].value_counts())
 	
 	filtro = 'motor_ligado==False'
 	cols[1].write(filtro)
