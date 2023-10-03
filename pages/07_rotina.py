@@ -17,7 +17,7 @@ tab1,tab2,tab3,tab4,tab5 = st.tabs(['semana','horas','deslocamento','inicio','te
 
 with tab1:
 
-	cols = st.columns([1,1,1,1])
+	cols = st.columns([1,1,1,1,1,1])
 	filtro = 'motor_ligado==True'
 	cols[0].write(filtro)
 	df2 = df1.query(filtro)
@@ -40,14 +40,14 @@ with tab1:
 
 	cols = st.columns([1,1,1,1])	
 	filtro = 'raio_m>0'
-	cols[2].write(filtro)
+	cols[4].write(filtro)
 	df2 = df1.query(filtro)
-	cols[2].dataframe(df2['nome_dia'].value_counts())
+	cols[4].dataframe(df2['nome_dia'].value_counts())
 
 	filtro = 'raio_m==0'
-	cols[3].write(filtro)
+	cols[5].write(filtro)
 	df2 = df1.query(filtro)
-	cols[3].dataframe(df2['nome_dia'].value_counts())
+	cols[5].dataframe(df2['nome_dia'].value_counts())
 
 
 with tab2:
