@@ -38,7 +38,6 @@ with tab1:
 	df2 = df1.query(filtro)
 	cols[3].dataframe(df2['nome_dia'].value_counts())	
 
-	cols = st.columns([1,1,1,1])	
 	filtro = 'raio_m>0'
 	cols[4].write(filtro)
 	df2 = df1.query(filtro)
