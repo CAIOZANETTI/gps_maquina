@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 import math
 
+import extrair as extrair
 import fx_streamlit as fx_streamlit
 import fx_data as fx_data
 
