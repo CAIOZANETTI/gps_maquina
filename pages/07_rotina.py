@@ -17,8 +17,6 @@ tab1,tab2,tab3,tab4,tab5 = st.tabs(['semana','dias','horas','inicio','termino','
 
 with tab1:
 
-st.write('Produtiva: '+filtro)
-
 	cols = st.columns([1,1])
 
 	filtro = 'motor_ligado==True'
