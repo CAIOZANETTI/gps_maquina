@@ -22,7 +22,7 @@ with tab1:
 	filtro = [
 	'(motor_ligado==True) and (nome_dia=="sunday")',
 	'(motor_ligado==True) and (nome_dia=="saturday")and (hora>13)',
-	'(motor_ligado==True) and (hora>18)'
+	'(motor_ligado==True) and (hora>18)',
 	'(motor_ligado==True) and (hora>0) and (hora<6)'
 	]
 	st.selectbox('comportamento',filtro, key='filtro')
