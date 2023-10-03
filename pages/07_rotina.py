@@ -12,7 +12,7 @@ with st.expander('info',expanded=False):
 	st.markdown('analisar a rotina da maqiona no periodo disponivel no dataframe,\
 	 afim de identificar algum padrão que possa ser caracterizado como um comportamento')
 
-tab1,tab2,tab3,tab4,tab5 = st.tabs(['dias','horas','inicio','termino'])
+tab1,tab2,tab3,tab4,tab5 = st.tabs(['dias','horas','inicio','termino','tab5'])
 
 filtro = 'motor_ligado==True'
 st.write('Produtiva: '+filtro)
