@@ -12,7 +12,7 @@ with st.expander('info',expanded=False):
 	st.markdown('analisar a rotina da maqiona no periodo disponivel no dataframe,\
 	 afim de identificar algum padrão que possa ser caracterizado como um comportamento')
 
-tab1,tab2,tab3,tab4,tab5 = st.tabs(['diasemana','deslocamentodias','horas','inicio','termino'])
+tab1,tab2,tab3,tab4,tab5 = st.tabs(['semana','horas','inicio','termino'])
 
 
 with tab1:
@@ -21,7 +21,8 @@ with tab1:
 	filtro = 'motor_ligado==True'
 	cols[0].write(filtro)
 	df2 = df1.query(filtro)
-	cols[0].dataframe(df2['nome_dia'].value_counts().T)
+	df2 = df2['nome_dia'].value_counts()
+	cols[0].dataframe(df2.T)
 	
 	filtro = 'motor_ligado==False'
 	cols[1].write(filtro)
