@@ -29,8 +29,8 @@ with tab1:
 		}
 		st.write(querys)
 
-		df2 = fx_data.df_count_query_merge(df1,'nome_dia',querys)
-		st.dataframe(df2)
+	df2 = fx_data.df_count_query_merge(df1,'nome_dia',querys)
+	st.dataframe(df2)
 
 
 with tab2:
