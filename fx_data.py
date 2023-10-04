@@ -132,3 +132,42 @@ def df_bronze_to_silver_gps(remover_colunas:list,df)->pd.DataFrame:
 		if coluna in df.columns:
 			df = df.drop(coluna,axis=1)
 	return df
+
+
+def count_weed_by_name(start:str, end:str) -> pd.DataFrame:
+	"""
+	start_date = '2022-01-01'
+	end_date = '2022-08-01'
+	"""
+
+	serie = pd.date_range(start, end)
+	serie = serie.day_name()
+	serie = serie.value_counts()
+
+	order = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
+	serie = serie.reindex(order)
+	df = pd.DataFrame({'qtd':serie})
+	df.rename_axis('nome_dia', inplace=True)
+	
+	return df
+
+def df_count_query_merge(df:pd.DataFrame,coluna:str,querys:dict)->pd.DataFrame:
+	i=0
+	for nome,query in querys.items():
+		if i==0:
+			df1 = df.query(query)
+			df1 = df1[coluna].value_counts().reset_index()
+			df1.columns=['nome_dia',nome]
+		else:
+			df2 = df.query(query)
+			df2 = df2[coluna].value_counts().reset_index()
+			df2.columns=['nome_dia',nome]
+			df3 = pd.merge(df2,df1,on='nome_dia',how='outer')
+			df1=df3
+		i+=1
+
+	df3.set_index('nome_dia',inplace=True)
+	days_order = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday']
+	df3 = df3.reindex(index=days_order)
+	
+	return df3

@@ -12,65 +12,26 @@ with st.expander('info',expanded=False):
 	st.markdown('analisar a rotina da maqiona no periodo disponivel no dataframe,\
 	 afim de identificar algum padrão que possa ser caracterizado como um comportamento')
 
-tab1,tab2,tab3,tab4,tab5 = st.tabs(['dias prod','dias improd','horas prod','inicio','termino'])
+tab1,tab2,tab3,tab4,tab5 = st.tabs(['dias','dias improd','horas prod','inicio','termino'])
 
 
 with tab1:
-	st.write('teste')
-	
 
+	with st.expander('querys', expanded=False)
+
+		querys = {
+		'motor_on':'motor_ligado==True',
+		'motor_off':'motor_ligado==False',
+		'chave_on':'atividade == "chave_ligada"',
+		'chave_off':'atividade == "chave_desligada"',
+		'still':'raio_m == 0',
+		'moving':'raio_m>0',
+		}
+	st.write(querys)
 
 with tab2:
-
-	cols = st.columns([1,1,1,1,1,1])
-	filtro = 'motor_ligado==True'
+	st.write('querys')
 	
-	#cols[0].write(filtro)
-	df2 = df1.query(filtro)
-	df3 = df2['nome_dia'].value_counts().reset_index()
-	df4 = pd.DataFrame()
-	df4['ligado'] = df3['count']
-	df4 = df4.set_index(df3['nome_dia'])
-	st.write(df4)
-	
-	#fig = px.bar(df3,x='nome_dia',y='count')
-
-	#st.write(df3)
-	st.bar_chart(df4)
-	#st.area_chart(df3)
-	#st.line_chart(df3.set_index('nome_dia')['count'])
-	#st.scatter_chart(df3)
-	#st.bokeh_chart(df3)
-	#st.plotly_chart(df3)
-
-	"""
-	filtro = 'motor_ligado==False'
-	cols[1].write(filtro)
-	df2 = df1.query(filtro)
-	cols[1].dataframe(df2['nome_dia'].value_counts())
-
-	filtro = 'atividade=="chave_ligada"'
-	cols[2].write(filtro)
-	df2 = df1.query(filtro)
-	cols[2].dataframe(df2['nome_dia'].value_counts())
-	
-	filtro = 'atividade=="chave_desligada"'
-	cols[3].write(filtro)
-	df2 = df1.query(filtro)
-	cols[3].dataframe(df2['nome_dia'].value_counts())	
-
-	filtro = 'raio_m>0'
-	cols[4].write(filtro)
-	df2 = df1.query(filtro)
-	cols[4].dataframe(df2['nome_dia'].value_counts())
-
-	filtro = 'raio_m==0'
-	cols[5].write(filtro)
-	df2 = df1.query(filtro)
-	cols[5].dataframe(df2['nome_dia'].value_counts())
-
-	#st.dataframe(df2['hora'].value_counts().sort_index())
-	"""
 with tab3:
 	st.write('primeira hora do dia que a chave ligou')
 	#inicio = df1[df1['atividade'] == 'chave_ligada']['hora'].iloc[0]
