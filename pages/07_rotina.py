@@ -41,9 +41,9 @@ with tab1:
 	
 	with st.expander('Quantidade **Média** acionamento da Maquina por **dia**', expanded=False):
 		df_med = df3.median(axis=1).astype(int)
-		st.dataframe(df_med.T)
-
-	st.line_chart(df_med)
+		cols = st.columns(1,4)
+		cols[0].dataframe(df_med)
+		cols[1].bar_chart(df_med)
 
 with tab2:
 
