@@ -17,7 +17,7 @@ tab1,tab2,tab3,tab4,tab5 = st.tabs(['dias','dias improd','horas prod','inicio','
 
 with tab1:
 
-	with st.expander('querys', expanded=False)
+	with st.expander('querys', expanded=False):
 
 		querys = {
 		'motor_on':'motor_ligado==True',
