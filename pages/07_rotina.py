@@ -1,6 +1,6 @@
 import streamlit as st
 import pandas as pd
-import plotly.express as px
+
 
 if 'df1' not in st.session_state:
 	df1 = pd.read_parquet('data/silver_jcb_relatorio_2022.parquet',engine='pyarrow')
@@ -29,10 +29,10 @@ with tab2:
 	df3 = df2['nome_dia'].value_counts().reset_index()
 	st.write(df3.columns)
 	
-	fig = px.bar(df3,x='nome_dia',y='count')
+	#fig = px.bar(df3,x='nome_dia',y='count')
 
 	#st.write(df3)
-	#st.bar_chart(df3)
+	st.bar_chart(df3)
 	#st.area_chart(df3)
 	#st.line_chart(df3.set_index('nome_dia')['count'])
 	#st.scatter_chart(df3)
