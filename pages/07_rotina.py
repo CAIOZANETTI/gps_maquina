@@ -43,7 +43,7 @@ with tab1:
 		df_med = df3.median(axis=1).astype(int)
 		st.dataframe(df_med.T)
 
-		st.bar_chart(df_med)
+	st.line_chart(df_med)
 
 with tab2:
 
