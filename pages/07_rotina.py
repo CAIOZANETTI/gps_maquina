@@ -21,8 +21,8 @@ with tab1:
 
 	with st.expander('querys', expanded=False):
 		querys = {
-		'motor_on':'motor_ligado==True',
-		'motor_off':'motor_ligado==False',
+		'motor_on':'atividade == "arranque_do_motor"',
+		'motor_off':'atividade == "paragem_do_motor"',
 		'chave_on':'atividade == "chave_ligada"',
 		'chave_off':'atividade == "chave_desligada"',
 		}
