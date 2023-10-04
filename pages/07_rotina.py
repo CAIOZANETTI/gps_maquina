@@ -36,11 +36,11 @@ with tab1:
 		df_dia = fx_data.count_weed_by_name('2022-01-01','2022-08-01')
 		st.dataframe(df_dia.T)
 
-		df3 = df3.div(df_dia['qtd'],axis=0).astype(int)
-		st.dataframe(df3)
+		df4 = df3.div(df_dia['qtd'],axis=0).astype(int)
+		st.dataframe(df4)
 	
 	with st.expander('Quantidade **Média** acionamento da Maquina por **dia**', expanded=False):
-		df_med = df3.median(axis=1).astype(int)
+		df_med = df4.median(axis=1).astype(int)
 
 with tab2:
 
