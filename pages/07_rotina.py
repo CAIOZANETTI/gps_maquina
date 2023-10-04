@@ -41,6 +41,7 @@ with tab1:
 	
 	with st.expander('Quantidade **Média** acionamento da Maquina por **dia**', expanded=False):
 		df_med = df3.median(axis=1).astype(int)
+		df_med.columns['qtd']
 		cols = st.columns([1,4])
 		cols[0].dataframe(df_med)
 		cols[1].bar_chart(df_med)

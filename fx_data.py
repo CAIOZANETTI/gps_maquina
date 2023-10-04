@@ -133,7 +133,6 @@ def df_bronze_to_silver_gps(remover_colunas:list,df)->pd.DataFrame:
 			df = df.drop(coluna,axis=1)
 	return df
 
-
 def count_weed_by_name(start:str, end:str) -> pd.DataFrame:
 	"""
 	start_date = '2022-01-01'
