@@ -28,7 +28,11 @@ with tab2:
 	df2 = df1.query(filtro)
 	df3 = df2['nome_dia'].value_counts().reset_index()
 	st.bar_chart(df3)
-	
+	st.area_chart(df3)
+	st.line_chart(df3)
+	st.scatter_chart(df3)
+
+	"""
 	filtro = 'motor_ligado==False'
 	cols[1].write(filtro)
 	df2 = df1.query(filtro)
@@ -55,6 +59,7 @@ with tab2:
 	cols[5].dataframe(df2['nome_dia'].value_counts())
 
 	#st.dataframe(df2['hora'].value_counts().sort_index())
+	"""
 with tab3:
 	st.write('primeira hora do dia que a chave ligou')
 	#inicio = df1[df1['atividade'] == 'chave_ligada']['hora'].iloc[0]
