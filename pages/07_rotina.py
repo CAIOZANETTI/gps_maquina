@@ -30,6 +30,7 @@ with tab2:
 	df3 = df2['nome_dia'].value_counts().reset_index()
 	df4 = pd.DataFrame()
 	df4['ligado'] = df3['count']
+	df4 = df4.set_index(df3['nome_dia'])
 	st.write(df4)
 	
 	#fig = px.bar(df3,x='nome_dia',y='count')
