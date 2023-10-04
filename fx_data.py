@@ -100,6 +100,7 @@ def df_bronze_to_silver_gps(remover_colunas:list,df)->pd.DataFrame:
 	df['data_hora'] = pd.to_datetime(df['data_hora'], format='%m/%d/%Y %H:%M:%S')
 	df['data'] = df['data_hora'].dt.date
 	df['hora'] = df['data_hora'].dt.hour
+	df['minuto']= df['data_hora'].dt.minute
 	df['nome_dia'] = df['data_hora'].dt.day_name().str.lower()
 	df['atividade'] = df['atividade'].str.lower().str.replace(' ', '_')
 
