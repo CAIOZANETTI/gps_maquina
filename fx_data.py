@@ -141,10 +141,10 @@ def count_weed_by_name(start:str, end:str) -> pd.DataFrame:
 	"""
 
 	serie = pd.date_range(start, end)
-	serie = serie.day_name()
+	serie = serie.day_name().str.lower()
 	serie = serie.value_counts()
 
-	order = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
+	order = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday']
 	serie = serie.reindex(order)
 	df = pd.DataFrame({'qtd':serie})
 	df.rename_axis('nome_dia', inplace=True)
@@ -167,7 +167,7 @@ def df_count_query_merge(df:pd.DataFrame,coluna:str,querys:dict)->pd.DataFrame:
 		i+=1
 
 	df3.set_index('nome_dia',inplace=True)
-	days_order = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday']
-	df3 = df3.reindex(index=days_order)
+	order = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday']
+	df3 = df3.reindex(index=order)
 	
 	return df3
