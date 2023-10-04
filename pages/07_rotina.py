@@ -28,6 +28,7 @@ with tab2:
 	#cols[0].write(filtro)
 	df2 = df1.query(filtro)
 	df3 = df2['nome_dia'].value_counts().reset_index()
+	df4 = pd.DataFrame()
 	df4['ligado'] = df3['count']
 	st.write(df4)
 	
