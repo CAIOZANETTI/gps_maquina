@@ -27,10 +27,13 @@ with tab2:
 	#cols[0].write(filtro)
 	df2 = df1.query(filtro)
 	df3 = df2['nome_dia'].value_counts().reset_index()
+	st.write(df3.columns)
 	st.bar_chart(df3)
 	st.area_chart(df3)
 	st.line_chart(df3)
 	st.scatter_chart(df3)
+	st.bokeh_chart(df3)
+	st.plotly_chart(df3)
 
 	"""
 	filtro = 'motor_ligado==False'
