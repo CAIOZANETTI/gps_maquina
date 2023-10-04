@@ -14,7 +14,7 @@ with st.expander('info',expanded=False):
 	st.markdown('analisar a rotina da maqiona no periodo disponivel no dataframe,\
 	 afim de identificar algum padrão que possa ser caracterizado como um comportamento')
 
-tab1,tab2,tab3,tab4,tab5 = st.tabs(['dias','dias improd','horas prod','inicio','termino'])
+tab1,tab2,tab3,tab4,tab5 = st.tabs(['dias','dias','horas prod','inicio','termino'])
 
 
 with tab1:
@@ -30,12 +30,15 @@ with tab1:
 		'moving':'raio_m>0',
 		}
 		st.write(querys)
-
-	df2 = fx_data.df_count_query_merge(df1,'nome_dia',querys)
-	st.dataframe(df2)
-
+	with st.expander('df qtd total ', expanded=False):
+		df2 = fx_data.df_count_query_merge(df1,'nome_dia',querys)
+		st.dataframe(df2)
+	with st.expander('df qtd média', expanded=False):
+		df_dia = fx_data.count_weed_by_name('2022-01-01','2022-08-01')
+		st.dataframe(df_dia.T)
 
 with tab2:
+
 	st.write('querys')
 	
 with tab3:
