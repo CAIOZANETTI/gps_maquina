@@ -24,15 +24,17 @@ with tab2:
 
 	cols = st.columns([1,1,1,1,1,1])
 	filtro = 'motor_ligado==True'
+	
 	#cols[0].write(filtro)
 	df2 = df1.query(filtro)
 	df3 = df2['nome_dia'].value_counts().reset_index()
-	st.write(df3.columns)
+	df4['ligado'] = df3['count']
+	st.write(df4)
 	
 	#fig = px.bar(df3,x='nome_dia',y='count')
 
 	#st.write(df3)
-	st.bar_chart(df3)
+	st.bar_chart(df4)
 	#st.area_chart(df3)
 	#st.line_chart(df3.set_index('nome_dia')['count'])
 	#st.scatter_chart(df3)
