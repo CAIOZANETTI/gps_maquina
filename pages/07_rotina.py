@@ -41,6 +41,7 @@ with tab1:
 	
 	with st.expander('Quantidade **Média** acionamento da Maquina por **dia**', expanded=False):
 		df_med = df3.median(axis=1).astype(int)
+		st.dataframe(df_med)
 
 with tab2:
 
