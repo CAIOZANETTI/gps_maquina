@@ -1,6 +1,8 @@
 import streamlit as st
 import pandas as pd
 
+import fx_data as fx_data
+
 
 if 'df1' not in st.session_state:
 	df1 = pd.read_parquet('data/silver_jcb_relatorio_2022.parquet',engine='pyarrow')
