@@ -27,7 +27,11 @@ with tab1:
 		'still':'raio_m == 0',
 		'moving':'raio_m>0',
 		}
-	st.write(querys)
+		st.write(querys)
+
+		df2 = fx_data.df_count_query_merge(df1,'nome_dia',querys)
+		st.dataframe(df2)
+
 
 with tab2:
 	st.write('querys')
