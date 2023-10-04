@@ -43,7 +43,7 @@ with tab1:
 		df_med = df3.median(axis=1).astype(int)
 		cols = st.columns([1,4])
 		cols[0].dataframe(df_med)
-		cols[1].bar_chart(df_med)
+		cols[1].area_chart(df_med)
 
 with tab2:
 
