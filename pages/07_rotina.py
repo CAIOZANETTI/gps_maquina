@@ -45,6 +45,7 @@ with tab1:
 		cols[1].bar_chart(df_med)
 
 with st.expander('Quantidade **Média dia util**', expanded=True):
+		df3 = df3.reset_index()
 		df3.columns=['nome_dia','count']
 		df3['dia_util']=True
 		df3.loc[df3['nome_dia'].isin(['saturday', 'sunday']), 'dia_util'] = False
