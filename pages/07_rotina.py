@@ -49,8 +49,11 @@ with st.expander('Quantidade **Média dia util**', expanded=True):
 		df_med.columns=['nome_dia','count']
 		df_med['dia_util']=True
 		df_med.loc[df_med['nome_dia'].isin(['saturday', 'sunday']), 'dia_util'] = False
-st.dataframe(df_med)
-st.metric('Qtd Média',50,2)
+		cols = st.columns([1,1])
+		cols[0].dataframe(df_med)
+		df_med_util = df_med.query('dia_util==True')
+		cols[1].dataframe(df_med_util)
+		st.metric('Qtd Média',50,2)
 
 
 with tab2:
