@@ -49,7 +49,7 @@ with st.expander('Quantidade **Média dia util**', expanded=True):
 		#df3.columns=['nome_dia','count']
 		#df3['dia_util']=True
 		#df3.loc[df3['nome_dia'].isin(['saturday', 'sunday']), 'dia_util'] = False
-display(df3)
+st.dataframe(df3)
 st.metric('Qtd Média',50,2)
 
 
