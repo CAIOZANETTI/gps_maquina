@@ -48,7 +48,7 @@ with st.expander('Quantidade **Média dia util**', expanded=True):
 		df_med= df_med.reset_index()
 		df_med.columns=['nome_dia','count']
 		df_med['dia_util']=True
-		#df3.loc[df3['nome_dia'].isin(['saturday', 'sunday']), 'dia_util'] = False
+		df_med.loc[df3['nome_dia'].isin(['saturday', 'sunday']), 'dia_util'] = False
 st.dataframe(df_med)
 st.metric('Qtd Média',50,2)
 
