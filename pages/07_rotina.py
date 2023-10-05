@@ -14,7 +14,7 @@ with st.expander('info',expanded=False):
 	st.markdown('analisar a rotina da maqiona no periodo disponivel no dataframe,\
 	 afim de identificar algum padrão que possa ser caracterizado como um comportamento')
 
-tab1,tab2,tab3,tab4,tab5 = st.tabs(['dias','horas','horas prod','inicio','termino'])
+tab1,tab2,tab3,tab4,tab5 = st.tabs(['chave_on vs dias','horas','horas prod','inicio','termino'])
 
 with tab1:
 
@@ -44,18 +44,22 @@ with tab1:
 		cols[0].dataframe(df_med)
 		cols[1].bar_chart(df_med)
 
-with st.expander('Quantidade **Média dia util**', expanded=True):
+	with st.expander('Quantidade **Média dia util**', expanded=True):
 		df_med= df_med.reset_index()
 		df_med.columns=['nome_dia','count']
 		df_med['dia_util']=True
 		df_med.loc[df_med['nome_dia'].isin(['saturday', 'sunday']), 'dia_util'] = False
 		cols = st.columns([1,1])
+		cols[0].write('Todos os dias')
 		cols[0].dataframe(df_med)
+		
+		cols[1].write('Dias Uteis')
 		df_med_util = df_med.query('dia_util==True')
 		cols[1].dataframe(df_med_util)
-		media_dia_util = df_med_util['count'].median()
-		desvio = round(df_med_util['count'].std(),0)
-		cols[1].metric('Qtd Média Dia **Util**',media_dia_util,desvio)
+	
+	media_dia_util = df_med_util['count'].median()
+	desvio = round(df_med_util['count'].std(),0)
+	cols[1].metric('Qtd Média Dia **Util**',media_dia_util,desvio)
 
 
 with tab2:
