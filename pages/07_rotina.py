@@ -55,7 +55,7 @@ with st.expander('Quantidade **Média dia util**', expanded=True):
 		cols[1].dataframe(df_med_util)
 		media_dia_util = df_med_util['count'].median()
 		desvio = round(df_med_util['count'].std(),0)
-		cols[1].metric('Qtd Média',media_dia_util,desvio)
+		cols[1].metric('Qtd Média Dia **Util**',media_dia_util,desvio)
 
 
 with tab2:
