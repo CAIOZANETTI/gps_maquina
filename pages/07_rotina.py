@@ -59,7 +59,7 @@ with tab1:
 	
 	media_dia_util = df_med_util['count'].median()
 	desvio = round(df_med_util['count'].std(),0)
-	cols[1].metric('Qtd Média Dia **Util**',media_dia_util,desvio)
+	st.metric('Qtd Média Dia **Util**',media_dia_util,desvio)
 
 
 with tab2:
