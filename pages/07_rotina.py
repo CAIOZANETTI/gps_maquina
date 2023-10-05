@@ -14,8 +14,7 @@ with st.expander('info',expanded=False):
 	st.markdown('analisar a rotina da maqiona no periodo disponivel no dataframe,\
 	 afim de identificar algum padrão que possa ser caracterizado como um comportamento')
 
-tab1,tab2,tab3,tab4,tab5 = st.tabs(['dias','dias','horas prod','inicio','termino'])
-
+tab1,tab2,tab3,tab4,tab5 = st.tabs(['dias','horas','horas prod','inicio','termino'])
 
 with tab1:
 
@@ -45,6 +44,14 @@ with tab1:
 		cols[0].dataframe(df_med)
 		cols[1].bar_chart(df_med)
 
+with st.expander('Quantidade **Média dia util**', expanded=True):
+		df3.columns=['nome_dia','count']
+		df3['dia_util']=True
+		df3.loc[df3['nome_dia'].isin(['saturday', 'sunday']), 'dia_util'] = False
+display(df3)
+st.metric('Qtd Média',50,2)
+
+
 with tab2:
 	st.write('querys')
 	
@@ -57,7 +64,7 @@ with tab4:
 	st.write('ultima hora hora do dia que a chave desligou')
 
 with tab5:
-	st.write('tab5')
+	st.write('tab5 R$257,25')
 
 
 #filtro = 'motor_ligado==False'
