@@ -53,7 +53,7 @@ with st.expander('Quantidade **Média dia util**', expanded=True):
 		cols[0].dataframe(df_med)
 		df_med_util = df_med.query('dia_util==True')
 		cols[1].dataframe(df_med_util)
-		st.metric('Qtd Média',50,2)
+		cols[1].metric('Qtd Média',df_med_util.media(),2)
 
 
 with tab2:
