@@ -160,6 +160,7 @@ def df_count_query_merge(df:pd.DataFrame,coluna:str,ordem_index:list,querys:dict
 			if len(querys)==1:
 				df1.set_index(coluna,inplace=True)
 				df1 = df1.reindex(index=ordem_index)
+				df1 = df1.fillna(0)
 				return df1
 
 		else:
@@ -172,5 +173,6 @@ def df_count_query_merge(df:pd.DataFrame,coluna:str,ordem_index:list,querys:dict
 
 	df3.set_index(coluna,inplace=True)
 	df3 = df3.reindex(index=ordem_index)
+	df3 = df3.fillna(0)
 	
 	return df3
