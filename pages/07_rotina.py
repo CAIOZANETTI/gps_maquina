@@ -75,8 +75,8 @@ with tab2:
 		ordem_index =  list(range(0, 23))
 		df2 = fx_data.df_count_query_merge(df=df1,coluna='hora',ordem_index=ordem_index,querys=querys)
 		
-		inicio = datetime('2022-01-01')
-		fim = datetime('2022-08-01')
+		inicio = datetime(2022,1,1)
+		fim = datetime(2022,8,1)
 		dias = (fim-inicio)
 		dias = dias.days
 
