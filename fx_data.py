@@ -150,7 +150,7 @@ def count_weed_by_name(start:str, end:str) -> pd.DataFrame:
 	
 	return df
 
-def df_count_query_merge(df:pd.DataFrame,coluna:str,ordem_index=list,querys:dict)->pd.DataFrame:
+def df_count_query_merge(df:pd.DataFrame,coluna:str,ordem_index:list,querys:dict)->pd.DataFrame:
 	i=0
 	for nome,query in querys.items():
 		if i==0:
