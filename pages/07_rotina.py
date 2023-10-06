@@ -1,4 +1,3 @@
-from datetime import datetime
 
 import streamlit as st
 import pandas as pd
@@ -67,13 +66,15 @@ with tab1:
 
 
 with tab2:
-	with st.expander('qtd Total chave_on por **hora**', expanded=True):
+	with st.expander('qtd **Total** chave_on por **hora**', expanded=True):
 		filtro = 'atividade == "chave_ligada" and nome_dia != "saturday" and nome_dia!="sunday"' 
 		st.write(filtro)
 		df2= df1.query(filtro)
+		int_dias_uteis = df2.shape[0]
 		df2 = df2['hora'].value_counts().reset_index()
 		df2 = df2.fillna(0)
 		df2 = df2.replace('Nome',0)
+		
 		#ordenar index
 		ordem_index =  list(range(0, 23))
 		df2.set_index('hora',inplace=True)
@@ -81,20 +82,10 @@ with tab2:
 
 		st.dataframe(df2.T)
 
-	with st.expander('analise de atividades vs qtd dias **Total**', expanded=True):
-
-		# periodo
-		inicio = datetime(2022,1,1)
-		fim = datetime(2022,8,1)
-		dias = (fim-inicio)
-		dias = dias.days
-		cols =st.columns([1,1])
-		cols[0].write('quant dias no periodo: ')
-		cols[1].write(dias)
-	
-		st.write('qtd media no periodo')
+	with st.expander('qtd **Média** chave_on por **hora**', expanded=True):	
+		st.write('qtd media no periodo'+str(int_dias_uteis))
 		df3 = pd.DataFrame()
-		df3 = round(df2/dias,0)
+		df3 = round(df2/int_dias_uteis,0)
 		st.dataframe(df3.T)
 	
 with tab3:
