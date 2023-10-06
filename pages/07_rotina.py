@@ -94,7 +94,7 @@ with tab2:
 	
 		st.write('qtd media no periodo')
 		df3 = pd.DataFrame()
-		df3 = round(df2/dias,0).astype(int)
+		df3 = round(df2/dias,0)
 		st.dataframe(df3.T)
 	
 with tab3:
