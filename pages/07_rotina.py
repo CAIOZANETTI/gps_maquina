@@ -86,6 +86,7 @@ with tab2:
 		cols[1].write(dias)
 	
 		st.write('qtd media no periodo')
+		df3 = pd.DataFrame()
 		df3['chave_on'] = round(df2/dias,0).astype(int)
 		st.dataframe(df3.T)
 	
