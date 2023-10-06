@@ -25,10 +25,12 @@ with tab1:
 		'chave_on':'atividade == "chave_ligada"',
 		'chave_off':'atividade == "chave_desligada"',
 		}
+
 		st.write(querys)
 	
 	with st.expander('analise de atividades vs qtd dias **Total**', expanded=False):
-		df2 = fx_data.df_count_query_merge(df1,'nome_dia',querys)
+		ordem_index = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday']
+		df2 = fx_data.df_count_query_merge(df=df1,coluna='nome_dia',ordem_index=ordem_index,querys=querys)
 		st.dataframe(df2)
 	
 	with st.expander('analise de atividades vs qtd dias **Média**', expanded=False):
