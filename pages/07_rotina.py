@@ -66,9 +66,7 @@ with tab1:
 
 with tab2:
 	with st.expander('querys', expanded=False):
-		querys = {
-		'chave_on':'atividade == "chave_ligada"',
-		}
+		querys = {'chave_on':'atividade == "chave_ligada"'}
 		st.write(querys)
 
 	with st.expander('analise de atividades vs qtd dias **Total**', expanded=False):
