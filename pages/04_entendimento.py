@@ -16,7 +16,6 @@ df1 = st.session_state['df1']
 with st.expander('periodo disponivel no dataframe',expanded=False):
 
 	cols = st.columns([1,1])
-	cols[0].write('inicio: ' +str(df['data'].min()))
-	cols[1].write('fim: ' +str(df['data'].min()))
+	cols[0].write('inicio: ' +str(df1['data'].min()))
+	cols[1].write('fim: ' +str(df1['data'].min()))
 
-	
