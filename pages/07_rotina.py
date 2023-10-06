@@ -75,7 +75,7 @@ with tab2:
 		#ordenar index
 		ordem_index =  list(range(0, 23))
 		df2.set_index('hora',inplace=True)
-		df2 = df2.reindex(ordem_index)
+		#df2 = df2.reindex(ordem_index)
 
 		st.dataframe(df2.T)
 
