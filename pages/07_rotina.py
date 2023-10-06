@@ -73,7 +73,7 @@ with tab2:
 
 	with st.expander('analise de atividades vs qtd dias **Total**', expanded=False):
 		ordem_index =  list(range(0, 23))
-		df2 = fx_data.df_count_query_merge(df=df1,coluna='nome_dia',ordem_index=ordem_index,querys=querys)
+		df2 = fx_data.df_count_query_merge(df=df1,coluna='hora',ordem_index=ordem_index,querys=querys)
 		st.dataframe(df2)
 	
 with tab3:
