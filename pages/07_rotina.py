@@ -73,8 +73,8 @@ with tab2:
 		df2= df1.query(filtro)
 
 		#ordenar index
-		ordem_index =  list(range(0, 23))
-		df2.set_index('hora',inplace=True)
+		#ordem_index =  list(range(0, 23))
+		#df2.set_index('hora',inplace=True)
 		#df2 = df2.reindex(ordem_index)
 
 		st.dataframe(df2.T)
