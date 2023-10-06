@@ -156,7 +156,7 @@ def df_count_query_merge(df:pd.DataFrame,coluna:str,ordem_index:list,querys:dict
 		if i==0:
 			df1 = df.query(query)
 			df1 = df1[coluna].value_counts().reset_index()
-			df1.columns=['nome_dia',nome]
+			df1.columns=[coluna,nome]
 			if len(querys)==1:
 				df1.set_index(coluna,inplace=True)
 				df1 = df1.reindex(index=ordem_index)
@@ -165,8 +165,8 @@ def df_count_query_merge(df:pd.DataFrame,coluna:str,ordem_index:list,querys:dict
 		else:
 			df2 = df.query(query)
 			df2 = df2[coluna].value_counts().reset_index()
-			df2.columns=['nome_dia',nome]
-			df3 = pd.merge(df2,df1,on='nome_dia',how='outer')
+			df2.columns=[coluna,nome]
+			df3 = pd.merge(df2,df1,on=coluna,how='outer')
 			df1=df3
 		i+=1
 
