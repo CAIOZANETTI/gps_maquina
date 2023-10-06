@@ -85,7 +85,7 @@ with tab2:
 	with st.expander('qtd **dias uteis**', expanded=True):
 		df2 = df1.query(filtro)
 		st.dataframe(df2)
-		dias_uteis = df2['data'].nunique()
+		dias_uteis = df2['data'].unique()
 		st.write(dias_uteis)
 		st.write('qtd **dias uteis** no periodo = '+str(dias_uteis))
 
