@@ -157,6 +157,11 @@ def df_count_query_merge(df:pd.DataFrame,coluna:str,ordem_index:list,querys:dict
 			df1 = df.query(query)
 			df1 = df1[coluna].value_counts().reset_index()
 			df1.columns=['nome_dia',nome]
+			if len(querys)==1:
+				df1.set_index(coluna,inplace=True)
+				df1 = df1.reindex(index=ordem_index)
+				return df1
+
 		else:
 			df2 = df.query(query)
 			df2 = df2[coluna].value_counts().reset_index()
