@@ -14,7 +14,7 @@ with st.expander('info',expanded=False):
 	st.markdown('analisar a rotina da maqiona no periodo disponivel no dataframe,\
 	 afim de identificar algum padrão que possa ser caracterizado como um comportamento')
 
-tab1,tab2,tab3,tab4,tab5 = st.tabs(['chave_on vs dias','horas','horas prod','inicio','termino'])
+tab1,tab2,tab3,tab4,tab5 = st.tabs(['dias chave_on','horas chave_on','horas prod','inicio','termino'])
 
 with tab1:
 
@@ -63,7 +63,15 @@ with tab1:
 
 
 with tab2:
-	st.write('querys')
+	with st.expander('querys', expanded=False):
+		querys = {
+		'chave_on':'atividade == "chave_ligada"',
+		}
+		st.write(querys)
+
+	with st.expander('analise de atividades vs qtd dias **Total**', expanded=False):
+		df2 = fx_data.df_count_query_merge(df1,'hora',querys)
+		st.dataframe(df2)
 	
 with tab3:
 	st.write('primeira hora do dia que a chave ligou')
