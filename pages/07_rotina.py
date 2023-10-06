@@ -67,14 +67,19 @@ with tab1:
 
 
 with tab2:
-	with st.expander('querys', expanded=False):
-		querys = {'chave_on':'atividade == "chave_ligada"'}
-		st.write(querys)
+	with st.expander('qtd Total chave_on por **hora**', expanded=False):
+		filtro = 'atividade == "chave_ligada" and nome_dia != "saturday" and nome_dia!="sunday"' 
+		st.write(filtro)
+		df2= df1.query(filtro)
+
+		#ordenar index
+		ordem_index =  list(range(0, 23))
+		df2.set_index('hora',inplace=True)
+		df2 = df2.reindex(ordem_index)
+
+		st.dataframe(df2.T)
 
 	with st.expander('analise de atividades vs qtd dias **Total**', expanded=False):
-		ordem_index =  list(range(0, 23))
-		df2 = fx_data.df_count_query_merge(df=df1,coluna='hora',ordem_index=ordem_index,querys=querys)
-		st.dataframe(df2.T)
 
 		# periodo
 		inicio = datetime(2022,1,1)
