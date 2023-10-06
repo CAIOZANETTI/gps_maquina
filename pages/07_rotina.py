@@ -67,10 +67,11 @@ with tab1:
 
 
 with tab2:
-	with st.expander('qtd Total chave_on por **hora**', expanded=False):
+	with st.expander('qtd Total chave_on por **hora**', expanded=True):
 		filtro = 'atividade == "chave_ligada" and nome_dia != "saturday" and nome_dia!="sunday"' 
 		st.write(filtro)
 		df2= df1.query(filtro)
+		df2 = df2['hora'].value_counts().reset_index()
 
 		#ordenar index
 		#ordem_index =  list(range(0, 23))
@@ -79,7 +80,7 @@ with tab2:
 
 		st.dataframe(df2.T)
 
-	with st.expander('analise de atividades vs qtd dias **Total**', expanded=False):
+	with st.expander('analise de atividades vs qtd dias **Total**', expanded=True):
 
 		# periodo
 		inicio = datetime(2022,1,1)
