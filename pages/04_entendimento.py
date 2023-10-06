@@ -13,7 +13,7 @@ if 'df1' not in st.session_state:
 df1 = st.session_state['df1']
 
 
-with st.expander('periodo disponivel no dataframe',expanded=False):
+with st.expander('periodo disponivel no dataframe',expanded=True):
 	st.dataframe(df1)
 	#cols = st.columns([1,1])
 	#cols[0].write('inicio: ' +str(df1['data'].min()))
