@@ -74,15 +74,20 @@ with tab2:
 	with st.expander('analise de atividades vs qtd dias **Total**', expanded=False):
 		ordem_index =  list(range(0, 23))
 		df2 = fx_data.df_count_query_merge(df=df1,coluna='hora',ordem_index=ordem_index,querys=querys)
-		
+		st.dataframe(df2.T)
+
+		# periodo
 		inicio = datetime(2022,1,1)
 		fim = datetime(2022,8,1)
 		dias = (fim-inicio)
 		dias = dias.days
-
-		df2['media'] = round(df2/dias,0).astype(int)
-
-		st.dataframe(df2.T)
+		cols =st.columns([1,1])
+		cols[0].write('quant dias no periodo: ')
+		cols[1].write(dias)
+	
+		st.write('qtd media no periodo')
+		df3['chave_on'] = round(df2/dias,0).astype(int)
+		st.dataframe(df3.T)
 	
 with tab3:
 	st.write('primeira hora do dia que a chave ligou')
