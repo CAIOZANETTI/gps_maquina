@@ -70,7 +70,7 @@ with tab2:
 		filtro = 'atividade == "chave_ligada" and nome_dia != "saturday" and nome_dia!="sunday"' 
 		st.write(filtro)
 		df2= df1.query(filtro)
-		int_dias_uteis = df2.shape[0]
+		
 		df2 = df2['hora'].value_counts().reset_index()
 		df2 = df2.fillna(0)
 		df2 = df2.replace('Nome',0)
@@ -82,10 +82,15 @@ with tab2:
 
 		st.dataframe(df2.T)
 
+	with st.expander('qtd **dias uteis**', expanded=True):
+		df2 = df2.query(filtro)
+		dias_uteis = df2['data'].nunique()
+		st.write('qtd **dias uteis** no periodo = '+str(dias_uteis))
+
 	with st.expander('qtd **Média** chave_on por **hora**', expanded=True):	
-		st.write('qtd media no periodo'+str(int_dias_uteis))
+		
 		df3 = pd.DataFrame()
-		df3 = round(df2/int_dias_uteis,0)
+		df3 = round(df2/dias_uteis,0)
 		st.dataframe(df3.T)
 	
 with tab3:
