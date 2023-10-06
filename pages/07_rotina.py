@@ -72,7 +72,8 @@ with tab2:
 		st.write(filtro)
 		df2= df1.query(filtro)
 		df2 = df2['hora'].value_counts().reset_index()
-
+		df2 = df2.fillna(0)
+		
 		#ordenar index
 		ordem_index =  list(range(0, 23))
 		df2.set_index('hora',inplace=True)
