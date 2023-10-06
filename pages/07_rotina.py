@@ -84,9 +84,10 @@ with tab2:
 
 	with st.expander('qtd **dias uteis**', expanded=True):
 		df2 = df1.query(filtro)
-		st.dataframe(df2)
 		df_data = df2['data'].unique()
+		st.write(df_data.shape)
 		st.write(df_data)
+
 		st.write('qtd **dias uteis** no periodo = '+str(160))
 
 	with st.expander('qtd **Média** chave_on por **hora**', expanded=True):	
