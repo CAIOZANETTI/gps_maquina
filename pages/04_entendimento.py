@@ -17,15 +17,15 @@ st.write(analise.inicio)
 
 
 with st.expander('periodo em **horas**', expanded=False):
-		st.write('horas')
+	st.write('horas')
 
-	with st.expander('periodo em **dias**', expanded=False):
-		st.write('dias')
+with st.expander('periodo em **dias**', expanded=False):
+	st.write('dias')
 
 
-	with st.expander('periodo em **meses**', expanded=False):
-		st.write('meses')
+with st.expander('periodo em **meses**', expanded=False):
+	st.write('meses')
 
-	with st.expander('periodo em **anos**', expanded=False):
-		st.write('anos')
+with st.expander('periodo em **anos**', expanded=False):
+	st.write('anos')
 
