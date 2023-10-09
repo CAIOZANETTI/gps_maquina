@@ -189,7 +189,7 @@ class PeriodoDataFrame:
 		self.inicio=str(self.df['data'].min())
 		self.fim=str(self.df['data'].max())
 
-	def count_weed_by_name(self)->pd.DataFrame:
+	def count_weekdays(self)->pd.DataFrame:
 		serie = pd.date_range(self.inicio, self.fim)
 		serie = serie.day_name().str.lower()
 		serie = serie.value_counts()

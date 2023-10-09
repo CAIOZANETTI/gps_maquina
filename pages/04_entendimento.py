@@ -13,6 +13,7 @@ if 'df1' not in st.session_state:
 df1 = st.session_state['df1']
 
 analise = fx_data.PeriodoDataFrame(df1)
+analise.count_weekdays()
 st.write(analise.inicio)
 dic = analise.dicionario()
 st.write(dic)
