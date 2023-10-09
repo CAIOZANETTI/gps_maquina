@@ -14,6 +14,8 @@ df1 = st.session_state['df1']
 
 analise = fx_data.PeriodoDataFrame(df1)
 st.write(analise.inicio)
+dic = analise.dicionario()
+st.write(dic)
 
 
 with st.expander('periodo em **horas**', expanded=False):
