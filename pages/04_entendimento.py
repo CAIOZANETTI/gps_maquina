@@ -17,6 +17,7 @@ analise.count_weekdays()
 st.write(analise.inicio)
 dic = analise.dicionario()
 st.write(dic)
+st.write(analise.df_dias_semana)
 
 
 with st.expander('periodo em **horas**', expanded=False):
