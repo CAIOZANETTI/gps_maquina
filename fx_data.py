@@ -1,4 +1,4 @@
-from dataclasses import dataclass
+from dataclasses import dataclass, asdict
 import math
 import pandas as pd
 
@@ -188,4 +188,6 @@ class PeriodoDataFrame:
 	def __post_init__(self):
 		self.inicio=str(self.df['data'].min())
 		self.fim=str(self.df['data'].max())
-		
+
+	def dicionario(self)->dict:
+		return asdict(self)
