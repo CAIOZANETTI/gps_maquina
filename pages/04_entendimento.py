@@ -20,6 +20,7 @@ with st.expander('periodo em **horas**', expanded=False):
 		st.write('horas')
 
 	with st.expander('periodo em **dias**', expanded=False):
+		st.write('dias')
 
 
 	with st.expander('periodo em **meses**', expanded=False):
