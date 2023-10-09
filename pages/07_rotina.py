@@ -93,7 +93,7 @@ with tab2:
 	with st.expander('qtd **Média** chave_on por **hora**', expanded=True):	
 		
 		df3 = pd.DataFrame()
-		df3 = round(df2/dias_uteis,0)
+		df3 = round(df2/media_dia_util,0)
 		st.dataframe(df3.T)
 	
 with tab3:
