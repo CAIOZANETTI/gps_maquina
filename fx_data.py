@@ -189,5 +189,17 @@ class PeriodoDataFrame:
 		self.inicio=str(self.df['data'].min())
 		self.fim=str(self.df['data'].max())
 
+	def count_weed_by_name(self)->pd.DataFrame:
+		serie = pd.date_range(self.inicio, self.fim)
+		serie = serie.day_name().str.lower()
+		serie = serie.value_counts()
+
+		order = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday']
+		serie = serie.reindex(order)
+		df = pd.DataFrame({'qtd':serie})
+		df.rename_axis('nome_dia', inplace=True)
+		self.df_dias_semana = df
+
+
 	def dicionario(self)->dict:
 		return asdict(self)

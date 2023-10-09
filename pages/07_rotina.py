@@ -22,11 +22,10 @@ with tab1:
 		st.write('horas')
 
 	with st.expander('periodo em **dias**', expanded=False):
-		
-		inicio, fim = str(df1['data'].min()),str(df1['data'].max())
-		st.write('inicio: ' +inicio + ' | fim: '+fim)
-
-		df_dia = fx_data.count_weed_by_name('2022-01-01','2023-08-01')
+		dias = {'inicio':'','fim':''}
+		dias['inicio'], dias['fim'] = str(df1['data'].min()),str(df1['data'].max())
+		st.write('inicio: ' +dias['inicio'] + ' | fim: '+fim)
+		df_dia = fx_data.count_weed_by_name(inicio,fim)
 		st.dataframe(df_dia.T)
 
 	with st.expander('periodo em **meses**', expanded=False):
