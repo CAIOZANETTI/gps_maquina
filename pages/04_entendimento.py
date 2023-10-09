@@ -1,8 +1,8 @@
 import datetime
 import streamlit as st
 import pandas as pd
-#from datetime import datetime
 
+import fx_data as fx_data
 import fx_streamlit as fx_streamlit
 
 
@@ -12,10 +12,19 @@ if 'df1' not in st.session_state:
 	st.session_state['df1'] = df1
 df1 = st.session_state['df1']
 
+analise = fx_data.PeriodoDataFrame(df1)
+st.write(analise.inicio)
 
-with st.expander('periodo disponivel no dataframe',expanded=True):
-	#st.dataframe(df1)
-	cols = st.columns([1,1])
-	cols[0].write('inicio: ' +str(df1['data'].min()))
-	cols[1].write('fim: ' +str(df1['data'].max()))
+
+with st.expander('periodo em **horas**', expanded=False):
+		st.write('horas')
+
+	with st.expander('periodo em **dias**', expanded=False):
+
+
+	with st.expander('periodo em **meses**', expanded=False):
+		st.write('meses')
+
+	with st.expander('periodo em **anos**', expanded=False):
+		st.write('anos')
 

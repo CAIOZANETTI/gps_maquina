@@ -1,3 +1,4 @@
+from dataclasses import dataclass
 import math
 import pandas as pd
 
@@ -176,3 +177,15 @@ def df_count_query_merge(df:pd.DataFrame,coluna:str,ordem_index:list,querys:dict
 	df3 = df3.fillna(0)
 
 	return df3
+
+
+@dataclass
+class PeriodoDataFrame:
+	df:pd.DataFrame
+	inicio:str=''
+	fim:str=''
+
+	def __post_init__(self):
+		self.inicio=str(self.df['data'].min())
+		self.fim=str(self.df['data'].max())
+		
