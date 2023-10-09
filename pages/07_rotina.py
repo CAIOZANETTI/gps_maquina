@@ -15,10 +15,25 @@ with st.expander('info',expanded=False):
 	st.markdown('analisar a rotina da maqiona no periodo disponivel no dataframe,\
 	 afim de identificar algum padrão que possa ser caracterizado como um comportamento')
 
-tab1,tab2,tab3,tab4,tab5 = st.tabs(['dias chave_on','horas chave_on','horas prod','inicio','termino'])
+tab1,tab2,tab3,tab4,tab5 = st.tabs(['periodo','dias chave_on','horas chave_on','horas prod','inicio','termino'])
 
 with tab1:
+	with st.expander('periodo em **horas**', expanded=False):
+		st.write('horas')
 
+	with st.expander('periodo em **dias**', expanded=False):
+		st.write('dias')
+		df_dia = fx_data.count_weed_by_name('2022-01-01','2022-08-01')
+		st.dataframe(df_dia.T)
+
+	with st.expander('periodo em **meses**', expanded=False):
+		st.write('meses')
+
+	with st.expander('periodo em **anos**', expanded=False):
+		st.write('anos')
+
+
+with tab2:
 	with st.expander('querys', expanded=False):
 		querys = {
 		'motor_on':'atividade == "arranque_do_motor"',
@@ -65,7 +80,7 @@ with tab1:
 		cols[1].metric('Qtd Média Dia **Util**',media_dia_util,desvio)
 
 
-with tab2:
+with tab3:
 	with st.expander('qtd **Total** chave_on por **hora**', expanded=True):
 		filtro = 'atividade == "chave_ligada" and nome_dia != "saturday" and nome_dia!="sunday"' 
 		st.write(filtro)
@@ -96,16 +111,13 @@ with tab2:
 		df3 = round(df2/media_dia_util,0)
 		st.dataframe(df3.T)
 	
-with tab3:
+with tab4:
 	st.write('primeira hora do dia que a chave ligou')
 	#inicio = df1[df1['atividade'] == 'chave_ligada']['hora'].iloc[0]
 	#st.dataframe(inicio)
 
-with tab4:
-	st.write('ultima hora hora do dia que a chave desligou')
-
 with tab5:
-	st.write('tab5 R$257,25')
+	st.write('ultima hora hora do dia que a chave desligou')
 
 
 #filtro = 'motor_ligado==False'
