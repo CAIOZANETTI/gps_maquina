@@ -45,7 +45,7 @@ with tab2: #dias chave_on
 	
 	with st.expander('analise de atividades vs qtd dias **Média**', expanded=False):
 		df3 = pd.merge(df2,df_weekdays,on='nome_dia',how='outer')
-		df3['chave_on_dia'] = df3['chave_on_total']/df3['qtd']
+		df3['chave_on_dia'] = round(df3['chave_on_total']/df3['qtd'],2)
 		st.dataframe(df3)
 	
 	with st.expander('Quantidade **Média** acionamento da Maquina por **dia**', expanded=False):
