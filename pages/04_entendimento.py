@@ -15,6 +15,9 @@ df1 = st.session_state['df1']
 #inicar classe de Analise
 analise = fx_data.PeriodoDataFrame(df1)
 
+st.subheader('Analise do periodo disponivel no dataframe')
+
+
 with st.expander('**Dias da semana** disponiveis no dataframe', expanded=False):
 	cols = st.columns([2,1,1])
 	
