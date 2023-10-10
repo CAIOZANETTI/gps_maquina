@@ -200,8 +200,8 @@ class PeriodoDataFrame:
 		df.rename_axis('nome_dia', inplace=True)
 
 		df['dia_util'] = True
-		df.loc[df['nome_dia'].isin(['saturday', 'sunday']), 'dia_util'] = False
-		
+		df.loc[df.index.isin(['saturday', 'sunday']), 'dia_util'] = False
+
 
 		return df
 
