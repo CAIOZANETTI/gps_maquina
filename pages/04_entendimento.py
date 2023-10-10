@@ -21,9 +21,13 @@ with st.expander('periodo em **horas**', expanded=False):
 with st.expander('periodo em **dias**', expanded=True):
 	analise = fx_data.PeriodoDataFrame(df1)
 	df_weekdays = analise.count_weekdays()
-	cols = st.columns([1,1])
+	cols = st.columns([1,1,1])
 	cols[0].dataframe(df_weekdays)
 	cols[1].write(df_weekdays.describe())
+
+	media = round(df_weekdays['qtd'].median(),2)
+	desvio = round(df_weekdays['qtd'].std(),2)
+	cols[2].metric(label="qtd Dias", value=media, delta=desvio)
 
 
 with st.expander('periodo em **meses**', expanded=False):
