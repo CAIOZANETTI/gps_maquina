@@ -30,9 +30,9 @@ with st.expander('periodo em **dias**', expanded=True):
 	summary.drop(['25%', '50%', '75%'], inplace=True)
 	cols[1].dataframe(summary)
 	#resultado
-	media = round(df_weekdays['qtd'].median(),2)
-	desvio = round(df_weekdays['qtd'].std(),2)
-	cols[2].metric(label="qtd Dias", value=media, delta=desvio)
+	media = analise.qtd_med_weekdays#round(df_weekdays['qtd'].median(),2)
+	desvio = 22#round(df_weekdays['qtd'].std(),2)
+	cols[2].metric(label="qtd_dias_periodo", value=media, delta=desvio)
 
 
 with st.expander('periodo em **meses**', expanded=False):
