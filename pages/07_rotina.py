@@ -13,7 +13,7 @@ df1 = st.session_state['df1']
 
 with st.expander('info',expanded=False):
 	st.markdown('analisar a rotina da retro escavadeira nos momentos em que foi **ligada**')
-	filtro = {'chave_on':'atividade == "chave_ligada"'}
+	filtro = 'atividade == "chave_ligada"'
 	st.write(filtro)
 
 tab1,tab2,tab3,tab4,tab5 = st.tabs(['periodo','dias chave_on','horas chave_on','inicio','termino'])
