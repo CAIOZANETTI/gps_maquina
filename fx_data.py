@@ -210,16 +210,17 @@ class PeriodoDataFrame:
 	def count_hours(self)->pd.DataFrame:
 		df = self.count_weekdays()
 		
-		df['quartil'] = df['qtd']*(24/4)
+		df['h_quartil'] = df['qtd']*(24/4)
 		
 		df_util=df.query('dia_util == True')
-		self.horas_uteis_quartil = int(df_util['quartil'].sum())
+		self.horas_uteis_quartil = int(df_util['h_quartil'].sum())
 
 		return df
 	
 
 
 	def dicionario(self)->dict:
+
 		return asdict(self)
 
 def str_milhar(numero):
