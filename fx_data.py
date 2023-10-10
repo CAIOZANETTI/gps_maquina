@@ -232,7 +232,7 @@ class PeriodoDataFrame:
 		self.qtd_mes =len(self.mes_unique)
 
 		self.ano_mes_unique = df['ano_mes'].unique()
-		self.qtd_ano_mes =len(self_ano_mes)
+		self.qtd_ano_mes =len(self.ano_mes_unique)
 
 
 
