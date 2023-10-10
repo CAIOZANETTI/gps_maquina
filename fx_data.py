@@ -221,8 +221,11 @@ class PeriodoDataFrame:
 		serie = pd.date_range(self.inicio, self.fim)
 		df=pd.DataFrame({'data':serie})
 		df['mes'] = df['data'].dt.strftime('%B')
+		df['ano'] = df['data'].dt.year
+		df['ano_mes'] = df['data'].dt.strftime('%Y-%B')
 		df_qtd_mes = df['mes'].value_counts().reset_index()
 		df_qtd_mes.columns = ['mes','qtd']
+
 
 		return df
 
