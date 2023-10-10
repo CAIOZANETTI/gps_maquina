@@ -60,7 +60,7 @@ with tab2: #dias chave_on
 	with st.expander('Resultado Quantidade **Média dia util ou Produtivo**', expanded=True):
 		med_chave_on_dia = int(df4['chave_on_dia'].median())
 		variacao = round(df4['chave_on_dia'].median()-med_chave_on_dia,2)
-		st.metric('Chave_on **Ligado**',str(med_chave_on_dia)+' /dia',variacao)
+		st.metric('Média ','ligado: '+str(med_chave_on_dia)+' /dia',variacao)
 
 
 
