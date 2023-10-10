@@ -216,7 +216,16 @@ class PeriodoDataFrame:
 		self.horas_uteis_quartil = int(df_util['h_quartil'].sum())
 
 		return df
-	
+
+	def count_months(self)->pd.DataFrame:
+		serie = pd.date_range(self.inicio, self.fim)
+		df=pd.DataFrame('data':serie)
+		df['mes'] = df['data'].dt.strftime('%B')
+		df_qtd_mes = df['mes'].value_counts().reset_index()
+		df_qtd_mes.columns = ['mes','qtd']
+
+		return df
+
 
 
 	def dicionario(self)->dict:

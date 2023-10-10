@@ -31,7 +31,7 @@ with st.expander('**Dias da semana** disponiveis no dataframe', expanded=False):
 	cols[2].metric(label="Media **adotada**", value=media, delta=desvio)
 
 with st.expander('**Horas** disponiveis no periodo', expanded=True):
-	st.write('divisão do dia em 4 periodos iguais de 6 horas')
+	st.write('divisão do dia em 4 periodos (quartil) de 6 horas')
 	cols = st.columns([1,1])
 	#df
 	df_hours = analise.count_hours()
@@ -45,6 +45,10 @@ with st.expander('**Horas** disponiveis no periodo', expanded=True):
 
 with st.expander('periodo em **meses**', expanded=False):
 	st.write('meses')
+
+	df_mes = analise.count_months()
+	st.dataframe(df_mes)
+
 
 with st.expander('periodo em **anos**', expanded=False):
 	st.write('anos')
