@@ -53,7 +53,7 @@ with tab2: #dias chave_on
 		cols[0].dataframe(df3['chave_on_dia'])
 		cols[1].bar_chart(df3['chave_on_dia'])
 
-	with st.expander('Quantidade **Média dia util ou Produtivo**', expanded=True):
+	with st.expander('Quantidade **Média dia util ou Produtivo**', expanded=False):
 		df4 = df3.query('dia_util==True')
 		st.dataframe(df4)		
 
