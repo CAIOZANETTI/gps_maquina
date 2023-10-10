@@ -30,8 +30,11 @@ with tab2: #dias chave_on
 	with st.expander('analise **Dias**', expanded=True):
 		
 		#st.write('qtd dias da semana: '+str(periodo.qtd_med_weekdays))
+		
+		cols = st.columns([1,1])
+		
 		df_weekdays = periodo.count_weekdays()
-		st.dataframe(df_weekdays)
+		cols[0].dataframe(df_weekdays)
 
 		#filtro
 		df2 = df1.query(filtro)
@@ -42,14 +45,8 @@ with tab2: #dias chave_on
 		ordem_index = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday']
 		df2 = df2.reindex(index=ordem_index)
 		df2 = df2.fillna(0)
-
 		
-
-		#df2.set_index()
-
-
-		#df2 = fx_data.df_count_query_merge(df=df1,coluna='nome_dia',ordem_index=ordem_index,querys=filtro)
-		st.dataframe(df2)
+		cols[1]st.dataframe(df2)
 	
 	with st.expander('analise de atividades vs qtd dias **Média**', expanded=False):
 		df_dia = fx_data.count_weed_by_name('2022-01-01','2022-08-01')
