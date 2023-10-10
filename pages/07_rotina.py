@@ -29,10 +29,9 @@ with tab2: #dias chave_on
 	
 	with st.expander('analise Periodo disponivel em dias vs **chave on**', expanded=True):
 		
-		#st.write('qtd dias da semana: '+str(periodo.qtd_med_weekdays))
-		
 		cols = st.columns([1,1])
 		
+		#periodo
 		df_weekdays = periodo.count_weekdays()
 		cols[0].dataframe(df_weekdays)
 
@@ -50,11 +49,9 @@ with tab2: #dias chave_on
 
 	
 	with st.expander('analise de atividades vs qtd dias **Média**', expanded=True):
-		
 		df3 = pd.merge(df2,df_weekdays,on='nome_dia',how='outer')
 		df3['chave_on_dia'] = (df3['chave_on_total']//df3['qtd']).astype(int)
 		st.dataframe(df3)
-
 	
 	with st.expander('Quantidade **Média** acionamento da Maquina por **dia**', expanded=False):
 		cols = st.columns([1,2])
@@ -62,21 +59,10 @@ with tab2: #dias chave_on
 		cols[1].bar_chart(df3['chave_on_dia'])
 
 	with st.expander('Quantidade **Média dia util**', expanded=True):
-		df_med= df_med.reset_index()
-		df_med.columns=['nome_dia','count']
-		df_med['dia_util']=True
-		df_med.loc[df_med['nome_dia'].isin(['saturday', 'sunday']), 'dia_util'] = False
-		cols = st.columns([1,1])
-		cols[0].write('Todos os dias')
-		cols[0].dataframe(df_med)
-		
-		cols[1].write('Dias Uteis')
-		df_med_util = df_med.query('dia_util==True')
-		cols[1].dataframe(df_med_util)
-	
-		media_dia_util = df_med_util['count'].median()
-		desvio = round(df_med_util['count'].std(),0)
-		cols[1].metric('Qtd Média Dia **Util**',media_dia_util,desvio)
+		filtro = 'dia_util==True'
+		df4 = df3.query('dia_util==True')
+
+		st.dataframe(df4)
 
 
 with tab3:
