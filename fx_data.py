@@ -219,7 +219,7 @@ class PeriodoDataFrame:
 
 	def count_months(self)->pd.DataFrame:
 		serie = pd.date_range(self.inicio, self.fim)
-		df=pd.DataFrame('data':serie)
+		df=pd.DataFrame({'data':serie})
 		df['mes'] = df['data'].dt.strftime('%B')
 		df_qtd_mes = df['mes'].value_counts().reset_index()
 		df_qtd_mes.columns = ['mes','qtd']
