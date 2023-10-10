@@ -29,6 +29,7 @@ with tab2: #dias chave_on
 		#filtro
 		df2 = df1.query(filtro)
 		df2 = df2['nome_dia'].value_counts().reset_index()
+		df2.columns = ['nome_dia','qtd_total']
 		#index
 		df2.set_index('nome_dia',inplace=True)
 		ordem_index = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday']
