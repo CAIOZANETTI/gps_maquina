@@ -32,17 +32,16 @@ with st.expander('**Dias da semana** disponiveis no dataframe', expanded=False):
 
 with st.expander('**Horas** disponiveis no periodo', expanded=True):
 	st.write('divisão do dia em 4 periodos iguais de 6 horas')
-	cols = st.columns([2,1,1])
+	cols = st.columns([1,1])
 	#df
 	df_hours = analise.count_hours()
 	cols[0].dataframe(df_hours)
 
 	#total
-	total = analise.horas_uteis_quartil
-	cols[2].metric(
-		label="**Total horas **",
-		value=str(total*2)+' util', 
-		delta=str(total*2)+' periodo')
+	total_quartil = fx_data.str_milhar(analise.horas_uteis_quartil)
+	total = fx_data.str_milhar(analise.horas_uteis_quartil*2)
+	
+	cols[1].metric(label="**Total horas util **",value=total, delta=total_quartil+' quartil')
 
 with st.expander('periodo em **meses**', expanded=False):
 	st.write('meses')
