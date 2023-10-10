@@ -213,7 +213,7 @@ class PeriodoDataFrame:
 		df['quartil'] = df['qtd']*(24/4)
 		
 		df_util=df.query('dia_util == True')
-		self.horas_uteis_quartil = df_util['quartil'].sum()
+		self.horas_uteis_quartil = int(df_util['quartil'].sum())
 
 		return df
 	
