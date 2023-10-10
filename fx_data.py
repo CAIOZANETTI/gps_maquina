@@ -227,6 +227,8 @@ class PeriodoDataFrame:
 
 		#df_qtd_ano_mes = df['ano_mes'].value_counts().reset_index()
 		#df_qtd_mes.columns = ['mes','qtd']
+		anos = df['ano'].unique()
+		self.qtd_anos =len(anos)
 
 		ano_mes = df['ano_mes'].unique()
 		self.qtd_meses =len(ano_mes)

@@ -51,6 +51,7 @@ with st.expander('periodo em **meses**', expanded=True):
 	df_mes = analise.count_months()
 	cols[0].dataframe(df_mes)
 	cols[1].write(analise.qtd_meses)
+	cols[1].write(analise.qtd_anos)
 
 with st.expander('periodo em **anos**', expanded=False):
 	st.write('anos')
