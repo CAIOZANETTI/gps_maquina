@@ -222,12 +222,13 @@ class PeriodoDataFrame:
 		df=pd.DataFrame({'data':serie})
 		df['mes'] = df['data'].dt.strftime('%B')
 		df['ano'] = df['data'].dt.year
-		df['ano_mes'] = df['data'].dt.strftime('%Y-%B')
-		df_qtd_mes = df['mes'].value_counts().reset_index()
-		df_qtd_mes.columns = ['mes','qtd']
+		df['ano_mes'] = df['data'].dt.strftime('%Y_%B')
+		#df_qtd_ano_mes = df['ano_mes'].value_counts().reset_index()
+		#df_qtd_mes.columns = ['mes','qtd']
 
+		ano_mes = df['ano_mes'].unique()
 
-		return df
+		return ano_mes
 
 
 
