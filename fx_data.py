@@ -225,15 +225,14 @@ class PeriodoDataFrame:
 		df['ano'] = df['data'].dt.year
 		df['ano_mes'] = df['data'].dt.strftime('%Y_%B')
 
+		self.ano_unique = df['ano'].unique()
+		self.qtd_ano =len(self.ano_unique)
 
+		self.mes_unique = df['meses'].unique()
+		self.qtd_mes =len(self.mes_unique)
 
-		self.anos_unique = df['ano'].unique()
-		self.qtd_anos =len(self.anos_unique)
-
-		ano_mes = df['ano_mes'].unique()
-		self.qtd_meses =len(ano_mes)
-
-		return ano_mes
+		self.ano_mes_unique = df['ano_mes'].unique()
+		self.qtd_ano_mes =len(self_ano_mes)
 
 
 

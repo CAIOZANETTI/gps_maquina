@@ -48,11 +48,16 @@ with st.expander('periodo em **meses**', expanded=True):
 
 	cols = st.columns([1,1,1])
 
-	df_mes = analise.count_year_months()
-	cols[0].dataframe(df_mes)
-	cols[1].write(analise.anos_unique)
-	cols[2].write(analise.qtd_meses)
-	cols[2].write(analise.qtd_anos)
+	cols[0].write(analise.qtd_ano)
+	cols[0].write(analise.ano_unique)
+
+	cols[1].write(analise.qtd_mes)
+	cols[1].dataframe(analise.mes_unique)
+
+	cols[2].write(analise.qtd_ano_mes)
+	cols[2].dataframe(analise.ano_mes_unique)
+	
+	
 
 with st.expander('periodo em **anos**', expanded=False):
 	st.write('anos')
