@@ -11,6 +11,9 @@ if 'df1' not in st.session_state:
 
 df1 = st.session_state['df1']
 
+periodo = fx_data.PeriodoDataFrame(df1)
+periodo.count_weekdays()
+
 with st.expander('info',expanded=False):
 	st.markdown('analisar a rotina da retro escavadeira nos momentos em que foi **ligada**')
 	filtro = 'atividade == "chave_ligada"'
@@ -24,8 +27,9 @@ with tab1:
 
 with tab2: #dias chave_on
 	
-	with st.expander('analise de atividades vs qtd dias **Total**', expanded=True):
+	with st.expander('analise **Dias**', expanded=True):
 		
+		st.write(periodo.qtd_med_weekdays)
 		#filtro
 		df2 = df1.query(filtro)
 		df2 = df2['nome_dia'].value_counts().reset_index()
