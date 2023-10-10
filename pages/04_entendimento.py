@@ -28,7 +28,7 @@ with st.expander('**Dias da semana** disponiveis no dataframe', expanded=False):
 	#resultado
 	media = analise.qtd_med_weekdays
 	desvio =analise.std_med_weekdays
-	cols[2].metric(label="Media **adotada**", value=media, delta=desvio)
+	cols[2].metric(label="Media **dias**", value=media, delta=desvio)
 
 with st.expander('**Horas** disponiveis no periodo', expanded=False):
 	st.write('divisão do dia em 4 periodos (quartil) de 6 horas')
@@ -41,7 +41,7 @@ with st.expander('**Horas** disponiveis no periodo', expanded=False):
 	total_quartil = fx_data.str_milhar(analise.horas_uteis_quartil)
 	total = fx_data.str_milhar(analise.horas_uteis_quartil*2)
 	
-	cols[1].metric(label='Total horas util',value=total+'h', delta=total_quartil+'h quartil')
+	cols[1].metric(label='Total hora produtiva',value=total+'h', delta=total_quartil+'h quartil')
 
 with st.expander('**Anos** e **Meses** disponiveis no periodo', expanded=True):
 	
@@ -58,6 +58,6 @@ with st.expander('**Anos** e **Meses** disponiveis no periodo', expanded=True):
 with st.expander('Resultado **dias, horas, meses e anos**', expanded=True):
 	
 	cols = st.columns([1,1,1])
-	cols[0].metric(label="Media **adotada**", value=media, delta=desvio)
-	cols[1].metric(label='Total horas util',value=total+'h', delta=total_quartil+'h quartil')
-	cols[2].metric('Total ano_mes',analise.qtd_ano_mes,str(analise.qtd_ano)+' anos')
+	cols[0].metric(label="Media **dias**", value=media, delta=desvio)
+	cols[1].metric(label='Total **hora** produtiva',value=total+'h', delta=total_quartil+'h quartil')
+	cols[2].metric('Total **ano_mes**',analise.qtd_ano_mes,str(analise.qtd_ano)+' anos')
