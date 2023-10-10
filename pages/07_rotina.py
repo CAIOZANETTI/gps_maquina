@@ -27,7 +27,7 @@ with tab1:
 
 with tab2: #dias chave_on
 	
-	with st.expander('analise **Dias**', expanded=True):
+	with st.expander('analise Periodo disponivel em dias vs **chave on**', expanded=True):
 		
 		#st.write('qtd dias da semana: '+str(periodo.qtd_med_weekdays))
 		
@@ -47,13 +47,18 @@ with tab2: #dias chave_on
 		df2 = df2.fillna(0)
 		
 		cols[1].dataframe(df2)
-	
-	with st.expander('analise de atividades vs qtd dias **Média**', expanded=False):
-		df_dia = fx_data.count_weed_by_name('2022-01-01','2022-08-01')
-		st.dataframe(df_dia.T)
 
-		df3 = df2.div(df_dia['qtd'],axis=0).astype(int)
+	
+	with st.expander('analise de atividades vs qtd dias **Média**', expanded=True):
+		
+		df3 = pd.merge(df2,df_weekdays,on='nome_dia',how='outer')
 		st.dataframe(df3)
+
+		#df_dia = fx_data.count_weed_by_name('2022-01-01','2022-08-01')
+		#st.dataframe(df_dia.T)
+
+		#df3 = df2.div(df_dia['qtd'],axis=0).astype(int)
+		#st.dataframe(df3)
 	
 	with st.expander('Quantidade **Média** acionamento da Maquina por **dia**', expanded=False):
 		df_med = df3.median(axis=1).astype(int)
