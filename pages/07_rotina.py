@@ -55,17 +55,11 @@ with tab2: #dias chave_on
 		df3['chave_on_dia'] = (df3['chave_on_total']//df3['qtd']).astype(int)
 		st.dataframe(df3)
 
-		#df_dia = fx_data.count_weed_by_name('2022-01-01','2022-08-01')
-		#st.dataframe(df_dia.T)
-
-		#df3 = df2.div(df_dia['qtd'],axis=0).astype(int)
-		#st.dataframe(df3)
 	
 	with st.expander('Quantidade **Média** acionamento da Maquina por **dia**', expanded=False):
-		df_med = df3.median(axis=1).astype(int)
-		cols = st.columns([1,4])
-		cols[0].dataframe(df_med)
-		cols[1].bar_chart(df_med)
+		cols = st.columns([1,2])
+		cols[0].dataframe(df3['chave_on_dia'])
+		cols[1].bar_chart(df3['chave_on_dia'])
 
 	with st.expander('Quantidade **Média dia util**', expanded=True):
 		df_med= df_med.reset_index()
