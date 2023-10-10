@@ -46,7 +46,7 @@ with tab2: #dias chave_on
 		df2 = df2.reindex(index=ordem_index)
 		df2 = df2.fillna(0)
 		
-		cols[1]st.dataframe(df2)
+		cols[1].dataframe(df2)
 	
 	with st.expander('analise de atividades vs qtd dias **Média**', expanded=False):
 		df_dia = fx_data.count_weed_by_name('2022-01-01','2022-08-01')
