@@ -18,7 +18,7 @@ df1 = st.session_state['df1']
 with st.expander('periodo em **horas**', expanded=False):
 	st.write('horas')
 
-with st.expander('periodo em **dias**', expanded=True):
+with st.expander('Quantidade **média** de **dias** dataframe', expanded=True):
 	
 	cols = st.columns([2,1,1])
 	#df
@@ -32,7 +32,7 @@ with st.expander('periodo em **dias**', expanded=True):
 	#resultado
 	media = analise.qtd_med_weekdays
 	desvio =analise.std_med_weekdays
-	cols[2].metric(label="Media", value=media, delta=desvio)
+	cols[2].metric(label="Media **adotada**", value=media, delta=desvio)
 
 
 with st.expander('periodo em **meses**', expanded=False):
