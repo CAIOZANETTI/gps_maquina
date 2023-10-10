@@ -38,10 +38,10 @@ with st.expander('**Horas** disponiveis no periodo', expanded=True):
 	cols[0].dataframe(df_hours)
 
 	#total
-	total_quartil = fx_data.str_milhar(analise.horas_uteis_quartil)+
+	total_quartil = fx_data.str_milhar(analise.horas_uteis_quartil)
 	total = fx_data.str_milhar(analise.horas_uteis_quartil*2)
 	
-	cols[1].metric(label="**Total horas util **",value=total+'h', delta=total_quartil+'h quartil')
+	cols[1].metric(label='Total horas util',value=total+'h', delta=total_quartil+'h quartil')
 
 with st.expander('periodo em **meses**', expanded=False):
 	st.write('meses')
