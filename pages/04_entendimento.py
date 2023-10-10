@@ -30,7 +30,7 @@ with st.expander('**Dias da semana** disponiveis no dataframe', expanded=False):
 	desvio =analise.std_med_weekdays
 	cols[2].metric(label="Media **adotada**", value=media, delta=desvio)
 
-with st.expander('**Horas** disponiveis no periodo', expanded=True):
+with st.expander('**Horas** disponiveis no periodo', expanded=False):
 	st.write('divisão do dia em 4 periodos (quartil) de 6 horas')
 	cols = st.columns([1,1])
 	#df
