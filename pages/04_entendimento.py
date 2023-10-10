@@ -43,7 +43,7 @@ with st.expander('**Horas** disponiveis no periodo', expanded=False):
 	
 	cols[1].metric(label='Total **hora produtiva**',value=total+'h', delta=total_quartil+'h quartil')
 
-with st.expander('**Anos** e **Meses** disponiveis no periodo', expanded=True):
+with st.expander('**Anos** e **Meses** disponiveis no periodo', expanded=False):
 	
 	analise.count_year_months()
 	cols = st.columns([1,1,1,1])
