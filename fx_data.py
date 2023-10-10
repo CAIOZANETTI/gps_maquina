@@ -225,11 +225,11 @@ class PeriodoDataFrame:
 		df['ano'] = df['data'].dt.year
 		df['ano_mes'] = df['data'].dt.strftime('%Y_%B')
 
-		self.df_anos = pd.DataFrame({'anos':df['ano'].unique()})
+		self.df_anos = pd.DataFrame({'ano':df['ano'].unique()})
 		self.qtd_ano =self.df_anos.shape[0]
 
-		self.df_meses = pd.DataFrame({'meses':df['mes'].unique()})
-		self.qtd_mes =self.df_meses.shape[0]
+		self.df_mes = pd.DataFrame({'mes':df['mes'].unique()})
+		self.qtd_mes =self.df_mes.shape[0]
 
 		self.df_ano_mes =pd.DataFrame({'ano_mes':df['ano_mes'].unique()})
 		self.qtd_ano_mes =self.df_ano_mes.shape[0]
