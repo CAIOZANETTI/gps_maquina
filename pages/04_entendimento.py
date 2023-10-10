@@ -12,17 +12,19 @@ if 'df1' not in st.session_state:
 	st.session_state['df1'] = df1
 df1 = st.session_state['df1']
 
+#inicar classe de Analise
+analise = fx_data.PeriodoDataFrame(df1)
 
-
-
-with st.expander('periodo em **horas**', expanded=False):
+with st.expander('periodo em **horas**', expanded=True):
 	st.write('horas')
+	df_hours = analise.count_hours()
+	st.dataframe(df_hours)
 
-with st.expander('Quantidade **média** de **dias** dataframe', expanded=True):
+with st.expander('Quantidade **média** de **dias** dataframe', expanded=False):
 	
 	cols = st.columns([2,1,1])
 	#df
-	analise = fx_data.PeriodoDataFrame(df1)
+	
 	df_weekdays = analise.count_weekdays()
 	cols[0].dataframe(df_weekdays)
 	#sumario
