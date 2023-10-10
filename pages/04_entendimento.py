@@ -52,7 +52,7 @@ with st.expander('**Anos** e **Meses** disponiveis no periodo', expanded=True):
 	cols[1].dataframe(analise.df_mes)
 	cols[2].dataframe(analise.df_ano_mes)
 	#resultado
-	cols[3].metric('Ano Mes',analise.qtd_ano_mes)
+	cols[3].metric('Total ano_mes',analise.qtd_ano_mes,str(analise.qtd_ano)+'anos')
 	
 
 with st.expander('periodo em **anos**', expanded=False):
