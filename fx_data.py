@@ -202,7 +202,7 @@ class PeriodoDataFrame:
 		df['dia_util'] = True
 		df.loc[df.index.isin(['saturday', 'sunday']), 'dia_util'] = False
 
-		self.qtd_med_weekdays = round(df['qtd'].median(),2)
+		self.qtd_med_weekdays = int(df['qtd'].median())# retornar somente parte inteira
 		self.std_med_weekdays = round(df['qtd'].std(),2)
 
 
