@@ -46,9 +46,11 @@ with st.expander('**Horas** disponiveis no periodo', expanded=False):
 with st.expander('periodo em **meses**', expanded=True):
 	st.write('meses')
 
-	df_mes = analise.count_months()
-	st.dataframe(df_mes)
+	cols = st.columns([1,1])
 
+	df_mes = analise.count_months()
+	cols[0].dataframe(df_mes)
+	cols[1].write(analise.qtd_meses)
 
 with st.expander('periodo em **anos**', expanded=False):
 	st.write('anos')

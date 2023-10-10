@@ -224,10 +224,12 @@ class PeriodoDataFrame:
 		df['mes'] = df['data'].dt.strftime('%B')
 		df['ano'] = df['data'].dt.year
 		df['ano_mes'] = df['data'].dt.strftime('%Y_%B')
+
 		#df_qtd_ano_mes = df['ano_mes'].value_counts().reset_index()
 		#df_qtd_mes.columns = ['mes','qtd']
 
 		ano_mes = df['ano_mes'].unique()
+		self.qtd_meses =ano_mes.value_counts()
 
 		return ano_mes
 
