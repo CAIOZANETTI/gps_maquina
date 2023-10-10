@@ -15,16 +15,10 @@ df1 = st.session_state['df1']
 #inicar classe de Analise
 analise = fx_data.PeriodoDataFrame(df1)
 
-with st.expander('periodo em **horas**', expanded=True):
-	st.write('horas')
-	df_hours = analise.count_hours()
-	st.dataframe(df_hours)
-
-with st.expander('Quantidade **média** de **dias** dataframe', expanded=False):
-	
+with st.expander('**Dias da semana** disponiveis no dataframe', expanded=False):
 	cols = st.columns([2,1,1])
-	#df
 	
+	#df
 	df_weekdays = analise.count_weekdays()
 	cols[0].dataframe(df_weekdays)
 	#sumario
@@ -36,6 +30,19 @@ with st.expander('Quantidade **média** de **dias** dataframe', expanded=False):
 	desvio =analise.std_med_weekdays
 	cols[2].metric(label="Media **adotada**", value=media, delta=desvio)
 
+with st.expander('**Horas** disponiveis no periodo', expanded=True):
+	st.write('divisão do dia em 4 periodos iguais de 6 horas')
+	cols = st.columns([2,1,1])
+	#df
+	df_hours = analise.count_hours()
+	cols[0].dataframe(df_hours)
+
+	#total
+	total = analise.horas_uteis_quartil
+	cols[2].metric(
+		label="**Total horas **",
+		value=str(total*2)+' util', 
+		delta=str(total*2)+' periodo')
 
 with st.expander('periodo em **meses**', expanded=False):
 	st.write('meses')

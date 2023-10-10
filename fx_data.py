@@ -209,8 +209,12 @@ class PeriodoDataFrame:
 
 	def count_hours(self)->pd.DataFrame:
 		df = self.count_weekdays()
+		
+		df['quartil'] = df['qtd']*(24/4)
+		
+		df_util.query('dia_util == True')
+		self.horas_uteis_quartil = df_util['quartil'].sum()
 
-		df['0-5'] = df['qtd']*5
 		return df
 	
 
