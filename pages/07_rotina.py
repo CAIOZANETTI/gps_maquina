@@ -33,12 +33,12 @@ with tab2: #dias chave_on
 		df_weekdays = periodo.count_weekdays()
 		cols[0].dataframe(df_weekdays)
 		#filtro
-		st.dataframe(df1)
+		#st.dataframe(df1)
 		df2 = df1.query(filtro)
 		df2 = df2['nome_dia'].value_counts().reset_index()
 		df2.columns = ['nome_dia','chave_on_total']
 		#index
-		df2.set_index('nome_dia',inplace=False)
+		df2.set_index('nome_dia',inplace=True)
 		ordem_index = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday']
 		df2 = df2.reindex(index=ordem_index)
 		#df2 = df2.fillna(0)
