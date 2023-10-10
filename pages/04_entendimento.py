@@ -52,9 +52,12 @@ with st.expander('**Anos** e **Meses** disponiveis no periodo', expanded=True):
 	cols[1].dataframe(analise.df_mes)
 	cols[2].dataframe(analise.df_ano_mes)
 	#resultado
-	cols[3].metric('Total ano_mes',analise.qtd_ano_mes,str(analise.qtd_ano)+'anos')
+	cols[3].metric('Total ano_mes',analise.qtd_ano_mes,str(analise.qtd_ano)+' anos')
 	
 
-with st.expander('periodo em **anos**', expanded=False):
-	st.write('anos')
-
+with st.expander('Resultado **dias, horas, meses e anos**', expanded=True):
+	
+	cols = st.columns([1,1,1])
+	cols[0].metric(label="Media **adotada**", value=media, delta=desvio)
+	cols[1].metric(label='Total horas util',value=total+'h', delta=total_quartil+'h quartil')
+	cols[2].metric('Total ano_mes',analise.qtd_ano_mes,str(analise.qtd_ano)+' anos')
