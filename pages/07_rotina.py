@@ -13,7 +13,7 @@ df1 = st.session_state['df1']
 periodo = fx_data.PeriodoDataFrame(df1)
 
 
-with st.expander('Retro Escavadeira **Ligada**',expanded=False):
+with st.expander('Chave **Ligada**',expanded=False):
 	st.markdown('analisar a rotina da retroescavadeira nos momentos em que foi **ligada**')
 	filtro = 'atividade == "chave_ligada"'
 	st.write(filtro)
@@ -25,8 +25,7 @@ with tab1:
 	
 
 with tab2: #dias chave_on
-	
-	with st.expander('analise Periodo disponivel em dias vs **chave on**', expanded=True):
+	with st.expander('analise Periodo disponivel em dias vs **chave on**', expanded=False):
 		
 		cols = st.columns([1,1])
 		#periodo
@@ -54,14 +53,15 @@ with tab2: #dias chave_on
 		cols[0].dataframe(df3['chave_on_dia'])
 		cols[1].bar_chart(df3['chave_on_dia'])
 
-	with st.expander('Quantidade **Média dia util**', expanded=True):
-		cols = st.columns([2,1])
-		filtro = 'dia_util==True'
+	with st.expander('Quantidade **Média dia util ou Produtivo**', expanded=True):
 		df4 = df3.query('dia_util==True')
-		cols[0].dataframe(df4)
-		#media
+		st.dataframe(df4)		
+
+	with st.expander('Resultado Quantidade **Média dia util ou Produtivo**', expanded=True):
 		med_chave_on_dia = int(df4['chave_on_dia'].median())
-		cols[1].metric('Chave_on ',med_chave_on_dia,5)
+		variacao = df4['chave_on_dia'].median()-med_chave_on_dia
+		st.metric('Chave_on diariamente ',med_chave_on_dia,variacao)
+
 
 
 with tab3:
