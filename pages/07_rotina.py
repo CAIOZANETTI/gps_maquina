@@ -10,7 +10,6 @@ if 'df1' not in st.session_state:
 	st.session_state['df1'] = df1
 
 df1 = st.session_state['df1']
-
 periodo = fx_data.PeriodoDataFrame(df1)
 
 
@@ -34,6 +33,7 @@ with tab2: #dias chave_on
 		df_weekdays = periodo.count_weekdays()
 		cols[0].dataframe(df_weekdays)
 		#filtro
+		st.dataframe(df1)
 		df2 = df1.query(filtro)
 		df2 = df2['nome_dia'].value_counts().reset_index()
 		df2.columns = ['nome_dia','chave_on_total']
