@@ -192,7 +192,7 @@ class PeriodoDataFrame:
 
 	def count_weekdays(self)->pd.DataFrame:
 		#serie = pd.date_range(self.inicio, self.fim)
-		serie = self.serie.day_name().str.lower()
+		serie = self.periodo.day_name().str.lower()
 		serie = serie.value_counts()
 
 		order = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday']
@@ -220,7 +220,7 @@ class PeriodoDataFrame:
 
 	def count_months(self)->pd.DataFrame:
 		#serie = pd.date_range(self.inicio, self.fim)
-		df=pd.DataFrame({'data':self.serie})
+		df=pd.DataFrame({'data':self.periodo})
 		df['mes'] = df['data'].dt.strftime('%B')
 		df['ano'] = df['data'].dt.year
 		df['ano_mes'] = df['data'].dt.strftime('%Y_%B')
