@@ -218,16 +218,16 @@ class PeriodoDataFrame:
 
 		return df
 
-	def count_months(self)->pd.DataFrame:
+	def count_year_months(self)->pd.DataFrame:
 		#serie = pd.date_range(self.inicio, self.fim)
 		df=pd.DataFrame({'data':self.periodo})
 		df['mes'] = df['data'].dt.strftime('%B')
 		df['ano'] = df['data'].dt.year
 		df['ano_mes'] = df['data'].dt.strftime('%Y_%B')
 
-		#df_qtd_ano_mes = df['ano_mes'].value_counts().reset_index()
-		#df_qtd_mes.columns = ['mes','qtd']
-		anos = df['ano'].unique()
+
+
+		self.anos_unique = df['ano'].unique()
 		self.qtd_anos =len(anos)
 
 		ano_mes = df['ano_mes'].unique()
