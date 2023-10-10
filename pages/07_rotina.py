@@ -30,25 +30,21 @@ with tab2: #dias chave_on
 	with st.expander('analise Periodo disponivel em dias vs **chave on**', expanded=True):
 		
 		cols = st.columns([1,1])
-		
 		#periodo
 		df_weekdays = periodo.count_weekdays()
 		cols[0].dataframe(df_weekdays)
-
 		#filtro
 		df2 = df1.query(filtro)
 		df2 = df2['nome_dia'].value_counts().reset_index()
 		df2.columns = ['nome_dia','chave_on_total']
 		#index
-		df2.set_index('nome_dia',inplace=True)
+		df2.set_index('nome_dia',inplace=False)
 		ordem_index = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday']
 		df2 = df2.reindex(index=ordem_index)
 		df2 = df2.fillna(0)
-		
 		cols[1].dataframe(df2)
-
 	
-	with st.expander('analise de atividades vs qtd dias **Média**', expanded=True):
+	with st.expander('analise de atividades vs qtd dias **Média**', expanded=False):
 		df3 = pd.merge(df2,df_weekdays,on='nome_dia',how='outer')
 		df3['chave_on_dia'] = (df3['chave_on_total']//df3['qtd']).astype(int)
 		st.dataframe(df3)
@@ -59,10 +55,13 @@ with tab2: #dias chave_on
 		cols[1].bar_chart(df3['chave_on_dia'])
 
 	with st.expander('Quantidade **Média dia util**', expanded=True):
+		cols = st.columns([2,1])
 		filtro = 'dia_util==True'
 		df4 = df3.query('dia_util==True')
-
-		st.dataframe(df4)
+		cols[0].dataframe(df4)
+		#media
+		med_chave_on_dia = int(df4['chave_on_dia'].median())
+		cols[1].metric('Chave_on ',med_chave_on_dia,5)
 
 
 with tab3:
