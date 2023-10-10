@@ -226,13 +226,13 @@ class PeriodoDataFrame:
 		df['ano_mes'] = df['data'].dt.strftime('%Y_%B')
 
 		self.df_anos = pd.DataFrame({'anos':df['ano'].unique()})
-		self.qtd_ano =self.df_anos.shape[1]
+		self.qtd_ano =self.df_anos.shape[0]
 
-		self.mes_unique = df['mes'].unique()
-		self.qtd_mes =len(self.mes_unique)
+		self.df_meses = pd.DataFrame({'meses':df['mes'].unique()})
+		self.qtd_mes =self.df_meses.shape[0]
 
-		self.ano_mes_unique = df['ano_mes'].unique()
-		self.qtd_ano_mes =len(self.ano_mes_unique)
+		self.df_ano_mes =pd.DataFrame({'ano_mes':df['ano_mes'].unique()})
+		self.qtd_ano_mes =self.df_ano_mes.shape[0]
 
 
 
