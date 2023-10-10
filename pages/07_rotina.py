@@ -15,7 +15,7 @@ periodo = fx_data.PeriodoDataFrame(df1)
 
 
 with st.expander('Retro Escavadeira **Ligada**',expanded=False):
-	st.markdown('analisar a rotina da retro escavadeira nos momentos em que foi **ligada**')
+	st.markdown('analisar a rotina da retroescavadeira nos momentos em que foi **ligada**')
 	filtro = 'atividade == "chave_ligada"'
 	st.write(filtro)
 
@@ -52,6 +52,7 @@ with tab2: #dias chave_on
 	with st.expander('analise de atividades vs qtd dias **Média**', expanded=True):
 		
 		df3 = pd.merge(df2,df_weekdays,on='nome_dia',how='outer')
+		df3['chave_on_dia'] = df3['chave_on_total']/df3['qtd']
 		st.dataframe(df3)
 
 		#df_dia = fx_data.count_weed_by_name('2022-01-01','2022-08-01')
