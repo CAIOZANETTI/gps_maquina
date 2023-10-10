@@ -12,9 +12,9 @@ if 'df1' not in st.session_state:
 df1 = st.session_state['df1']
 
 periodo = fx_data.PeriodoDataFrame(df1)
-periodo.count_weekdays()
 
-with st.expander('info',expanded=False):
+
+with st.expander('Retro Escavadeira **Ligada**',expanded=False):
 	st.markdown('analisar a rotina da retro escavadeira nos momentos em que foi **ligada**')
 	filtro = 'atividade == "chave_ligada"'
 	st.write(filtro)
@@ -29,16 +29,22 @@ with tab2: #dias chave_on
 	
 	with st.expander('analise **Dias**', expanded=True):
 		
-		st.write(periodo.qtd_med_weekdays)
+		#st.write('qtd dias da semana: '+str(periodo.qtd_med_weekdays))
+		df_weekdays = periodo.count_weekdays()
+		st.dataframe(df_weekdays)
+
 		#filtro
 		df2 = df1.query(filtro)
 		df2 = df2['nome_dia'].value_counts().reset_index()
-		df2.columns = ['nome_dia','qtd_total']
+		df2.columns = ['nome_dia','chave_on_total']
 		#index
 		df2.set_index('nome_dia',inplace=True)
 		ordem_index = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday']
 		df2 = df2.reindex(index=ordem_index)
 		df2 = df2.fillna(0)
+
+		
+
 		#df2.set_index()
 
 
