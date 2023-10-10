@@ -225,8 +225,8 @@ class PeriodoDataFrame:
 		df['ano'] = df['data'].dt.year
 		df['ano_mes'] = df['data'].dt.strftime('%Y_%B')
 
-		self.ano_unique = df['ano'].unique()
-		self.qtd_ano =len(self.ano_unique)
+		self.df_anos = pd.Dataframe({'anos':df['ano'].unique()})
+		self.qtd_ano =self.df_anos.value_counts()
 
 		self.mes_unique = df['mes'].unique()
 		self.qtd_mes =len(self.mes_unique)

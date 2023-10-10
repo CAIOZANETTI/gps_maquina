@@ -49,7 +49,7 @@ with st.expander('**Anos** e **Meses** disponiveis no periodo', expanded=True):
 	cols = st.columns([1,1,1])
 
 	cols[0].write(analise.qtd_ano)
-	cols[0].write(analise.ano_unique)
+	cols[0].write(analise.df_anos)
 
 	cols[1].write(analise.qtd_mes)
 	cols[1].dataframe(analise.mes_unique)
