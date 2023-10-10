@@ -58,6 +58,6 @@ with st.expander('**Anos** e **Meses** disponiveis no periodo', expanded=False):
 with st.expander('Resultado **dias, horas, meses e anos**', expanded=True):
 	
 	cols = st.columns([1,1,1])
-	cols[0].metric(label="Media **dias**", value=media, delta=desvio)
-	cols[1].metric(label='Total **hora produtiva**',value=total+'h', delta=total_quartil+'h quartil')
-	cols[2].metric('Total **ano_mes**',analise.qtd_ano_mes,str(analise.qtd_ano)+' anos')
+	cols[0].metric(label="Média *Dias Uteis*", value=str(media)+' dias', delta=desvio)
+	cols[1].metric(label='Total **Hora Produtiva**',value=total+'h', delta=total_quartil+'h quartil')
+	cols[2].metric('Total **Anos e Meses**',str(analise.qtd_ano_mes)+' ano_mes',str(analise.qtd_ano)+' anos')
