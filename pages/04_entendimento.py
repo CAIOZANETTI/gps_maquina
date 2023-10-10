@@ -22,8 +22,8 @@ with st.expander('**Dias da semana** disponiveis no dataframe', expanded=False):
 	df_weekdays = analise.count_weekdays()
 	cols[0].dataframe(df_weekdays)
 	#sumario
-	summary = df_weekdays.describe()
-	summary.drop(['25%', '50%', '75%'], inplace=False)
+	summary = df_weekdays.descri
+	, '75%'], inplace=False)
 	cols[1].dataframe(summary)
 	#resultado
 	media = analise.qtd_med_weekdays
@@ -43,7 +43,7 @@ with st.expander('**Horas** disponiveis no periodo', expanded=False):
 	
 	cols[1].metric(label='Total hora produtiva',value=total+'h', delta=total_quartil+'h quartil')
 
-with st.expander('**Anos** e **Meses** disponiveis no periodo', expanded=True):
+with st.expander('**Anos** e **Meses** disponiveis no periodo', expanded=False):
 	
 	analise.count_year_months()
 	cols = st.columns([1,1,1,1])
