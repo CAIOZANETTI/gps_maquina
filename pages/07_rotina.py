@@ -45,7 +45,7 @@ with tab2: #dias chave_on
 	
 	with st.expander('analise de atividades vs qtd dias **Média**', expanded=False):
 		df3 = pd.merge(df2,df_weekdays,on='nome_dia',how='outer')
-		df3['chave_on_dia'] = (df3['chave_on_total']//df3['qtd']).astype(int)
+		df3['chave_on_dia'] = df3['chave_on_total']/df3['qtd']
 		st.dataframe(df3)
 	
 	with st.expander('Quantidade **Média** acionamento da Maquina por **dia**', expanded=False):
@@ -59,7 +59,7 @@ with tab2: #dias chave_on
 
 	with st.expander('Resultado Quantidade **Média dia util ou Produtivo**', expanded=True):
 		med_chave_on_dia = int(df4['chave_on_dia'].median())
-		variacao = df4['chave_on_dia'].median()#-med_chave_on_dia
+		variacao = df4['chave_on_dia'].median()-med_chave_on_dia
 		st.metric('Chave_on diariamente ',med_chave_on_dia,variacao)
 
 
