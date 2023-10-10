@@ -12,20 +12,17 @@ if 'df1' not in st.session_state:
 	st.session_state['df1'] = df1
 df1 = st.session_state['df1']
 
-analise = fx_data.PeriodoDataFrame(df1)
-df_weekdays = analise.count_weekdays()
-#st.write(analise.inicio)
-#dic = analise.dicionario()
-#st.write(dic)
-#df_weekday =analise.df_dias_semana() 
-st.write(df_weekdays)
+
 
 
 with st.expander('periodo em **horas**', expanded=False):
 	st.write('horas')
 
-with st.expander('periodo em **dias**', expanded=False):
-	st.write('dias')
+with st.expander('periodo em **dias**', expanded=True):
+	analise = fx_data.PeriodoDataFrame(df1)
+	df_weekdays = analise.count_weekdays()
+	st.dataframe(df_weekdays)
+	st.write(df_weekdays.describe())
 
 
 with st.expander('periodo em **meses**', expanded=False):
