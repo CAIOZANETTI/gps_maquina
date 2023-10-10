@@ -13,7 +13,7 @@ df1 = st.session_state['df1']
 
 with st.expander('info',expanded=False):
 	st.markdown('analisar a rotina da retro escavadeira nos momentos em que foi **ligada**')
-	filtro = {'chave_on':'atividade == "chave_ligada"'},
+	filtro = {'chave_on':'atividade == "chave_ligada"'}
 	st.write(filtro)
 
 tab1,tab2,tab3,tab4,tab5 = st.tabs(['periodo','dias chave_on','horas chave_on','inicio','termino'])
@@ -22,11 +22,17 @@ with tab1:
 	st.write('vazio')
 	
 
-with tab2:
+with tab2: #dias chave_on
 	
-	with st.expander('analise de atividades vs qtd dias **Total**', expanded=False):
+	with st.expander('analise de atividades vs qtd dias **Total**', expanded=True):
 		ordem_index = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday']
-		df2 = fx_data.df_count_query_merge(df=df1,coluna='nome_dia',ordem_index=ordem_index,querys=filtro)
+
+		df2 = df1.query(filtro)
+		df2 = df2['nome_dia'].value_counts().reset_index()
+		#df2.set_index()
+
+
+		#df2 = fx_data.df_count_query_merge(df=df1,coluna='nome_dia',ordem_index=ordem_index,querys=filtro)
 		st.dataframe(df2)
 	
 	with st.expander('analise de atividades vs qtd dias **Média**', expanded=False):
