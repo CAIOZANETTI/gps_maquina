@@ -43,9 +43,9 @@ with st.expander('**Horas** disponiveis no periodo', expanded=False):
 	
 	cols[1].metric(label='Total horas util',value=total+'h', delta=total_quartil+'h quartil')
 
-with st.expander('periodo em **meses**', expanded=True):
-	st.write('meses')
-
+with st.expander('**Anos** e **Meses** disponiveis no periodo', expanded=True):
+	
+	fx_data.analise.count_year_months()
 	cols = st.columns([1,1,1])
 
 	cols[0].write(analise.qtd_ano)
