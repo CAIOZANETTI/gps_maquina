@@ -229,7 +229,7 @@ class PeriodoDataFrame:
 		#df_qtd_mes.columns = ['mes','qtd']
 
 		ano_mes = df['ano_mes'].unique()
-		self.qtd_meses =ano_mes.value_counts()
+		self.qtd_meses =len(ano_mes)
 
 		return ano_mes
 
