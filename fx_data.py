@@ -223,5 +223,5 @@ class PeriodoDataFrame:
 		return asdict(self)
 
 def str_milhar(numero):
-	milhar = "{:,.0f}".format(numero)
+	milhar = "{:.0f}".format(numero)
 	return milhar 
