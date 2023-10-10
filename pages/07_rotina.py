@@ -12,41 +12,21 @@ if 'df1' not in st.session_state:
 df1 = st.session_state['df1']
 
 with st.expander('info',expanded=False):
-	st.markdown('analisar a rotina da maqiona no periodo disponivel no dataframe,\
-	 afim de identificar algum padrão que possa ser caracterizado como um comportamento')
+	st.markdown('analisar a rotina da retro escavadeira nos momentos em que foi **ligada**')
+	filtro = 'chave_on':'atividade == "chave_ligada"',
+	st.write(filtro)
 
 tab1,tab2,tab3,tab4,tab5 = st.tabs(['periodo','dias chave_on','horas chave_on','inicio','termino'])
 
 with tab1:
-
-	with st.expander('periodo em **dias**', expanded=False):
-		dias = {'inicio':'','fim':''}
-		dias['inicio'], dias['fim'] = str(df1['data'].min()),str(df1['data'].max())
-		st.write('inicio: ' +dias['inicio'] + ' | fim: '+fim)
-		df_dia = fx_data.count_weed_by_name(inicio,fim)
-		st.dataframe(df_dia.T)
-
-	with st.expander('periodo em **meses**', expanded=False):
-		st.write('meses')
-
-	with st.expander('periodo em **anos**', expanded=False):
-		st.write('anos')
-
+	st.write('vazio')
+	
 
 with tab2:
-	with st.expander('querys', expanded=False):
-		querys = {
-		'motor_on':'atividade == "arranque_do_motor"',
-		'motor_off':'atividade == "paragem_do_motor"',
-		'chave_on':'atividade == "chave_ligada"',
-		'chave_off':'atividade == "chave_desligada"',
-		}
-
-		st.write(querys)
 	
 	with st.expander('analise de atividades vs qtd dias **Total**', expanded=False):
 		ordem_index = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday']
-		df2 = fx_data.df_count_query_merge(df=df1,coluna='nome_dia',ordem_index=ordem_index,querys=querys)
+		df2 = fx_data.df_count_query_merge(df=df1,coluna='nome_dia',ordem_index=ordem_index,querys=filtro)
 		st.dataframe(df2)
 	
 	with st.expander('analise de atividades vs qtd dias **Média**', expanded=False):
