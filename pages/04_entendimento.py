@@ -21,8 +21,9 @@ with st.expander('periodo em **horas**', expanded=False):
 with st.expander('periodo em **dias**', expanded=True):
 	analise = fx_data.PeriodoDataFrame(df1)
 	df_weekdays = analise.count_weekdays()
-	st.dataframe(df_weekdays)
-	st.write(df_weekdays.describe())
+	cols = st.columns([1,1])
+	cols[0].dataframe(df_weekdays)
+	cols[1].write(df_weekdays.describe())
 
 
 with st.expander('periodo em **meses**', expanded=False):
