@@ -18,8 +18,6 @@ with st.expander('info',expanded=False):
 tab1,tab2,tab3,tab4,tab5 = st.tabs(['periodo','dias chave_on','horas chave_on','inicio','termino'])
 
 with tab1:
-	with st.expander('periodo em **horas**', expanded=False):
-		st.write('horas')
 
 	with st.expander('periodo em **dias**', expanded=False):
 		dias = {'inicio':'','fim':''}

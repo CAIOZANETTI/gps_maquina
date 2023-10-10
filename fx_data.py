@@ -198,7 +198,12 @@ class PeriodoDataFrame:
 		serie = serie.reindex(order)
 		df = pd.DataFrame({'qtd':serie})
 		df.rename_axis('nome_dia', inplace=True)
-		self.df_dias_semana = df
+
+		df['dia_util'] = True
+		df.loc[df['nome_dia'].isin(['saturday', 'sunday']), 'dia_util'] = False
+		
+
+		return df
 
 
 	def dicionario(self)->dict:
