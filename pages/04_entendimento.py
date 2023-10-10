@@ -45,7 +45,7 @@ with st.expander('**Horas** disponiveis no periodo', expanded=False):
 
 with st.expander('**Anos** e **Meses** disponiveis no periodo', expanded=True):
 	
-	fx_data.analise.count_year_months()
+	analise.count_year_months()
 	cols = st.columns([1,1,1])
 
 	cols[0].write(analise.qtd_ano)
