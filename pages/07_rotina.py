@@ -97,8 +97,9 @@ with tab3:
 		st.bar_chart(df3)
 		st.dataframe(df3.T)
 
-	with st.expander('qtd **Média** chave_on por **hora/dia**', expanded=False):
-		df_sumary =df3.describe() 
+	with st.expander('qtd **Média** chave_on por **hora/dia**', expanded=True):
+		df4 = df3.query('qtd_dia>1')
+		df_sumary =df4.describe() 
 		st.dataframe(df_sumary.T)
 
 	with st.expander('Resultado Quantidade **Média hora/dia**', expanded=True):
@@ -109,10 +110,8 @@ with tab3:
 			'chave ligada **hora/dia**',
 			str(qtd_med_chave_on_hora)+' x',
 			str(qtd_hora_dias)+' h')
-
-		df4 = df3.query('qtd_dia>1')
-
-		st.write(df4['qtd_dia'].idxmax())
+	
+		st.write(df4.tolist())
 
 
 
