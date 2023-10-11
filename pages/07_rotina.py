@@ -12,11 +12,9 @@ if 'df1' not in st.session_state:
 df1 = st.session_state['df1']
 periodo = fx_data.PeriodoDataFrame(df1)
 
-
-with st.expander('Chave **Ligada**',expanded=False):
-	st.markdown('analisar a rotina da retroescavadeira nos momentos em que foi **ligada**')
-	filtro = 'atividade == "chave_ligada"'
-	st.write(filtro)
+st.subheader('Analise a rotina da retroescavadeira nos momentos em que foi **ligada**')
+filtro = 'atividade == "chave_ligada"'
+st.write(filtro)
 
 tab1,tab2 = st.tabs(['dia','hora'])
 
