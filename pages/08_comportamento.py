@@ -13,7 +13,7 @@ df1 = st.session_state['df1']
 
 st.subheader('Analise **Comportamentos**: produtivo, improdutivo, previsto, adequado, improvavel')
 
-tab1,tab2,tab3,tab4,tab5 = st.tabs(['improvalvel','tab2','tab3','tab4','tab5'])
+tab1,tab2,tab3,tab4,tab5 = st.tabs(['improvavel','tab2','tab3','tab4','tab5'])
 
 
 with tab1:
