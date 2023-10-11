@@ -103,6 +103,7 @@ def df_bronze_to_silver_gps(remover_colunas:list,df)->pd.DataFrame:
 	df['hora'] = df['data_hora'].dt.hour
 	df['minuto']= df['data_hora'].dt.minute
 	df['nome_dia'] = df['data_hora'].dt.day_name().str.lower()
+	df['ano_mes'] = df['data'].dt.strftime('%Y_%B')
 	df['atividade'] = df['atividade'].str.lower().str.replace(' ', '_')
 
 	#normalizar gps
