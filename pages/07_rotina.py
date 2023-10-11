@@ -118,11 +118,11 @@ with tab3:
 		lst_qtd = df4['qtd_dia'].values.tolist()
 		#st.write(lst[0],lst[-1])
 
-		cols[1].metric('Media Inicio',
+		cols[1].metric('Media hora **Inicio**',
 			str(lst_hora[0])+' h',
 			str(lst_qtd[0])+' x')
 
-		cols[2].metric('Media Fim',
+		cols[2].metric('Media hora **Fim**',
 			str(lst_hora[-1])+' h',
 			str(lst_qtd[-1])+' x')
 
