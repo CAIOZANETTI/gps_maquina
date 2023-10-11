@@ -8,7 +8,7 @@ def show_readme(file_path):
         st.markdown(contents)
 
 
-st.checkbox('portugues'.key='pt')
+st.checkbox('portugues',key='pt')
 
 readme_path = 'README.md'
 if st.session_state['pt']:
