@@ -99,6 +99,7 @@ with tab3:
 
 	with st.expander('qtd **Média** chave_on por **hora/dia**', expanded=True):
 		df4 = df3.query('qtd_dia>1')
+		st.dataframe(df4.T)
 		df_sumary =df4.describe() 
 		st.dataframe(df_sumary.T)
 
@@ -110,8 +111,8 @@ with tab3:
 			'chave ligada **hora/dia**',
 			str(qtd_med_chave_on_hora)+' x',
 			str(qtd_hora_dias)+' h')
-	
-		st.write(df4.tolist())
+		lst = df4.tolist()
+		st.write(lst)
 
 
 
