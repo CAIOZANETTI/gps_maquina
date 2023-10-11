@@ -22,9 +22,8 @@ with st.expander('localização com maior incidencia', expanded=True):
 	st.dataframe(df_map_relev)
 
 
+	st.map(df1[['lat','lon']])
 
-	#st.write(df_map[''.loc['75%'])
-	#st.write(df_map.loc['max'].T)
 	st.map(df_map_relev)
 
 
