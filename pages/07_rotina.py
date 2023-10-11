@@ -84,7 +84,7 @@ with tab3:
 		st.write(periodo.qtd_total_weekdays)
 		
 		df3 = df2/periodo.qtd_total_weekdays
-		df3['valido'] = df3['count']>0
+		df3['valido'] = (df3['count']>0).astype(bool)
 
 		st.dataframe(df3.T)
 	
