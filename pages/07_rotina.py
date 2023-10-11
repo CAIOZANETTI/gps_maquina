@@ -63,7 +63,7 @@ with tab2: #dias chave_on
 		st.metric('Chave_on **(Ligado)**',str(med_chave_on_dia)+'x  /dia',variacao)
 
 with tab3:
-	with st.expander('qtd **Total** chave_on por **hora**', expanded=True):
+	with st.expander('Quantidade **Total** chave_on por **hora**', expanded=True):
 		filtro = 'atividade == "chave_ligada" and nome_dia != "saturday" and nome_dia!="sunday"' 
 		st.write(filtro)
 		df2= df1.query(filtro)
@@ -81,12 +81,14 @@ with tab3:
 		df2 = df2.reindex(ordem_index)
 		st.dataframe(df2.T)
 	
-	with st.expander('grafico', expanded=True):
+	with st.expander('Grafico **barras** qtd **Total**', expanded=True):
 		st.bar_chart(df2)
+	with st.expander('grafico **linhas** qtd **Total**', expanded=True):
 		st.line_chart(df2)
 
 	with st.expander('qtd **Média** chave_on por **hora**', expanded=True):	
 		st.markdown('qtd **dias uteis** : '+str(periodo.qtd_total_weekdays))
+		df2 = df2.query('count>0')
 		df2['media'] = round(df2['count']/periodo.qtd_total_weekdays,2)
 		
 		st.dataframe(df2.T)
