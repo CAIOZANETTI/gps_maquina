@@ -94,8 +94,8 @@ with tab3:
 		df3 = df2
 		df3 = df3.query('qtd_dia>0')
 		df3 = df3.drop('count', axis=1)
-		st.dataframe(df3.T)
 		st.bar_chart(df3)
+		st.dataframe(df3.T)
 
 	with st.expander('qtd **Média** chave_on por **hora/dia**', expanded=True):
 		df_sumary =df3.describe() 
