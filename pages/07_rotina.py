@@ -100,8 +100,9 @@ with tab3:
 	with st.expander('qtd **Média** chave_on por **hora/dia**', expanded=True):
 		df_sumary =df3.describe().T 
 		st.dataframe(df_sumary)
-		qtd_med_chave_on_hora =df_sumary.loc['75%','count'] 
-		st.metric('chave ligada por hora',qtd_med_chave_on_hora)
+		st.write(df_sumary['qtd_dia'].loc['75%'])
+		#qtd_med_chave_on_hora =df_sumary[''].loc['75%','count'] 
+		#st.metric('chave ligada por hora',qtd_med_chave_on_hora)
 
 with tab4:
 	st.write('primeira hora do dia que a chave ligou')
