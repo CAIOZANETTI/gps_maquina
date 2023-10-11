@@ -18,7 +18,7 @@ with st.expander('localização com maior incidencia', expanded=True):
 	df_map = df1[['lat','lon']].describe()
 	df_map = df_map.reset_index()
 	
-	df_map_relev = df_map.query('index==0.50" and index=="75%" and index=="max"')
+	df_map_relev = df_map.query('index=="50%" or index=="75%" or index=="max"')
 	st.dataframe(df_map_relev)
 
 
