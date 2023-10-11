@@ -14,5 +14,10 @@ df1 = st.session_state['df1']
 
 st.write('ainda esta vazio !!!')
 
-st.dataframe(df1[['lat','lon']].describe())
+with st.expander('localização com maior incidencia', expanded=True)
+	
+	df_map = df1[['lat','lon']].describe()
+	st.dataframe(df_map.T)
+
+	st.map(df_map)
 
