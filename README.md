@@ -1,7 +1,3 @@
-Sure, here's the translation of the provided text into English:
-
----
-
 # Machine Activity Project
 
 This repository contains a project that aims to gather information by analyzing machine positioning data, including coordinates and basic activity information. It aims to provide insights into the **routine** and **behavior** of the machine. This information can be highly valuable for evaluating whether the behavior aligns with the planning or if there are any **deviations**.
@@ -103,4 +99,3 @@ To set up and run this project, you'll need the following dependencies:
 - [Python 3](https://www.python.org/)
 - [Streamlit](https://streamlit.io/)
 - Pandas
-
