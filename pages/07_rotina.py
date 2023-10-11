@@ -109,7 +109,12 @@ with tab3:
 			str(qtd_med_chave_on_hora)+' x',
 			str(qtd_hora_dias)+' h')
 
-		
+		df4 = df3.query('qtd_dia>1')
+
+		st.write(df4['qtd_dia'].idxmax())
+
+
+
 
 with tab4:
 	st.write('primeira hora do dia que a chave ligou')
