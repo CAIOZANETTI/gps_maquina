@@ -13,3 +13,6 @@ if 'df1' not in st.session_state:
 df1 = st.session_state['df1']
 
 st.write('ainda esta vazio !!!')
+
+st.dataframe(df1.describe())
+
