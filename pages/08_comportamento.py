@@ -34,7 +34,7 @@ with tab1:
 
 with tab2:
 	filtro = [
-		'(hora>0) and (hora<6)'
+		'(hora>0) and (hora<6)',
 		'(motor_ligado==True) and (hora>0) and (hora<6)'
 		]
 	filtro_ativo = st.selectbox('filtrar as condições:',filtro)
@@ -48,7 +48,7 @@ with tab2:
 
 with tab3:
 	filtro = [
-		'(hora>6) and (hora<12)'
+		'(hora>6) and (hora<12)',
 		'(motor_ligado==True) and (hora>6) and (hora<12)'
 		]
 	filtro_ativo = st.selectbox('filtrar as condições:',filtro)
@@ -62,7 +62,7 @@ with tab3:
 
 with tab4:
 	filtro = [
-		'(hora>12) and (hora<18)'
+		'(hora>12) and (hora<18)',
 		'(motor_ligado==True) and (hora>12) and (hora<18)'
 		]
 	filtro_ativo = st.selectbox('filtrar as condições:',filtro)
@@ -76,7 +76,7 @@ with tab4:
 
 with tab5:
 	filtro = [
-		'(hora>18)'
+		'(hora>18)',
 		'(motor_ligado==True) and (hora>18)'
 		]
 	filtro_ativo = st.selectbox('filtrar as condições:',filtro)
