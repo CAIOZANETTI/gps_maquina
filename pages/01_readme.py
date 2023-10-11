@@ -7,11 +7,12 @@ def show_readme(file_path):
         contents = file.read()
         st.markdown(contents)
 
-# Path to your readme.md file
-readme_path = 'README.md'
 
-# Streamlit app
-st.title('Readme Viewer')
+st.checkbox('portugues'.key='pt')
+
+readme_path = 'README.md'
+if st.session_state['pt']:
+    readme_path = 'README_PT.md'
 
 # Display the contents of the readme.md file
 show_readme(readme_path)
