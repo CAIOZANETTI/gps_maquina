@@ -16,11 +16,12 @@ st.subheader('Mapa de Localização')
 with st.expander('localização com maior incidencia', expanded=True):
 	
 	df_map = df1[['lat','lon']].describe()
+	df_map = df_map.reset_index()
 
 	st.dataframe(df_map.T)
 
 	st.write(df_map.loc['75%'])
 	st.write(df_map.loc['max'].T)
-	st.map(df_map.loc['75%'].T)
+	#st.map(df_map.loc['75%'].T)
 
 
