@@ -98,8 +98,8 @@ with tab3:
 		st.bar_chart(df3)
 
 	with st.expander('qtd **Média** chave_on por **hora/dia**', expanded=True):
-		st.dataframe(df3.describe())
-		
+		st.dataframe(df3.describe().T)
+
 with tab4:
 	st.write('primeira hora do dia que a chave ligou')
 	
