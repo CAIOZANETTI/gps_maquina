@@ -32,7 +32,7 @@ with tab1:
 	with st.expander('informação do dataframe', expanded=False):
 		fx_streamlit.analise_df(df2,filtro_ativo)
 
-	with st.expander('Mapa', expanded=False):
+	with st.expander('Mapa', expanded=True):
 		st.map(df2[['lat','lon']])
 
 with tab2:
