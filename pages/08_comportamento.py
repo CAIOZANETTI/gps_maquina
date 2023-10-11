@@ -17,17 +17,22 @@ tab1,tab2,tab3,tab4,tab5 = st.tabs(['improvalvel','tab2','tab3','tab4','tab5'])
 
 
 with tab1:
-	st.markdown('motor foi ligado em dia de **folga**')
-	filtro = [
-	'(motor_ligado==True) and (nome_dia=="sunday")',
-	'(motor_ligado==True) and (nome_dia=="saturday")and (hora>13)',
-	'(motor_ligado==True) and (hora>18)',
-	'(motor_ligado==True) and (hora>0) and (hora<6)'
-	]
-	st.selectbox('comportamento',filtro, key='filtro')
-	df2 = df1.query(st.session_state['filtro'])
 	
-	st.dataframe(df2)
+	with st.expander('motor foi ligado em dia de **folga**', expanded=True):
+		filtro = [
+		'(motor_ligado==True) and (nome_dia=="sunday")',
+		'(motor_ligado==True) and (nome_dia=="saturday")and (hora>13)',
+		'(motor_ligado==True) and (hora>18)',
+		'(motor_ligado==True) and (hora>0) and (hora<6)'
+		]
+		st.selectbox('comportamento',filtro, key='filtro')
+
+	with st.expander('dataframe', expanded=True):
+		df2 = df1.query(st.session_state['filtro'])
+
+	with st.expander('informação do dataframe', expanded=False):
+		fx_streamlit.analise_df(df2,st.session_state['filtro'])
+		st.dataframe(df2)
 
 with tab2:
 	st.write('vazio')
