@@ -14,5 +14,5 @@ df1 = st.session_state['df1']
 
 st.write('ainda esta vazio !!!')
 
-st.dataframe(df1.describe())
+st.dataframe(df1[['lat','lon']].describe())
 
