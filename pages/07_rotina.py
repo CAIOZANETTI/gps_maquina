@@ -70,12 +70,12 @@ with tab3:
 		
 		df2 = df2['hora'].value_counts().reset_index()
 		df2 = df2.fillna(0)
-		df2 = df2.replace('Nome',0)
+		df2 = df2.replace('None',0)
 		
 		#ordenar index
 		ordem_index =  list(range(0, 23))
 		df2.set_index('hora',inplace=True)
-		
+
 		df2 = df2.reindex(ordem_index)
 
 		st.dataframe(df2.T)
