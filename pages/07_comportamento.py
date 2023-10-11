@@ -11,7 +11,7 @@ if 'df1' not in st.session_state:
 
 df1 = st.session_state['df1']
 
-st.subheader('Analise **Comportamentos** atividade e periodos')
+st.subheader('Analise **Comportamentos** atividade, periodos localização')
 
 tab1,tab2,tab3,tab4,tab5 = st.tabs(['improvavel','madrugada','manhã','tarde','noite'])
 
