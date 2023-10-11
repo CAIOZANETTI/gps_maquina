@@ -90,7 +90,7 @@ with tab3:
 		st.markdown('qtd **dias uteis** : '+str(periodo.qtd_total_weekdays))
 		df2 = df2.query('count>0')
 		total_horas = df2['count'].sum()	
-		df2['qtd_dia'] = round(df2['count']/periodo.qtd_total_weekdays,2)
+		df2['qtd_dia'] = round(df2['count']/periodo.qtd_total_weekdays,0)
 		df3 = df2
 		df3 = df3.query('qtd_dia>0')
 		df3 = df3.drop('count', axis=1)
