@@ -83,6 +83,7 @@ with tab3:
 	
 	with st.expander('grafico', expanded=True):
 		st.bar_chart(df2)
+		st.line_chart(df2)
 
 	with st.expander('qtd **Média** chave_on por **hora**', expanded=True):	
 		st.markdown('qtd **dias uteis** : '+str(periodo.qtd_total_weekdays))
