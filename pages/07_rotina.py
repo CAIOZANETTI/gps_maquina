@@ -84,8 +84,9 @@ with tab3:
 		st.write(periodo.qtd_total_weekdays)
 		
 		df3 = df2/periodo.qtd_total_weekdays
+		df3['valido'] = df3['count']>0
 
-		st.dataframe(df3)
+		st.dataframe(df3.T)
 	
 with tab4:
 	st.write('primeira hora do dia que a chave ligou')
