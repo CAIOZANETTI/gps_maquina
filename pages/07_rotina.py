@@ -81,7 +81,7 @@ with tab3:
 		st.dataframe(df2.T)
 
 	with st.expander('qtd **Média** chave_on por **hora**', expanded=True):	
-		st.markdown('qtd **dias uteis: **'+str(periodo.qtd_total_weekdays))
+		st.markdown('qtd **dias uteis** : '+str(periodo.qtd_total_weekdays))
 		df2['media'] = round(df2['count']/periodo.qtd_total_weekdays,2)
 		
 		st.dataframe(df2.T)
