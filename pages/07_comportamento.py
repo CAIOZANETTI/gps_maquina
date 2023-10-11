@@ -15,7 +15,8 @@ st.subheader('Analise **Comportamentos** atividade, periodos localização')
 
 #cols = st.columns(['1,1'])
 ano_mes_unico = df1['ano_mes'].unique()
-st.selectbox('selcionar ano mes',ano_mes_unico)
+st.selectbox('selcionar ano mes',ano_mes_unico,key='ano_mes')
+df1 = df1[df1['ano_mes'] ==st.session_state['ano_mes']]
 
 tab1,tab2,tab3,tab4,tab5 = st.tabs(['improvavel','madrugada','manhã','tarde','noite'])
 
