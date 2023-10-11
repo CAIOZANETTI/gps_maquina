@@ -73,12 +73,16 @@ with tab3:
 		df2 = df2.replace('None',0)
 		df2['count'] = df2['count'].astype(int)
 
+
 		#ordenar index
 		ordem_index =  list(range(0, 23))
 		df2.set_index('hora',inplace=True)
 
 		df2 = df2.reindex(ordem_index)
 		st.dataframe(df2.T)
+	
+	with st.expander('grafico', expanded=True):
+		st.bar_chart(df2)
 
 	with st.expander('qtd **Média** chave_on por **hora**', expanded=True):	
 		st.markdown('qtd **dias uteis** : '+str(periodo.qtd_total_weekdays))
@@ -90,6 +94,10 @@ with tab3:
 		filtro = 'media >0'
 		df3 = df2.query(filtro)
 		st.dataframe(df3.T)
+
+		st.write(df3['count'].sum())
+		st.write(df3['media'].sum())
+
 	
 with tab4:
 	st.write('primeira hora do dia que a chave ligou')
