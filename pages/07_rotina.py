@@ -103,14 +103,14 @@ with tab3:
 		df_sumary =df4.describe() 
 		st.dataframe(df_sumary.T)
 
-	with st.expander('Resultado Quantidade **Média hora/dia**', expanded=True):
+	with st.expander('Resultado Quantidade **Chave Ligada**', expanded=True):
 		qtd_med_chave_on_hora =df_sumary['qtd_dia'].loc['75%']
 		qtd_hora_dias =df_sumary['qtd_dia'].loc['count'] 
 		
 		cols = st.columns([1,1,1])
 
 		cols[0].metric(
-			'chave ligada **hora/dia**',
+			'Média **hora/dia**',
 			str(qtd_med_chave_on_hora)+' x',
 			str(qtd_hora_dias)+' h')
 
@@ -118,11 +118,11 @@ with tab3:
 		lst_qtd = df4['qtd_dia'].values.tolist()
 		#st.write(lst[0],lst[-1])
 
-		cols[1].metric('Media hora **Inicio**',
+		cols[1].metric('Média hora **Inicio**',
 			str(lst_hora[0])+' h',
 			str(lst_qtd[0])+' x')
 
-		cols[2].metric('Media hora **Fim**',
+		cols[2].metric('Média hora **Fim**',
 			str(lst_hora[-1])+' h',
 			str(lst_qtd[-1])+' x')
 
