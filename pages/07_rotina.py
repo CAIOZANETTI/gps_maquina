@@ -107,13 +107,24 @@ with tab3:
 		qtd_med_chave_on_hora =df_sumary['qtd_dia'].loc['75%']
 		qtd_hora_dias =df_sumary['qtd_dia'].loc['count'] 
 		
-		st.metric(
+		cols = st.columns([1,1,1])
+
+		cols[0].metric(
 			'chave ligada **hora/dia**',
 			str(qtd_med_chave_on_hora)+' x',
 			str(qtd_hora_dias)+' h')
 
-		lst = df4.index.values.tolist()
-		st.write(lst)
+		lst_hora = df4.index.values.tolist()
+		lst_qtd = = df4['qtd_dia'].values.tolist()
+		st.write(lst[0],lst[-1])
+
+		cols[1].metric('Media Inicio',
+			str(lst_hora[0])+' h',
+			str(lst_qtd[0])+' x')
+
+		cols[2].metric('Media Fim',
+			str(lst_hora[-1])+' h',
+			str(lst_qtd[-1])+' x')
 
 
 
