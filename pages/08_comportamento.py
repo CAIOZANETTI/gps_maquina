@@ -47,7 +47,3 @@ with tab4:
 with tab5:
 	st.write('vazio')
 
-
-filtro = 'motor_ligado==False'
-st.write('Improdutiva: '+filtro)
-df2 = df1.query(filtro)
