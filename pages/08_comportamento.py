@@ -23,68 +23,68 @@ with tab1:
 		'(motor_ligado==True) and (nome_dia=="sunday")',
 		'(motor_ligado==True) and (nome_dia=="saturday")and (hora>13)',
 		]
-		st.selectbox('filtrar as condições:',filtro, key='filtro')
+		filtro_ativo = st.selectbox('filtrar as condições:',filtro)
 
 	with st.expander('dataframe', expanded=True):
-		df2 = df1.query(st.session_state['filtro'])
+		df2 = df1.query(filtro_ativo)
 		st.dataframe(df2)
 
 	with st.expander('informação do dataframe', expanded=False):
-		fx_streamlit.analise_df(df2,st.session_state['filtro'])
+		fx_streamlit.analise_df(df2,filtro_ativo)
 
 with tab2:
 	filtro = [
 		'(hora>0) and (hora<6)'
 		'(motor_ligado==True) and (hora>0) and (hora<6)'
 		]
-	st.selectbox('filtrar as condições:',filtro, key='filtro')
+	filtro_ativo = st.selectbox('filtrar as condições:',filtro)
 
 	with st.expander('dataframe', expanded=True):
-		df2 = df1.query(st.session_state['filtro'])
+		df2 = df1.query(filtro_ativo)
 		st.dataframe(df2)
 
 	with st.expander('informação do dataframe', expanded=False):
-		fx_streamlit.analise_df(df2,st.session_state['filtro'])
+		fx_streamlit.analise_df(df2,filtro_ativo)
 
 with tab3:
 	filtro = [
 		'(hora>6) and (hora<12)'
 		'(motor_ligado==True) and (hora>6) and (hora<12)'
 		]
-	st.selectbox('filtrar as condições:',filtro, key='filtro')
+	filtro_ativo = st.selectbox('filtrar as condições:',filtro)
 
 	with st.expander('dataframe', expanded=True):
-		df2 = df1.query(st.session_state['filtro'])
+		df2 = df1.query(filtro_ativo)
 		st.dataframe(df2)
 
 	with st.expander('informação do dataframe', expanded=False):
-		fx_streamlit.analise_df(df2,st.session_state['filtro'])
+		fx_streamlit.analise_df(df2,filtro_ativo)
 
 with tab4:
 	filtro = [
 		'(hora>12) and (hora<18)'
 		'(motor_ligado==True) and (hora>12) and (hora<18)'
 		]
-	st.selectbox('filtrar as condições:',filtro, key='filtro')
+	filtro_ativo = st.selectbox('filtrar as condições:',filtro)
 
 	with st.expander('dataframe', expanded=True):
-		df2 = df1.query(st.session_state['filtro'])
+		df2 = df1.query(filtro_ativo)
 		st.dataframe(df2)
 
 	with st.expander('informação do dataframe', expanded=False):
-		fx_streamlit.analise_df(df2,st.session_state['filtro'])
+		fx_streamlit.analise_df(df2,filtro_ativo)
 
 with tab5:
 	filtro = [
 		'(hora>18)'
 		'(motor_ligado==True) and (hora>18)'
 		]
-	st.selectbox('filtrar as condições:',filtro, key='filtro')
+	filtro_ativo = st.selectbox('filtrar as condições:',filtro)
 
 	with st.expander('dataframe', expanded=True):
-		df2 = df1.query(st.session_state['filtro'])
+		df2 = df1.query(filtro_ativo)
 		st.dataframe(df2)
 
 	with st.expander('informação do dataframe', expanded=False):
-		fx_streamlit.analise_df(df2,st.session_state['filtro'])
+		fx_streamlit.analise_df(df2,filtro_ativo)
 
