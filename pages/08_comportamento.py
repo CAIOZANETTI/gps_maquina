@@ -29,10 +29,11 @@ with tab1:
 
 	with st.expander('dataframe', expanded=True):
 		df2 = df1.query(st.session_state['filtro'])
+		st.dataframe(df2)
 
 	with st.expander('informação do dataframe', expanded=False):
 		fx_streamlit.analise_df(df2,st.session_state['filtro'])
-		st.dataframe(df2)
+		
 
 with tab2:
 	st.write('vazio')
