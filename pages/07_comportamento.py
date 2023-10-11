@@ -11,7 +11,7 @@ if 'df1' not in st.session_state:
 
 df1 = st.session_state['df1']
 
-st.subheader('Analise **Comportamentos** atividade, periodos localização')
+st.subheader('Analise **Comportamentos** atividade, periodos e localização')
 
 #cols = st.columns(['1,1'])
 ano_mes_unico = df1['ano_mes'].unique()
