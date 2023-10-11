@@ -80,13 +80,14 @@ with tab3:
 		st.dataframe(df2.T)
 
 	with st.expander('qtd **Média** chave_on por **hora**', expanded=True):	
-		st.markdown('qtd **dias uteis**')
-		st.write(periodo.qtd_total_weekdays)
-		
+		st.markdown('qtd **dias uteis**'+str(periodo.qtd_total_weekdays))
+				
 		df3 = df2/periodo.qtd_total_weekdays
 		df3['valido'] = (df3['count']>0).astype(bool)
-
 		st.dataframe(df3.T)
+
+		df4 = df3.query('valido ==1 or valido == True')
+		st.dataframe(df4.T)
 	
 with tab4:
 	st.write('primeira hora do dia que a chave ligou')
