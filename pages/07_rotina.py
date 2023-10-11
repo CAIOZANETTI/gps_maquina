@@ -71,7 +71,8 @@ with tab3:
 		df2 = df2['hora'].value_counts().reset_index()
 		df2 = df2.fillna(0)
 		df2 = df2.replace('None',0)
-		
+		df2['count'] = round(df['count'],2)
+
 		#ordenar index
 		ordem_index =  list(range(0, 23))
 		df2.set_index('hora',inplace=True)
@@ -80,7 +81,7 @@ with tab3:
 		st.dataframe(df2.T)
 
 	with st.expander('qtd **Média** chave_on por **hora**', expanded=True):	
-		st.markdown('qtd **dias uteis**'+str(periodo.qtd_total_weekdays))
+		st.markdown('qtd **dias uteis: **'+str(periodo.qtd_total_weekdays))
 				
 		df3 = df2/periodo.qtd_total_weekdays
 		df3['valido'] = (df3['count']>0).astype(bool)
