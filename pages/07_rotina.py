@@ -95,7 +95,7 @@ with tab3:
 		df3 = df3.query('qtd_dia>0')
 		df3 = df3.drop('count', axis=1)
 		st.dataframe(df3.T)
-	
+		st.bar_chart(df3)
 	
 
 	
