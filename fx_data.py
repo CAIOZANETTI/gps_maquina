@@ -205,7 +205,8 @@ class PeriodoDataFrame:
 
 		self.qtd_med_weekdays = round(df['qtd'].median(),2)# retornar somente parte inteira
 		self.std_med_weekdays = -round(df['qtd'].std(),3)
-
+		self.qtd_total_weekdays =df['qtd'].sum()
+		
 		return df
 
 	def count_hours(self)->pd.DataFrame:

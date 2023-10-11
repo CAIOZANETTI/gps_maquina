@@ -77,14 +77,15 @@ with tab3:
 		df2.set_index('hora',inplace=True)
 
 		df2 = df2.reindex(ordem_index)
-
 		st.dataframe(df2.T)
 
-	with st.expander('qtd **dias uteis**', expanded=True):
-		st.write('vazio')
-
 	with st.expander('qtd **Média** chave_on por **hora**', expanded=True):	
-		st.write('vazio')
+		st.markdown('qtd **dias uteis**')
+		st.write(periodo.qtd_total_weekdays)
+		
+		df3 = df2/periodo.qtd_total_weekdays
+
+		st.dataframe(df3)
 	
 with tab4:
 	st.write('primeira hora do dia que a chave ligou')
