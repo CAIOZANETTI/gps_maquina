@@ -116,7 +116,7 @@ with tab3:
 
 		lst_hora = df4.index.values.tolist()
 		lst_qtd = df4['qtd_dia'].values.tolist()
-		st.write(lst[0],lst[-1])
+		#st.write(lst[0],lst[-1])
 
 		cols[1].metric('Media Inicio',
 			str(lst_hora[0])+' h',
