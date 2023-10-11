@@ -98,7 +98,10 @@ with tab3:
 		st.bar_chart(df3)
 
 	with st.expander('qtd **Média** chave_on por **hora/dia**', expanded=True):
-		st.dataframe(df3.describe().T)
+		df_sumary =df3.describe().T 
+		st.dataframe(df_sumary)
+		qtd_med_chave_on_hora =df_sumary.loc['75%'] 
+		st.metric('chave ligada por hora',qtd_med_chave_on_hora)
 
 with tab4:
 	st.write('primeira hora do dia que a chave ligou')
