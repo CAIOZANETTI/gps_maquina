@@ -91,7 +91,7 @@ with tab3:
 		df2 = df2.query('count>0')
 		total_horas = df2['count'].sum()	
 		df2['qtd_dia'] = round(df2['count']/periodo.qtd_total_weekdays,2)
-		df3 = df2['qtd_dia']
+		df3 = df2
 		df3 = df3.query('qtd_dia>0')
 		st.dataframe(df3)
 	
