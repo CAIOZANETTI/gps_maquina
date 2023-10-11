@@ -25,12 +25,15 @@ with tab1:
 		]
 		filtro_ativo = st.selectbox('filtrar as condições:',filtro)
 
-	with st.expander('dataframe', expanded=True):
+	with st.expander('dataframe', expanded=False):
 		df2 = df1.query(filtro_ativo)
 		st.dataframe(df2)
 
 	with st.expander('informação do dataframe', expanded=False):
 		fx_streamlit.analise_df(df2,filtro_ativo)
+
+	with st.expander('Mapa', expanded=False):
+		st.map(df2[['lat','lon']])
 
 with tab2:
 	filtro = [
