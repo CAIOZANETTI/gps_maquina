@@ -83,7 +83,7 @@ with tab3:
 	with st.expander('qtd **Média** chave_on por **hora**', expanded=True):	
 		st.markdown('qtd **dias uteis: **'+str(periodo.qtd_total_weekdays))
 				
-		df3 = df2/periodo.qtd_total_weekdays
+		df3['media'] = (df2//periodo.qtd_total_weekdays).astype(int)
 		df3['valido'] = (df3['count']>0).astype(bool)
 		st.dataframe(df3.T)
 
