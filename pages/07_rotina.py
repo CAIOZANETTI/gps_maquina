@@ -104,8 +104,9 @@ with tab3:
 	with st.expander('Resultado Quantidade **Média hora/dia**', expanded=True):
 		qtd_med_chave_on_hora =df_sumary['qtd_dia'].loc['75%']
 		qtd_hora_dias =df_sumary['qtd_dia'].loc['count'] 
+		
 		st.metric(
-			'chave ligada por hora',
+			'chave ligada **hora/dia**',
 			str(qtd_med_chave_on_hora)+' x',
 			str(qtd_hora_dias)+' h')
 
