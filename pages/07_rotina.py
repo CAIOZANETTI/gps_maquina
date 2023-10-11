@@ -70,7 +70,7 @@ with tab3:
 		
 		df2 = df2['hora'].value_counts().reset_index()
 		df2 = df2.fillna(0)
-		df2 = df2.replace('None',0)
+		df2 = df2.replace(None,0)
 		
 		#ordenar index
 		ordem_index =  list(range(0, 23))
