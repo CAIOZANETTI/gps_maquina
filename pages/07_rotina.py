@@ -111,7 +111,8 @@ with tab3:
 			'chave ligada **hora/dia**',
 			str(qtd_med_chave_on_hora)+' x',
 			str(qtd_hora_dias)+' h')
-		lst = df4.tolist()
+
+		lst = df4.values.tolist()
 		st.write(lst)
 
 
