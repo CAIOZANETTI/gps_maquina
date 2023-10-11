@@ -11,14 +11,13 @@ if 'df1' not in st.session_state:
 
 df1 = st.session_state['df1']
 
+st.subheader('Analise **Comportamentos**: produtivo, improdutivo, previsto, adequado, improvavel')
 
-with st.expander('info',expanded=False):
-	st.markdown('comportamento produtivo, inprodutivo, previsto, adequado, improvavel')
-
-tab1,tab2,tab3,tab4,tab5 = st.tabs(['motor_ligado_folga','tab2','tab3','tab4','tab5'])
+tab1,tab2,tab3,tab4,tab5 = st.tabs(['improvalvel','tab2','tab3','tab4','tab5'])
 
 
 with tab1:
+	st.markdown('motor foi ligado em dia de **folga**')
 	filtro = [
 	'(motor_ligado==True) and (nome_dia=="sunday")',
 	'(motor_ligado==True) and (nome_dia=="saturday")and (hora>13)',
