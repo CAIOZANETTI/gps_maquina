@@ -18,13 +18,9 @@ with st.expander('Chave **Ligada**',expanded=False):
 	filtro = 'atividade == "chave_ligada"'
 	st.write(filtro)
 
-tab1,tab2,tab3,tab4,tab5 = st.tabs(['vazio','dia','hora','inicio','termino'])
+tab1,tab2 = st.tabs(['dia','hora'])
 
-with tab1:
-	st.write('vazio')
-	
-
-with tab2: #dias chave_on
+with tab1: #dias chave_on
 	with st.expander('analise Periodo disponivel em dias vs **chave on**', expanded=False):
 		
 		cols = st.columns([1,1])
@@ -62,7 +58,7 @@ with tab2: #dias chave_on
 		variacao = round(df4['chave_on_dia'].median()-med_chave_on_dia,2)
 		st.metric('Chave_on **(Ligado)**',str(med_chave_on_dia)+'x  /dia',variacao)
 
-with tab3:
+with tab2:
 	with st.expander('Quantidade **Total** chave_on por **hora**', expanded=False):
 		filtro = 'atividade == "chave_ligada" and nome_dia != "saturday" and nome_dia!="sunday"' 
 		st.write(filtro)
@@ -97,7 +93,7 @@ with tab3:
 		st.bar_chart(df3)
 		st.dataframe(df3.T)
 
-	with st.expander('qtd **Média** chave_on por **hora/dia**', expanded=True):
+	with st.expander('qtd **Média** chave_on por **hora/dia**', expanded=False):
 		df4 = df3.query('qtd_dia>1')
 		st.dataframe(df4.T)
 		df_sumary =df4.describe() 
@@ -125,14 +121,3 @@ with tab3:
 		cols[2].metric('Média hora **Fim**',
 			str(lst_hora[-1])+' h',
 			str(lst_qtd[-1])+' x')
-
-
-
-
-with tab4:
-	st.write('primeira hora do dia que a chave ligou')
-	
-
-with tab5:
-	st.write('ultima hora hora do dia que a chave desligou')
-
